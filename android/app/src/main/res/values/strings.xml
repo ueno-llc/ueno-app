@@ -1,0 +1,4 @@
+<resources>
+    <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">kLfvijq-kPhIZaUxyINn9doMmBg5821e695f-ea5d-4f82-859a-9d6fc33a068c</string>
+    <string name="app_name">UenoInternalApp</string>
+</resources>
