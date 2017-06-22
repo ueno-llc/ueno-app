@@ -1,0 +1,59 @@
+fastlane_version "2.39.1"
+
+default_platform :ios
+
+platform :ios do
+  before_all do
+  end
+
+  desc "Runs all the tests"
+  lane :test do
+    scan
+  end
+
+  desc "Builds a QA version of the app"
+  lane :qa do
+    gym(
+      scheme: "UenoInternalApp",
+      workspace: "ios/UenoInternalApp.xcworkspace",
+      output_directory: "ios/build"
+    )
+  end
+
+  desc "Submit a new Beta Build to Apple TestFlight"
+  desc "This will also make sure the profile is up to date"
+  lane :beta do
+    match(
+      type: "appstore",
+      git_url: "***REMOVED***",
+      readonly: true
+    )
+    gym(
+      scheme: "UenoInternalApp",
+      project: "ios/UenoInternalApp.xcodeproj",
+      output_directory: "ios/build"
+    )
+    pilot
+  end
+
+  desc "Deploy a new version to the App Store"
+  lane :release do
+    match(
+      type: "appstore",
+      git_url: "***REMOVED***",
+      readonly: true
+    )
+    gym(
+      scheme: "UenoInternalApp",
+      project: "ios/UenoInternalApp.xcodeproj",
+      output_directory: "ios/build"
+    )
+    deliver(force: true)
+  end
+
+  after_all do |lane|
+  end
+
+  error do |lane, exception|
+  end
+end

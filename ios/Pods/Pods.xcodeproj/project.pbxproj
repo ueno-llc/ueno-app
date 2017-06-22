@@ -1,0 +1,762 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		450F8B399BCDB1F7A88C729A71B844EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D154F4805B9715F0E6D79B0363CE280 /* Foundation.framework */; };
+		59160A066C6EDEC3521AC14E35128BDA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D154F4805B9715F0E6D79B0363CE280 /* Foundation.framework */; };
+		5ACDB214A379B904560737C32A31DF00 /* Pods-UenoInternalApp-tvOSTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E829D48A3FF95A0948025F8137F83B9 /* Pods-UenoInternalApp-tvOSTests-dummy.m */; };
+		76D196302C6DBA9D16EE4E9C11F75914 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 572DBE63D5360AB71E5F80F979738FD0 /* Foundation.framework */; };
+		AB1D2BA4C889A6CA9B084DE77C6E0DE5 /* Pods-UenoInternalApp-tvOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 429D965EE6FE41C651981AE1DF8809B6 /* Pods-UenoInternalApp-tvOS-dummy.m */; };
+		BE6E367F75C7724E46ADA4AEF347E26A /* Pods-UenoInternalAppTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D0F809637B713ABDD86B6C18B75475 /* Pods-UenoInternalAppTests-dummy.m */; };
+		CC7D5481C43311A5EE1942AE04783851 /* Pods-UenoInternalApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2225347E11D227ABB07EF2B9250E6C1B /* Pods-UenoInternalApp-dummy.m */; };
+		EC840B148141474A573E6BAC70A03E7B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 572DBE63D5360AB71E5F80F979738FD0 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0420ED8542194AAA860B1A578CBE1969 /* MobileCenterAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCenterAnalytics.framework; path = "MobileCenter-SDK-iOS/MobileCenterAnalytics.framework"; sourceTree = "<group>"; };
+		06939DC20C522778E9A54620A465BAB9 /* Pods-UenoInternalApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-UenoInternalApp-acknowledgements.plist"; sourceTree = "<group>"; };
+		07BD08F2BCF9A87C19FBFC419E0BDA84 /* Pods-UenoInternalApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UenoInternalApp.debug.xcconfig"; sourceTree = "<group>"; };
+		0B312A33C75CE16AD8D205148C35DFDB /* Pods-UenoInternalAppTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-UenoInternalAppTests-resources.sh"; sourceTree = "<group>"; };
+		11401A03A7760F75E1F344289111C44D /* MobileCenterCrashes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCenterCrashes.framework; path = "MobileCenter-SDK-iOS/MobileCenterCrashes.framework"; sourceTree = "<group>"; };
+		127BB4D7A514D752E690027FCAD2712E /* RNMobileCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RNMobileCenter.framework; path = RNMobileCenter/RNMobileCenter.framework; sourceTree = "<group>"; };
+		165B17CA93D5D4EFBC3D6B1553A84917 /* Pods-UenoInternalAppTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-UenoInternalAppTests-frameworks.sh"; sourceTree = "<group>"; };
+		1C2D5C1A1CDA18862F6AFE84D6B1AF3B /* Pods-UenoInternalApp-tvOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-UenoInternalApp-tvOS-frameworks.sh"; sourceTree = "<group>"; };
+		2225347E11D227ABB07EF2B9250E6C1B /* Pods-UenoInternalApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-UenoInternalApp-dummy.m"; sourceTree = "<group>"; };
+		2D154F4805B9715F0E6D79B0363CE280 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		2E829D48A3FF95A0948025F8137F83B9 /* Pods-UenoInternalApp-tvOSTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-UenoInternalApp-tvOSTests-dummy.m"; sourceTree = "<group>"; };
+		374B30AEB24B5EC31A0709C269AD6180 /* Pods-UenoInternalApp-tvOSTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-UenoInternalApp-tvOSTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		429D965EE6FE41C651981AE1DF8809B6 /* Pods-UenoInternalApp-tvOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-UenoInternalApp-tvOS-dummy.m"; sourceTree = "<group>"; };
+		4331908F171FFA768777697AE8714A81 /* Pods-UenoInternalApp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UenoInternalApp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		4F06C1980E621D9D18AB7D44F30115B4 /* Pods-UenoInternalApp-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-UenoInternalApp-resources.sh"; sourceTree = "<group>"; };
+		545F53A42C018DE7AA96EF499E831ECE /* libPods-UenoInternalApp-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-UenoInternalApp-tvOSTests.a"; path = "libPods-UenoInternalApp-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		572DBE63D5360AB71E5F80F979738FD0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS10.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		640080A7AA3319F05182129EA0497447 /* libPods-UenoInternalApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-UenoInternalApp.a"; path = "libPods-UenoInternalApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		641459A1FBCA8F15E52D215F92CEF7C1 /* Pods-UenoInternalApp-tvOSTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-UenoInternalApp-tvOSTests-resources.sh"; sourceTree = "<group>"; };
+		6DC29D832E13CB530F17EDC168434F2C /* Pods-UenoInternalApp-tvOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-UenoInternalApp-tvOS-acknowledgements.markdown"; sourceTree = "<group>"; };
+		72FA02FABFA8CC304DCA05CAC35EDAE5 /* Pods-UenoInternalAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UenoInternalAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		7661D3FF46CA0ACD39368B84D242B777 /* Pods-UenoInternalApp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UenoInternalApp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		8399BAEDA3A8E3394488C30D9733867D /* Pods-UenoInternalApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-UenoInternalApp-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8D7683C0E94283EF1ABEF2A9A8EFB1DE /* Pods-UenoInternalApp-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-UenoInternalApp-frameworks.sh"; sourceTree = "<group>"; };
+		9147E9ED6CF8A60496BCD5FBF73DFBBC /* Pods-UenoInternalApp-tvOS-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-UenoInternalApp-tvOS-resources.sh"; sourceTree = "<group>"; };
+		92571FCBFD46231427F591470AB83C28 /* Pods-UenoInternalApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UenoInternalApp.release.xcconfig"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		97D0F809637B713ABDD86B6C18B75475 /* Pods-UenoInternalAppTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-UenoInternalAppTests-dummy.m"; sourceTree = "<group>"; };
+		A13753EA422AC7D2EE4EA5D545A891F2 /* libPods-UenoInternalAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-UenoInternalAppTests.a"; path = "libPods-UenoInternalAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABA24A125A05BC4C22C40801BA05E96B /* Pods-UenoInternalApp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UenoInternalApp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		BBB572ABD027DC3C5BD9A28ED316BDBF /* Pods-UenoInternalAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UenoInternalAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C9087C84E12F50E6267A965505B03627 /* Pods-UenoInternalApp-tvOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-UenoInternalApp-tvOS-acknowledgements.plist"; sourceTree = "<group>"; };
+		C9172B955571659CCEA4D67392E0AEE2 /* libPods-UenoInternalApp-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-UenoInternalApp-tvOS.a"; path = "libPods-UenoInternalApp-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9C8A0D531C8EB2112DEEFDA01C09AC3 /* Pods-UenoInternalApp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UenoInternalApp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D7622BFFAD3C7B563CD1AC441C9A5A76 /* Pods-UenoInternalApp-tvOSTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-UenoInternalApp-tvOSTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		D836CCEDA076134C839DB10B629A5953 /* MobileCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCenter.framework; path = "MobileCenter-SDK-iOS/MobileCenter.framework"; sourceTree = "<group>"; };
+		DACDC242D2A7A664AD6EAC18CA20A5D8 /* Pods-UenoInternalAppTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-UenoInternalAppTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		DCD467C4EA4DCFB04756FFD6B87E439A /* Pods-UenoInternalAppTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-UenoInternalAppTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		EC2BA9F08039DAF38452CDAAFC0A613E /* Pods-UenoInternalApp-tvOSTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-UenoInternalApp-tvOSTests-frameworks.sh"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		88F33FAFAEE823FD6DC1FE97FA481EA0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59160A066C6EDEC3521AC14E35128BDA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A60BA4A297474E899E7853943456793C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76D196302C6DBA9D16EE4E9C11F75914 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6771EAA12A7509D580DE7D1AE56F8E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC840B148141474A573E6BAC70A03E7B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE804FACD8D9C3B9537AD712E7AAF268 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				450F8B399BCDB1F7A88C729A71B844EA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0EACDA10AC7EB150F97C030ED671D464 /* Pods-UenoInternalAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				DCD467C4EA4DCFB04756FFD6B87E439A /* Pods-UenoInternalAppTests-acknowledgements.markdown */,
+				DACDC242D2A7A664AD6EAC18CA20A5D8 /* Pods-UenoInternalAppTests-acknowledgements.plist */,
+				97D0F809637B713ABDD86B6C18B75475 /* Pods-UenoInternalAppTests-dummy.m */,
+				165B17CA93D5D4EFBC3D6B1553A84917 /* Pods-UenoInternalAppTests-frameworks.sh */,
+				0B312A33C75CE16AD8D205148C35DFDB /* Pods-UenoInternalAppTests-resources.sh */,
+				BBB572ABD027DC3C5BD9A28ED316BDBF /* Pods-UenoInternalAppTests.debug.xcconfig */,
+				72FA02FABFA8CC304DCA05CAC35EDAE5 /* Pods-UenoInternalAppTests.release.xcconfig */,
+			);
+			name = "Pods-UenoInternalAppTests";
+			path = "Target Support Files/Pods-UenoInternalAppTests";
+			sourceTree = "<group>";
+		};
+		0F8B8E770E5F62D5C7EB9415FBE7DF3C /* MobileCenter */ = {
+			isa = PBXGroup;
+			children = (
+				65FF0CEEF41664B36B67AD9AE48A3E96 /* MobileCenter */,
+				11E4F600AB14A8AC4026B1C21167B392 /* MobileCenterAnalytics */,
+				C42A49CF64BDDE516600958AF0D40B0B /* MobileCenterCrashes */,
+			);
+			name = MobileCenter;
+			path = MobileCenter;
+			sourceTree = "<group>";
+		};
+		11E4F600AB14A8AC4026B1C21167B392 /* MobileCenterAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				4968CA0CE276E6E3984FA5AF0D8B4C24 /* Frameworks */,
+			);
+			name = MobileCenterAnalytics;
+			sourceTree = "<group>";
+		};
+		15F86BCAED8044B3BEEC8590550A58C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				127BB4D7A514D752E690027FCAD2712E /* RNMobileCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		20F731AE46C73F232AF0C168DC383CF9 /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				572DBE63D5360AB71E5F80F979738FD0 /* Foundation.framework */,
+			);
+			name = tvOS;
+			sourceTree = "<group>";
+		};
+		38AD2F019838B1DBCDF39A508CAE66C7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				640080A7AA3319F05182129EA0497447 /* libPods-UenoInternalApp.a */,
+				C9172B955571659CCEA4D67392E0AEE2 /* libPods-UenoInternalApp-tvOS.a */,
+				545F53A42C018DE7AA96EF499E831ECE /* libPods-UenoInternalApp-tvOSTests.a */,
+				A13753EA422AC7D2EE4EA5D545A891F2 /* libPods-UenoInternalAppTests.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4968CA0CE276E6E3984FA5AF0D8B4C24 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0420ED8542194AAA860B1A578CBE1969 /* MobileCenterAnalytics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		58996781A54EE964D7111D73083A18A5 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				2D154F4805B9715F0E6D79B0363CE280 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		65FF0CEEF41664B36B67AD9AE48A3E96 /* MobileCenter */ = {
+			isa = PBXGroup;
+			children = (
+				A10AF577783A090C4314504D35581EA5 /* Frameworks */,
+			);
+			name = MobileCenter;
+			sourceTree = "<group>";
+		};
+		684B4778CAA4359E957690AFB0C48AB7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				11401A03A7760F75E1F344289111C44D /* MobileCenterCrashes.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				A42F72DC1D780481325DD00969B19BB6 /* Frameworks */,
+				E919E1692C8A1DA7EBD5CDC41EAC23E0 /* Pods */,
+				38AD2F019838B1DBCDF39A508CAE66C7 /* Products */,
+				A9515861C63D2304E22CE886ED19B690 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		A10AF577783A090C4314504D35581EA5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D836CCEDA076134C839DB10B629A5953 /* MobileCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A42F72DC1D780481325DD00969B19BB6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				58996781A54EE964D7111D73083A18A5 /* iOS */,
+				20F731AE46C73F232AF0C168DC383CF9 /* tvOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A9515861C63D2304E22CE886ED19B690 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FFE5EF69273E69A609314E01F70DB75B /* Pods-UenoInternalApp */,
+				FB2AE26B3747128AE599C859EF68837A /* Pods-UenoInternalApp-tvOS */,
+				F4AE4F9E9CCB585797D4BE8EBE4E9AD3 /* Pods-UenoInternalApp-tvOSTests */,
+				0EACDA10AC7EB150F97C030ED671D464 /* Pods-UenoInternalAppTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		C42A49CF64BDDE516600958AF0D40B0B /* MobileCenterCrashes */ = {
+			isa = PBXGroup;
+			children = (
+				684B4778CAA4359E957690AFB0C48AB7 /* Frameworks */,
+			);
+			name = MobileCenterCrashes;
+			sourceTree = "<group>";
+		};
+		E3EC0189E194298D1CED5AAA19235AB9 /* RNMobileCenter */ = {
+			isa = PBXGroup;
+			children = (
+				15F86BCAED8044B3BEEC8590550A58C4 /* Frameworks */,
+			);
+			name = RNMobileCenter;
+			path = RNMobileCenter;
+			sourceTree = "<group>";
+		};
+		E919E1692C8A1DA7EBD5CDC41EAC23E0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0F8B8E770E5F62D5C7EB9415FBE7DF3C /* MobileCenter */,
+				E3EC0189E194298D1CED5AAA19235AB9 /* RNMobileCenter */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F4AE4F9E9CCB585797D4BE8EBE4E9AD3 /* Pods-UenoInternalApp-tvOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				374B30AEB24B5EC31A0709C269AD6180 /* Pods-UenoInternalApp-tvOSTests-acknowledgements.markdown */,
+				D7622BFFAD3C7B563CD1AC441C9A5A76 /* Pods-UenoInternalApp-tvOSTests-acknowledgements.plist */,
+				2E829D48A3FF95A0948025F8137F83B9 /* Pods-UenoInternalApp-tvOSTests-dummy.m */,
+				EC2BA9F08039DAF38452CDAAFC0A613E /* Pods-UenoInternalApp-tvOSTests-frameworks.sh */,
+				641459A1FBCA8F15E52D215F92CEF7C1 /* Pods-UenoInternalApp-tvOSTests-resources.sh */,
+				C9C8A0D531C8EB2112DEEFDA01C09AC3 /* Pods-UenoInternalApp-tvOSTests.debug.xcconfig */,
+				7661D3FF46CA0ACD39368B84D242B777 /* Pods-UenoInternalApp-tvOSTests.release.xcconfig */,
+			);
+			name = "Pods-UenoInternalApp-tvOSTests";
+			path = "Target Support Files/Pods-UenoInternalApp-tvOSTests";
+			sourceTree = "<group>";
+		};
+		FB2AE26B3747128AE599C859EF68837A /* Pods-UenoInternalApp-tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				6DC29D832E13CB530F17EDC168434F2C /* Pods-UenoInternalApp-tvOS-acknowledgements.markdown */,
+				C9087C84E12F50E6267A965505B03627 /* Pods-UenoInternalApp-tvOS-acknowledgements.plist */,
+				429D965EE6FE41C651981AE1DF8809B6 /* Pods-UenoInternalApp-tvOS-dummy.m */,
+				1C2D5C1A1CDA18862F6AFE84D6B1AF3B /* Pods-UenoInternalApp-tvOS-frameworks.sh */,
+				9147E9ED6CF8A60496BCD5FBF73DFBBC /* Pods-UenoInternalApp-tvOS-resources.sh */,
+				ABA24A125A05BC4C22C40801BA05E96B /* Pods-UenoInternalApp-tvOS.debug.xcconfig */,
+				4331908F171FFA768777697AE8714A81 /* Pods-UenoInternalApp-tvOS.release.xcconfig */,
+			);
+			name = "Pods-UenoInternalApp-tvOS";
+			path = "Target Support Files/Pods-UenoInternalApp-tvOS";
+			sourceTree = "<group>";
+		};
+		FFE5EF69273E69A609314E01F70DB75B /* Pods-UenoInternalApp */ = {
+			isa = PBXGroup;
+			children = (
+				8399BAEDA3A8E3394488C30D9733867D /* Pods-UenoInternalApp-acknowledgements.markdown */,
+				06939DC20C522778E9A54620A465BAB9 /* Pods-UenoInternalApp-acknowledgements.plist */,
+				2225347E11D227ABB07EF2B9250E6C1B /* Pods-UenoInternalApp-dummy.m */,
+				8D7683C0E94283EF1ABEF2A9A8EFB1DE /* Pods-UenoInternalApp-frameworks.sh */,
+				4F06C1980E621D9D18AB7D44F30115B4 /* Pods-UenoInternalApp-resources.sh */,
+				07BD08F2BCF9A87C19FBFC419E0BDA84 /* Pods-UenoInternalApp.debug.xcconfig */,
+				92571FCBFD46231427F591470AB83C28 /* Pods-UenoInternalApp.release.xcconfig */,
+			);
+			name = "Pods-UenoInternalApp";
+			path = "Target Support Files/Pods-UenoInternalApp";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0D0A45F56526C64750667C54DD600F80 /* Pods-UenoInternalApp-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9E5AF17A0E71123CE2DF58CC39DB715 /* Build configuration list for PBXNativeTarget "Pods-UenoInternalApp-tvOS" */;
+			buildPhases = (
+				292D58788E15B91F0D20F9597C0BA39F /* Sources */,
+				C6771EAA12A7509D580DE7D1AE56F8E1 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-UenoInternalApp-tvOS";
+			productName = "Pods-UenoInternalApp-tvOS";
+			productReference = C9172B955571659CCEA4D67392E0AEE2 /* libPods-UenoInternalApp-tvOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		7C7FDE61C1C747519AC75BEF94A4AB3B /* Pods-UenoInternalAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD844C843C7EADC9B10A72724ED09CDC /* Build configuration list for PBXNativeTarget "Pods-UenoInternalAppTests" */;
+			buildPhases = (
+				CEA598AFD4BD6B3F6F210EFCBAE7954F /* Sources */,
+				88F33FAFAEE823FD6DC1FE97FA481EA0 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-UenoInternalAppTests";
+			productName = "Pods-UenoInternalAppTests";
+			productReference = A13753EA422AC7D2EE4EA5D545A891F2 /* libPods-UenoInternalAppTests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		865415DD9B725D4BAB84BA662AE1326A /* Pods-UenoInternalApp-tvOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 434387EEBC7F5249CC2D5C0007CBF396 /* Build configuration list for PBXNativeTarget "Pods-UenoInternalApp-tvOSTests" */;
+			buildPhases = (
+				69D323560921F78392454CE6E69933C9 /* Sources */,
+				A60BA4A297474E899E7853943456793C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-UenoInternalApp-tvOSTests";
+			productName = "Pods-UenoInternalApp-tvOSTests";
+			productReference = 545F53A42C018DE7AA96EF499E831ECE /* libPods-UenoInternalApp-tvOSTests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		A631759025CFEFD7E4E4AA022BDD39B1 /* Pods-UenoInternalApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C2AFE2D6D125AE9AC7AA899CC12F09C /* Build configuration list for PBXNativeTarget "Pods-UenoInternalApp" */;
+			buildPhases = (
+				1C6E6A0B41DB1E3199A7350FBF15FC6D /* Sources */,
+				CE804FACD8D9C3B9537AD712E7AAF268 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-UenoInternalApp";
+			productName = "Pods-UenoInternalApp";
+			productReference = 640080A7AA3319F05182129EA0497447 /* libPods-UenoInternalApp.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 38AD2F019838B1DBCDF39A508CAE66C7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A631759025CFEFD7E4E4AA022BDD39B1 /* Pods-UenoInternalApp */,
+				0D0A45F56526C64750667C54DD600F80 /* Pods-UenoInternalApp-tvOS */,
+				865415DD9B725D4BAB84BA662AE1326A /* Pods-UenoInternalApp-tvOSTests */,
+				7C7FDE61C1C747519AC75BEF94A4AB3B /* Pods-UenoInternalAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1C6E6A0B41DB1E3199A7350FBF15FC6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC7D5481C43311A5EE1942AE04783851 /* Pods-UenoInternalApp-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		292D58788E15B91F0D20F9597C0BA39F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB1D2BA4C889A6CA9B084DE77C6E0DE5 /* Pods-UenoInternalApp-tvOS-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69D323560921F78392454CE6E69933C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5ACDB214A379B904560737C32A31DF00 /* Pods-UenoInternalApp-tvOSTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEA598AFD4BD6B3F6F210EFCBAE7954F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE6E367F75C7724E46ADA4AEF347E26A /* Pods-UenoInternalAppTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0DE5C3B6C2ED19AB616278A055625378 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBB572ABD027DC3C5BD9A28ED316BDBF /* Pods-UenoInternalAppTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		13553EE8F24C514AA6441D2CE06D05EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		3892DE14A924CCC43BEDE0140A96DB86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72FA02FABFA8CC304DCA05CAC35EDAE5 /* Pods-UenoInternalAppTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		771B452CFD44BD9BA2F8734B2CBC22FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABA24A125A05BC4C22C40801BA05E96B /* Pods-UenoInternalApp-tvOS.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		83A734052EFE1E123D0A4D79E8F6A1B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9C8A0D531C8EB2112DEEFDA01C09AC3 /* Pods-UenoInternalApp-tvOSTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		AB0A555E50DDADD77359C1F36173AA22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7661D3FF46CA0ACD39368B84D242B777 /* Pods-UenoInternalApp-tvOSTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Release;
+		};
+		AFC68722148905714165497912F92B58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EC225E4EAAD7973634BD64593F427413 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07BD08F2BCF9A87C19FBFC419E0BDA84 /* Pods-UenoInternalApp.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		FAEAA413F60AA90072A3FD4F52DB1C9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4331908F171FFA768777697AE8714A81 /* Pods-UenoInternalApp-tvOS.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Release;
+		};
+		FDB5234C45DD788600C400A2A972FC23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92571FCBFD46231427F591470AB83C28 /* Pods-UenoInternalApp.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13553EE8F24C514AA6441D2CE06D05EA /* Debug */,
+				AFC68722148905714165497912F92B58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		434387EEBC7F5249CC2D5C0007CBF396 /* Build configuration list for PBXNativeTarget "Pods-UenoInternalApp-tvOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83A734052EFE1E123D0A4D79E8F6A1B0 /* Debug */,
+				AB0A555E50DDADD77359C1F36173AA22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8C2AFE2D6D125AE9AC7AA899CC12F09C /* Build configuration list for PBXNativeTarget "Pods-UenoInternalApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC225E4EAAD7973634BD64593F427413 /* Debug */,
+				FDB5234C45DD788600C400A2A972FC23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9E5AF17A0E71123CE2DF58CC39DB715 /* Build configuration list for PBXNativeTarget "Pods-UenoInternalApp-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				771B452CFD44BD9BA2F8734B2CBC22FD /* Debug */,
+				FAEAA413F60AA90072A3FD4F52DB1C9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD844C843C7EADC9B10A72724ED09CDC /* Build configuration list for PBXNativeTarget "Pods-UenoInternalAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0DE5C3B6C2ED19AB616278A055625378 /* Debug */,
+				3892DE14A924CCC43BEDE0140A96DB86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

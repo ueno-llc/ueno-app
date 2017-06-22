@@ -2864,6 +2864,30 @@ mkdirp@^0.5.1:
   dependencies:
     minimist "0.0.8"
 
+mobile-center-analytics@0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/mobile-center-analytics/-/mobile-center-analytics-0.5.0.tgz#cc04b6671dd3f375db271b99c1c01ec452a01c6d"
+  dependencies:
+    mobile-center-link-scripts "0.1.6"
+
+mobile-center-crashes@0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/mobile-center-crashes/-/mobile-center-crashes-0.5.0.tgz#5f4ed8d562bd5b607fe431575cd1b3af6793770b"
+  dependencies:
+    mobile-center-link-scripts "0.1.6"
+
+mobile-center-link-scripts@0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/mobile-center-link-scripts/-/mobile-center-link-scripts-0.1.6.tgz#b84d670945a99ebe42a0b9c99ba0c81ea38e8549"
+  dependencies:
+    debug "^2.2.0"
+    glob "^5.0.15"
+    inquirer "1.1.2"
+    mkdirp "^0.5.1"
+    plist "1.2.0"
+    which "^1.2.11"
+    xcode "^0.8.9"
+
 moment@2.x.x:
   version "2.18.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
@@ -2946,6 +2970,10 @@ node-notifier@^5.0.2:
     semver "^5.3.0"
     shellwords "^0.1.0"
     which "^1.2.12"
+
+node-uuid@1.4.7:
+  version "1.4.7"
+  resolved "https://registry.yarnpkg.com/node-uuid/-/node-uuid-1.4.7.tgz#6da5a17668c4b3dd59623bda11cf7fa4c1f60a6f"
 
 normalize-package-data@^2.3.2:
   version "2.3.8"
@@ -4249,7 +4277,7 @@ which-module@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/which-module/-/which-module-1.0.0.tgz#bba63ca861948994ff307736089e3b96026c2a4f"
 
-which@^1.2.12, which@^1.2.9:
+which@^1.2.11, which@^1.2.12, which@^1.2.9:
   version "1.2.14"
   resolved "https://registry.yarnpkg.com/which/-/which-1.2.14.tgz#9a87c4378f03e827cecaf1acdf56c736c01c14e5"
   dependencies:
@@ -4318,6 +4346,14 @@ xcode@0.9.2:
     pegjs "0.9.0"
     simple-plist "0.1.4"
     uuid "3.0.1"
+
+xcode@^0.8.9:
+  version "0.8.9"
+  resolved "https://registry.yarnpkg.com/xcode/-/xcode-0.8.9.tgz#ec6765f70e9dccccc9f6e9a5b9b4e7e814b4cf35"
+  dependencies:
+    node-uuid "1.4.7"
+    pegjs "0.9.0"
+    simple-plist "0.1.4"
 
 xcode@^0.9.1:
   version "0.9.3"

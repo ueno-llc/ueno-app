@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import CodePush from 'react-native-code-push';
+import Analytics from 'mobile-center-analytics';
 
 @CodePush
 export default class UenoInternalApp extends Component {
   render() {
+
+    Analytics.trackEvent('My first event');
+
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>

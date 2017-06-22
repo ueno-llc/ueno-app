@@ -10,6 +10,21 @@ Libraries
   - **codepush** for over-the-air updates of non-native code and resources.
   - **firebase-oauth** for social authentication
 
+Getting started
+===============
+
+```bash
+npm install -g react-native
+git clone
+cd && yarn install
+
+# Develop
+react-native run-[ios|android]
+
+# Test
+fastlane [ios|android] test
+```
+
 Pipeline
 ========
 
@@ -26,6 +41,13 @@ Pipeline
   - App screenshots with **screengrab** ?
 
 ## Bitrise for continuous integration.
-Bitrise runs on every pull-request and merge to master.
-Runs unit tests, builds the app, releases to beta testers, sends slack message with link to app build.
-Install cocoapods, does codepush releases etc.
+ - Runs on every commit pushed to GitHub
+ - Builds a QA version of the app using fastlane.
+ - By default only updates via code-push, but full build can be done with flag in commit message.
+
+## Azure Mobile Center
+ - Tests
+ - Analytics
+ - Crash reports
+ - Code Push management
+ - Push Notifications
