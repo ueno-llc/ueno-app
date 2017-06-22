@@ -8,7 +8,10 @@ platform :ios do
 
   desc "Runs all the tests"
   lane :test do
-    scan
+    scan(
+      scheme: "UenoInternalApp",
+      workspace: "ios/UenoInternalApp.xcworkspace"
+    )
   end
 
   desc "Builds a QA version of the app"

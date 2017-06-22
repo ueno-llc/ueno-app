@@ -23,6 +23,9 @@ react-native run-[ios|android]
 
 # Test
 fastlane [ios|android] test
+
+# Build
+fastlane [ios|android] [qa|beta|release]
 ```
 
 Pipeline
