@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='UenoInternalAppTests.xctest' tests='1' failures='0'>
+  <testsuite name='UenoInternalAppTests' tests='1' failures='0'>
+    <testcase classname='UenoInternalAppTests' name='testRendersWelcomeScreen' time='13.838'/>
+  </testsuite>
+</testsuites>

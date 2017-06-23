@@ -134,6 +134,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-google-signin')
     compile project(':mobile-center-crashes')
     compile project(':mobile-center-analytics')
     compile project(':react-native-code-push')

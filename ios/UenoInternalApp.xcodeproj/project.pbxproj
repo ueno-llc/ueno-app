@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -22,6 +21,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		15EDB251B4494FF1A99B1F80 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC0CB28A99594E11A4C3C376 /* SystemConfiguration.framework */; };
 		214B085F6ABC4899AEB21356 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 130A0D57C79D4CB1BAE80DE2 /* libz.tbd */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -35,6 +35,7 @@
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* UenoInternalAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* UenoInternalAppTests.m */; };
+		3AA694674EDE418A971E50C6 /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3317D9D5E02E4507826F7A55 /* libRNGoogleSignin.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		88F3071696C44A4C816AB712 /* MobileCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDEE09FA9C3B4F4C89F33C3A /* MobileCenter-Config.plist */; };
@@ -43,8 +44,11 @@
 		9F188E76C77810E8603B61DD /* libPods-UenoInternalAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E189513DBB13BE13B278ADE0 /* libPods-UenoInternalAppTests.a */; };
 		A2A567768B6E4592BEB3D4D5 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0D60BDB00844AAB0DE7A69 /* libCodePush.a */; };
 		AA0DE1B9FB3E71D73BDEE11A /* libPods-UenoInternalApp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E64C2DA220BF07DEAC0224 /* libPods-UenoInternalApp-tvOS.a */; };
+		BB7527B73CB84C28BC024024 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD346950EAC741328C7F738B /* SafariServices.framework */; };
 		D52CC338C1644D6082F6C462 /* libRNCrashes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2661AD218CD240BC879960D7 /* libRNCrashes.a */; };
 		E3308762C14357A3A4AA3F7B /* libPods-UenoInternalApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05098E96C819D5BE321B294B /* libPods-UenoInternalApp.a */; };
+		E367C0481EFD695C001DD04A /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E367C0451EFD6944001DD04A /* libReactNativeNavigation.a */; };
+		FD8CA203D56D45EE8EBBD244 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB85163A897A482683F6B739 /* AddressBook.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -237,6 +241,13 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		E303AA3D1EFD738100727788 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF7D55BB3D9F44A782F6B607 /* RNGoogleSignin.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9FD355121D3E4A2900D06170;
+			remoteInfo = RNGoogleSignin;
+		};
 		E32EA3F91EF469BD0050FA1A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
@@ -250,6 +261,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 139D7E881E25C6D100323FB7;
 			remoteInfo = "double-conversion";
+		};
+		E367C0441EFD6944001DD04A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E367C0241EFD6944001DD04A /* ReactNativeNavigation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D8AFADBD1BEE6F3F00A4592D;
+			remoteInfo = ReactNativeNavigation;
 		};
 		E3826F1F1EFC667800432C21 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -300,6 +318,7 @@
 		2661AD218CD240BC879960D7 /* libRNCrashes.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCrashes.a; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* UenoInternalApp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UenoInternalApp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* UenoInternalApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UenoInternalApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3317D9D5E02E4507826F7A55 /* libRNGoogleSignin.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGoogleSignin.a; sourceTree = "<group>"; };
 		39BB8450E8184A484012EB9E /* Pods-UenoInternalApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UenoInternalApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UenoInternalApp/Pods-UenoInternalApp.debug.xcconfig"; sourceTree = "<group>"; };
 		39F2C2396F04E9E39BDDF5CE /* Pods-UenoInternalApp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UenoInternalApp-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UenoInternalApp-tvOS/Pods-UenoInternalApp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		3D0D60BDB00844AAB0DE7A69 /* libCodePush.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libCodePush.a; sourceTree = "<group>"; };
@@ -314,10 +333,15 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		9081749A467684D2E0230D6D /* Pods-UenoInternalAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UenoInternalAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UenoInternalAppTests/Pods-UenoInternalAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AE56189D0CC68FEEDFB04ACE /* libPods-UenoInternalApp-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UenoInternalApp-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF7D55BB3D9F44A782F6B607 /* RNGoogleSignin.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGoogleSignin.xcodeproj; path = "../node_modules/react-native-google-signin/ios/RNGoogleSignin.xcodeproj"; sourceTree = "<group>"; };
 		B010D5EF8990376CCB01515C /* Pods-UenoInternalApp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UenoInternalApp-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-UenoInternalApp-tvOS/Pods-UenoInternalApp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		B3B02CDDA3174D2B9BC69566 /* libRNAnalytics.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNAnalytics.a; sourceTree = "<group>"; };
+		BB85163A897A482683F6B739 /* AddressBook.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		BC0CB28A99594E11A4C3C376 /* SystemConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		BDEE09FA9C3B4F4C89F33C3A /* MobileCenter-Config.plist */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.xml; name = "MobileCenter-Config.plist"; path = "UenoInternalApp/MobileCenter-Config.plist"; sourceTree = "<group>"; };
+		DD346950EAC741328C7F738B /* SafariServices.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		E189513DBB13BE13B278ADE0 /* libPods-UenoInternalAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UenoInternalAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E367C0241EFD6944001DD04A /* ReactNativeNavigation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeNavigation.xcodeproj; path = "../node_modules/react-native-navigation/ios/ReactNativeNavigation.xcodeproj"; sourceTree = "<group>"; };
 		F5773BE9D7CFE2FEEF773C2C /* Pods-UenoInternalApp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UenoInternalApp-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UenoInternalApp-tvOSTests/Pods-UenoInternalApp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -335,6 +359,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E367C0481EFD695C001DD04A /* libReactNativeNavigation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
@@ -351,6 +376,10 @@
 				9E1B20C6A054446CAB7893DF /* libRNAnalytics.a in Frameworks */,
 				E3308762C14357A3A4AA3F7B /* libPods-UenoInternalApp.a in Frameworks */,
 				D52CC338C1644D6082F6C462 /* libRNCrashes.a in Frameworks */,
+				3AA694674EDE418A971E50C6 /* libRNGoogleSignin.a in Frameworks */,
+				BB7527B73CB84C28BC024024 /* SafariServices.framework in Frameworks */,
+				15EDB251B4494FF1A99B1F80 /* SystemConfiguration.framework in Frameworks */,
+				FD8CA203D56D45EE8EBBD244 /* AddressBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +526,9 @@
 				59E64C2DA220BF07DEAC0224 /* libPods-UenoInternalApp-tvOS.a */,
 				AE56189D0CC68FEEDFB04ACE /* libPods-UenoInternalApp-tvOSTests.a */,
 				E189513DBB13BE13B278ADE0 /* libPods-UenoInternalAppTests.a */,
+				DD346950EAC741328C7F738B /* SafariServices.framework */,
+				BC0CB28A99594E11A4C3C376 /* SystemConfiguration.framework */,
+				BB85163A897A482683F6B739 /* AddressBook.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -522,6 +554,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				E367C0241EFD6944001DD04A /* ReactNativeNavigation.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -536,6 +569,7 @@
 				44FC13B2EDA84DAD9687CFF1 /* CodePush.xcodeproj */,
 				82628B9399E741E3A1548D4A /* RNAnalytics.xcodeproj */,
 				600FF754E3F34F25A6EB1BCF /* RNCrashes.xcodeproj */,
+				AF7D55BB3D9F44A782F6B607 /* RNGoogleSignin.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -571,6 +605,22 @@
 				00E356EE1AD99517003FC87E /* UenoInternalAppTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* UenoInternalApp-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* UenoInternalApp-tvOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E303AA1B1EFD738100727788 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E303AA3E1EFD738100727788 /* libRNGoogleSignin.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E367C0251EFD6944001DD04A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E367C0451EFD6944001DD04A /* libReactNativeNavigation.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -707,7 +757,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 830;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -790,12 +840,20 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
+					ProductGroup = E367C0251EFD6944001DD04A /* Products */;
+					ProjectRef = E367C0241EFD6944001DD04A /* ReactNativeNavigation.xcodeproj */;
+				},
+				{
 					ProductGroup = E3826F1C1EFC667800432C21 /* Products */;
 					ProjectRef = 82628B9399E741E3A1548D4A /* RNAnalytics.xcodeproj */;
 				},
 				{
 					ProductGroup = E3826F3F1EFC667800432C21 /* Products */;
 					ProjectRef = 600FF754E3F34F25A6EB1BCF /* RNCrashes.xcodeproj */;
+				},
+				{
+					ProductGroup = E303AA1B1EFD738100727788 /* Products */;
+					ProjectRef = AF7D55BB3D9F44A782F6B607 /* RNGoogleSignin.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -984,6 +1042,13 @@
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		E303AA3E1EFD738100727788 /* libRNGoogleSignin.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNGoogleSignin.a;
+			remoteRef = E303AA3D1EFD738100727788 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		E32EA3FA1EF469BD0050FA1A /* libthird-party.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -996,6 +1061,20 @@
 			fileType = archive.ar;
 			path = "libdouble-conversion.a";
 			remoteRef = E32EA3FB1EF469BD0050FA1A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E367C0451EFD6944001DD04A /* libReactNativeNavigation.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libReactNativeNavigation.a;
+			remoteRef = E367C0441EFD6944001DD04A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E37F97D71EFD7AE4000CBDE4 /* libRNSVG-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRNSVG-tvOS.a";
+			remoteRef = E37F97D61EFD7AE4000CBDE4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		E3826F201EFC667800432C21 /* libCodePush.a */ = {
@@ -1344,15 +1423,13 @@
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
 					"$(SRCROOT)/../node_modules/mobile-center-crashes/ios/RNCrashes",
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
 				);
 				INFOPLIST_FILE = UenoInternalAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1375,15 +1452,13 @@
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
 					"$(SRCROOT)/../node_modules/mobile-center-crashes/ios/RNCrashes",
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
 				);
 				INFOPLIST_FILE = UenoInternalAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1410,6 +1485,8 @@
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
 					"$(SRCROOT)/../node_modules/mobile-center-crashes/ios/RNCrashes",
+					"$(SRCROOT)/../node_modules/react-native-navigation/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
 				);
 				INFOPLIST_FILE = UenoInternalApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1439,6 +1516,8 @@
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
 					"$(SRCROOT)/../node_modules/mobile-center-crashes/ios/RNCrashes",
+					"$(SRCROOT)/../node_modules/react-native-navigation/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
 				);
 				INFOPLIST_FILE = UenoInternalApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1473,14 +1552,12 @@
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
 					"$(SRCROOT)/../node_modules/mobile-center-crashes/ios/RNCrashes",
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
 				);
 				INFOPLIST_FILE = "UenoInternalApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1512,14 +1589,12 @@
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
 					"$(SRCROOT)/../node_modules/mobile-center-crashes/ios/RNCrashes",
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
 				);
 				INFOPLIST_FILE = "UenoInternalApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1549,9 +1624,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.UenoInternalApp-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1577,9 +1649,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.UenoInternalApp-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
