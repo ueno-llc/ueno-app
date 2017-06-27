@@ -6,8 +6,8 @@
     "postinstall": "(cd ios; pod install); yarn fix-ios; yarn fix-android",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "fix-ios": "sed -i 's/#import <RCTAnimation\\/RCTValueAnimatedNode.h>/#import \"RCTValueAnimatedNode.h\"/' ./node_modules/react-native/Libraries/NativeAnimation/RCTNativeAnimatedNodesManager.h",
-    "fix-android": "sed -i 's/0.11.0/1.0.1/' ./node_modules/native-navigation/lib/android/build.gradle",
+    "fix-ios": "sed -i'.bak' -e 's/#import <RCTAnimation\\/RCTValueAnimatedNode.h>/#import \"RCTValueAnimatedNode.h\"/' ./node_modules/react-native/Libraries/NativeAnimation/RCTNativeAnimatedNodesManager.h",
+    "fix-android": "sed -i'.bak' -e 's/0.11.0/1.0.1/' ./node_modules/native-navigation/lib/android/build.gradle",
     "lint": "eslint src"
   },
   "dependencies": {
