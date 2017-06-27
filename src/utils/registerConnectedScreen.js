@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Navigator from 'native-navigation';
+import codePush from 'react-native-code-push';
 import { ApolloClient, createNetworkInterface, ApolloProvider } from 'react-apollo';
 
 const networkInterface = createNetworkInterface({
@@ -27,7 +28,7 @@ const wrapScreenGetter = (route, getScreen) => {
     // invoking this here ensures that our original `getScreen` function gets called, which we want
     // to happen to make sure that `Navigator.preload` still does meaningful work.
     getScreen();
-    return ConnectedScreen;
+    return codePush(ConnectedScreen);
   };
 };
 

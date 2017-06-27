@@ -6,6 +6,7 @@ import { observable } from 'mobx';
 import { StyleSheet, Text, Animated, View, TouchableOpacity, Dimensions, Easing } from 'react-native';
 import { GoogleSignin } from 'react-native-google-signin';
 import { autobind } from 'core-decorators';
+import codePush from 'react-native-code-push';
 
 @observer
 export default class Home extends Component {
@@ -19,6 +20,10 @@ export default class Home extends Component {
     }
 
     this.animateScreenIn();
+
+    codePush.getUpdateMetadata().then((update) => {
+      this.version = `${update.appVersion} (${update.label}-${update.packageHash.substr(0, 7)})`;
+    });
   }
 
   onContactsPress() {
@@ -55,7 +60,7 @@ export default class Home extends Component {
     const { height } = Dimensions.get('window');
     Animated.sequence([
       Animated.timing(this.height, {
-        toValue: height - 65,
+        toValue: height - 50,
         easing: Easing.quad,
         duration: 660,
       }),
@@ -88,6 +93,7 @@ export default class Home extends Component {
   @observable user = null;
   @observable height = new Animated.Value(0)
   @observable opacity = new Animated.Value(0)
+  @observable version = '~';
 
   render() {
     const { height, opacity } = this;
@@ -122,6 +128,9 @@ export default class Home extends Component {
             </View>
           </Animated.View>
         </Animated.View>
+        <View style={styles.version}>
+          <Text style={styles.versionLabel}>ueno-internal-app {this.version}</Text>
+        </View>
       </View>
     );
   }
@@ -180,5 +189,16 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 13,
     fontWeight: '600',
+  },
+
+  version: {
+    position: 'absolute',
+    bottom: 15,
+    left: 15,
+  },
+
+  versionLabel: {
+    fontSize: 13,
+    color: '#FFFFFF',
   },
 });
