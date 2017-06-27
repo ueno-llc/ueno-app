@@ -1,14 +1,50 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import Navigator from 'native-navigation';
+import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
+import { GoogleSignin } from 'react-native-google-signin';
 
 export default class Home extends Component {
+  componentDidMount() {
+    this.setup();
+  }
+
+  onLoginPress() {
+    GoogleSignin.signIn()
+    .then((user) => {
+      console.log(user);
+    })
+    .catch((err) => {
+      console.log('WRONG SIGNIN', err);
+    })
+    .done();
+  }
+
+  async setup() {
+    await GoogleSignin.hasPlayServices({ autoResolve: true });
+    await GoogleSignin.configure({
+      iosClientId: '***REMOVED***',
+      offlineAccess: false,
+    });
+    GoogleSignin.currentUserAsync().then((user) => {
+      console.log('USER', user);
+    }).done();
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          List of contacts!
-        </Text>
-      </View>
+      <Navigator.Config
+        title="ueno."
+        hidden={false}
+      >
+        <View style={styles.container}>
+          <Text style={styles.welcome}>
+            List of contacts!
+          </Text>
+          <TouchableOpacity onPress={this.onLoginPress}>
+            <Text>Login</Text>
+          </TouchableOpacity>
+        </View>
+      </Navigator.Config>
     );
   }
 }

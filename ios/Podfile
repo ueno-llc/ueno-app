@@ -1,31 +1,34 @@
-# Uncomment the next line to define a global platform for your project
-platform :ios, '9.0'
-
 target 'UenoInternalApp' do
-  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
-  # use_frameworks!
+  # Native Navigation uses Swift, so this line is required!
+  use_frameworks!
 
-  # Pods for UenoInternalApp
-  pod 'RNMobileCenter', '~> 0.5.0'
-  pod 'MobileCenter', '~> 0.9.0'
+  # Native Navigation!
+  pod 'native-navigation', :path => '../node_modules/native-navigation'
+
+  # Code Push
+  pod 'CodePush', :path => '../node_modules/react-native-code-push'
+
+  # To use CocoaPods with React Native, you need to add this specific Yoga spec as well
+  pod 'Yoga', :path => '../node_modules/react-native/ReactCommon/yoga/Yoga.podspec'
+
+  # react-native-google-signin
   pod 'Google/SignIn'
 
-  target 'UenoInternalAppTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+  # You don't necessarily need all of these subspecs, but this would be a typical setup.
+  pod 'React', :path => '../node_modules/react-native', :subspecs => [
+    'Core',
+    'BatchedBridge',
+    'RCTText',
+    'RCTNetwork',
+    'RCTWebSocket', # needed for debugging
+    'RCTAnimation',
+    'RCTImage',
+    'RCTNetwork',
+    'DevSupport',
+    # Add any other subspecs you want to use in your project
+  ]
 
-end
-
-target 'UenoInternalApp-tvOS' do
-  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
-  # use_frameworks!
-
-  # Pods for UenoInternalApp-tvOS
-
-  target 'UenoInternalApp-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+  # Add any other dependencies here, including any 3rd party native libraries that you depend on for
+  # React Native.
 
 end

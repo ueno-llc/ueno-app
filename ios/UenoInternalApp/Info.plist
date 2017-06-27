@@ -4,8 +4,6 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
-	<key>CFBundleDisplayName</key>
-	<string>UenoInternalApp</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -17,21 +15,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.0</string>
+	<string>0.0.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
 	<array>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLName</key>
-			<string>com.ueno.internal</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>com.ueno.internal</string>
-			</array>
-		</dict>
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
@@ -42,14 +30,19 @@
 				<string>com.googleusercontent.apps.1045886828257-uh3nvkaneukot4irqol1o5klgmtc2qgn</string>
 			</array>
 		</dict>
-		<dict/>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.ueno.internal</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.ueno.internal</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
-	<key>CodePushDeploymentKey</key>
-	<string>mDi4TCyG4c2C8C_Io9wUXd6Sf-CJ821e695f-ea5d-4f82-859a-9d6fc33a068c</string>
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
+	<string>2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>

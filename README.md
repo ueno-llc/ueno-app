@@ -14,9 +14,10 @@ Getting started
 ===============
 
 ```bash
-npm install -g react-native
+npm install -g react-native-cli
 git clone
-cd && yarn install
+yarn install
+yarn start
 
 # Develop
 react-native run-[ios|android]

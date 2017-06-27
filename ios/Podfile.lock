@@ -1,4 +1,12 @@
 PODS:
+  - CodePush (2.1.0):
+    - CodePush/Core (= 2.1.0)
+    - CodePush/SSZipArchive (= 2.1.0)
+    - React
+  - CodePush/Core (2.1.0):
+    - React
+  - CodePush/SSZipArchive (2.1.0):
+    - React
   - FirebaseAnalytics (3.9.0):
     - FirebaseCore (~> 3.6)
     - FirebaseInstanceID (~> 1.0)
@@ -34,23 +42,60 @@ PODS:
   - GTMSessionFetcher/Core (1.1.10)
   - GTMSessionFetcher/Full (1.1.10):
     - GTMSessionFetcher/Core (= 1.1.10)
-  - MobileCenter (0.9.0):
-    - MobileCenter/MobileCenterAnalytics (= 0.9.0)
-    - MobileCenter/MobileCenterCrashes (= 0.9.0)
-  - MobileCenter/MobileCenter (0.9.0)
-  - MobileCenter/MobileCenterAnalytics (0.9.0):
-    - MobileCenter/MobileCenter
-  - MobileCenter/MobileCenterCrashes (0.9.0):
-    - MobileCenter/MobileCenter
-  - RNMobileCenter (0.5.0):
-    - MobileCenter (~> 0.9.0)
+  - native-navigation (0.2.1):
+    - React
+  - React (0.45.1):
+    - React/Core (= 0.45.1)
+  - React/BatchedBridge (0.45.1):
+    - React/Core
+    - React/cxxreact_legacy
+  - React/Core (0.45.1):
+    - Yoga (= 0.45.1.React)
+  - React/cxxreact_legacy (0.45.1):
+    - React/jschelpers_legacy
+  - React/DevSupport (0.45.1):
+    - React/Core
+    - React/RCTWebSocket
+  - React/jschelpers_legacy (0.45.1)
+  - React/RCTAnimation (0.45.1):
+    - React/Core
+  - React/RCTImage (0.45.1):
+    - React/Core
+    - React/RCTNetwork
+  - React/RCTNetwork (0.45.1):
+    - React/Core
+  - React/RCTText (0.45.1):
+    - React/Core
+  - React/RCTWebSocket (0.45.1):
+    - React/Core
+  - Yoga (0.45.1.React)
 
 DEPENDENCIES:
+  - CodePush (from `../node_modules/react-native-code-push`)
   - Google/SignIn
-  - MobileCenter (~> 0.9.0)
-  - RNMobileCenter (~> 0.5.0)
+  - native-navigation (from `../node_modules/native-navigation`)
+  - React/BatchedBridge (from `../node_modules/react-native`)
+  - React/Core (from `../node_modules/react-native`)
+  - React/DevSupport (from `../node_modules/react-native`)
+  - React/RCTAnimation (from `../node_modules/react-native`)
+  - React/RCTImage (from `../node_modules/react-native`)
+  - React/RCTNetwork (from `../node_modules/react-native`)
+  - React/RCTText (from `../node_modules/react-native`)
+  - React/RCTWebSocket (from `../node_modules/react-native`)
+  - Yoga (from `../node_modules/react-native/ReactCommon/yoga/Yoga.podspec`)
+
+EXTERNAL SOURCES:
+  CodePush:
+    :path: ../node_modules/react-native-code-push
+  native-navigation:
+    :path: ../node_modules/native-navigation
+  React:
+    :path: ../node_modules/react-native
+  Yoga:
+    :path: ../node_modules/react-native/ReactCommon/yoga/Yoga.podspec
 
 SPEC CHECKSUMS:
+  CodePush: 923de9a756819790b69904c6b288f4b404207a94
   FirebaseAnalytics: e5fe8486efc01bec33f6bf82e2fa9fce4b124052
   FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
   FirebaseInstanceID: b9eedd6846fb5e1f0f7279e1deaa7a7e4cf8392e
@@ -59,9 +104,10 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
-  MobileCenter: dd301af71dbe0c4e3fe1d7e3368d0c38d7ea9e4e
-  RNMobileCenter: 47327585c7190d83b369f9ae52bb43a3cd5f4ba1
+  native-navigation: 0bc771c8a427dfb0d31eb9707dde48e9fbac42fa
+  React: 0c9191a8b0c843d7004f950ac6b5f6cba9d125c7
+  Yoga: 89c8738d42a0b46a113acb4e574336d61cba2985
 
-PODFILE CHECKSUM: 8b59c2b86a205f59c6165b62e0f12b351a00ef65
+PODFILE CHECKSUM: 4061b758210b412a7cb16e75209456eaa663c010
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.0.beta.2

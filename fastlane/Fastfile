@@ -26,6 +26,9 @@ platform :ios do
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :beta do
+    increment_build_number(
+      workspace: "ios/UenoInternalApp.xcworkspace"
+    )
     match(
       type: "appstore",
       git_url: "***REMOVED***",

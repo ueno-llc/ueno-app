@@ -8,37 +8,46 @@
  */
 
 #import "AppDelegate.h"
-#import "RCCManager.h"
+#import "RNGoogleSignIn.h"
 
-#import <RNCrashes/RNCrashes.h>
-#import <RNAnalytics/RNAnalytics.h>
-#import <CodePush/CodePush.h>
 #import <React/RCTBundleURLProvider.h>
-#import <React/RCTRootView.h>
-#import <RNGoogleSignin/RNGoogleSignin.h>
+#import <CodePush/CodePush.h>
+@import NativeNavigation;
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  NSURL *jsCodeLocation;
+  RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self
+                                            launchOptions:launchOptions];
+  ReactNavigationCoordinator *coordinator = [ReactNavigationCoordinator sharedInstance];
 
-  [RNCrashes registerWithCrashDelegate: [[RNCrashesDelegateAlwaysSend alloc] init]];  // Initialize Mobile Center crashes
-  [RNAnalytics registerWithInitiallyEnabled:true];  // Initialize Mobile Center analytics
-
-  #ifdef DEBUG
-    jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
-  #else
-    jsCodeLocation = [CodePush bundleURL];
-  #endif
+  [coordinator setBridge:bridge];
+  [coordinator setDelegate:self];
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-  self.window.backgroundColor = [UIColor whiteColor];
-  [[RCCManager sharedInstance] initBridgeWithBundleURL:jsCodeLocation launchOptions:launchOptions];
-
+  ReactViewController *mainViewController = [[ReactViewController alloc] initWithModuleName:@"Home"];
+  self.window.rootViewController = [[coordinator navigation] makeNavigationControllerWithRootViewController:mainViewController];
+  [self.window makeKeyAndVisible];
   return YES;
 }
 
+
+- (NSURL *)sourceURLForBridge:(RCTBridge *)bridge {
+  NSURL *jsCodeLocation;
+  #ifdef DEBUG
+    jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
+  #else
+    jsCodeLocation = [CodePush bundleURL];
+  #endif
+  return jsCodeLocation;
+}
+
+- (UIViewController *)rootViewControllerForCoordinator: (ReactNavigationCoordinator *)coordinator {
+  return self.window.rootViewController;
+}
+
+// add this method before @end
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
   return [RNGoogleSignin application:application openURL:url sourceApplication:sourceApplication annotation:annotation];

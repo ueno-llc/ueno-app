@@ -3,14 +3,13 @@ package com.uenointernalapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import co.apptailor.googlesignin.RNGoogleSigninPackage;
-import com.microsoft.azure.mobile.react.crashes.RNCrashesPackage;
-import com.microsoft.azure.mobile.react.analytics.RNAnalyticsPackage;
-import com.microsoft.codepush.react.CodePush;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+import com.microsoft.codepush.react.CodePush;
+import com.airbnb.android.react.navigation.NativeNavigationPackage;
+import com.airbnb.android.react.navigation.ReactNavigationCoordinator;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,7 +17,6 @@ import java.util.List;
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
-
     @Override
     protected String getJSBundleFile() {
       return CodePush.getJSBundleFile();
@@ -33,11 +31,14 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNGoogleSigninPackage(),
-            new RNCrashesPackage(MainApplication.this, getResources().getString(R.string.mobileCenterCrashes_whenToSendCrashes)),
-            new RNAnalyticsPackage(MainApplication.this, getResources().getString(R.string.mobileCenterAnalytics_whenToEnableAnalytics)),
-            new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG)
+          new NativeNavigationPackage(),
+          new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG)
       );
+    }
+
+    @Override
+    protected String getJSMainModuleName() {
+      return "index";
     }
   };
 
@@ -50,5 +51,9 @@ public class MainApplication extends Application implements ReactApplication {
   public void onCreate() {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
+
+    ReactNavigationCoordinator coordinator = ReactNavigationCoordinator.sharedInstance;
+    coordinator.injectReactInstanceManager(mReactNativeHost.getReactInstanceManager());
+    coordinator.start(this);
   }
 }

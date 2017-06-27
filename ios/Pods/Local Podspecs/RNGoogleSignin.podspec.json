@@ -1,0 +1,24 @@
+{
+  "name": "RNGoogleSignin",
+  "version": "0.10.0",
+  "homepage": "https://github.com/devfd/react-native-google-signin",
+  "summary": "A <LinearGradient /> component for react-native",
+  "license": "MIT",
+  "authors": {
+    "Brent Vatne": "brentvatne@gmail.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/devfd/react-native-google-signin.git",
+    "tag": "0.10.0"
+  },
+  "source_files": "RNGoogleSignin/*.{h,m}",
+  "preserve_paths": "**/*.js",
+  "dependencies": {
+    "React/Core": [
+
+    ]
+  }
+}

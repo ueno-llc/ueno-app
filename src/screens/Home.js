@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, Animated, View, TouchableHighlight, Dimensions, Easing } from 'react-native';
-import { GoogleSignin, GoogleSigninButton } from 'react-native-google-signin';
+import Navigator from 'native-navigation';
+import { StyleSheet, Text, Animated, View, TouchableOpacity, Dimensions, Easing } from 'react-native';
+import { GoogleSignin } from 'react-native-google-signin';
 
 export default class Home extends Component {
 
@@ -11,7 +12,12 @@ export default class Home extends Component {
   };
 
   componentDidMount() {
-    this.setupGoogleSignin();
+
+    try {
+      this.setup();
+    } catch (err) {
+      console.log('Error Google SignIn', err);
+    }
 
     const { height } = Dimensions.get('window');
     Animated.sequence([
@@ -28,27 +34,19 @@ export default class Home extends Component {
     ]).start();
   }
 
-  async setupGoogleSignin() {
-    try {
-      await GoogleSignin.hasPlayServices({ autoResolve: true });
-      await GoogleSignin.configure({
-        iosClientId: '***REMOVED***',
-        offlineAccess: false,
-      });
-
-      const user = await GoogleSignin.currentUserAsync();
-      this.setState({ user });
-    }
-    catch(err) {
-      console.log('Google signin error %o %o', err.code, err.message);
-    }
+  async setup() {
+    await GoogleSignin.hasPlayServices({ autoResolve: true });
+    await GoogleSignin.configure({
+      iosClientId: '***REMOVED***',
+      offlineAccess: false,
+    });
+    this.setState({
+      user: await GoogleSignin.currentUserAsync(),
+    });
   }
 
   onContactsPress = () => {
-    this.props.navigator.push({
-      screen: 'uia.Contacts',
-      title: 'Contacts',
-    });
+    Navigator.push('Contacts');
   }
 
   onGoogleSignin = () => {
@@ -63,26 +61,52 @@ export default class Home extends Component {
     .done();
   }
 
+  onGoogleSignout = () => {
+    GoogleSignin.signOut()
+    .then(() => {
+      this.setState({
+        user: null,
+      });
+    })
+    .catch((err) => {
+      console.log('Could not sign out', err);
+    });
+  }
+
   render() {
     const { height, opacity, user } = this.state;
     return (
-      <View style={styles.background}>
-        <Animated.View style={[styles.container, { height }]}>
-          <Animated.View style={{ opacity, flex: 1 }}>
-            <Text style={styles.logo}>ueno.</Text>
-            <Text style={styles.subtitle}>internal app</Text>
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-              {user ? <Text>Hello {user.name}</Text> :
-              <GoogleSigninButton
-                style={{width: 230, height: 48}}
-                size={GoogleSigninButton.Size.Standard}
-                color={GoogleSigninButton.Color.Light}
-                onPress={this.onGoogleSignin}
-              />}
-            </View>
+      <Navigator.Config
+        title="ueno."
+        hidden
+        backgroundColor="#FFFFFF"
+      >
+        <View style={styles.background}>
+          <Animated.View style={[styles.container, { height }]}>
+            <Animated.View style={{ opacity, flex: 1 }}>
+              <Text style={styles.logo}>ueno.</Text>
+              <Text style={styles.subtitle}>internal app</Text>
+              <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                {user ? (
+                  <View>
+                    <Text style={styles.text}>{user.name}</Text>
+                    <TouchableOpacity onPress={this.onContactsPress} style={styles.btn}>
+                      <Text style={styles.btnLabel}>CONTACTS</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={this.onGoogleSignout} style={styles.btn}>
+                      <Text style={styles.btnLabel}>SIGN OUT</Text>
+                    </TouchableOpacity>
+                  </View>
+                ) : (
+                  <TouchableOpacity onPress={this.onGoogleSignin} style={styles.btn}>
+                    <Text style={styles.btnLabel}>SIGN IN</Text>
+                  </TouchableOpacity>
+                )}
+              </View>
+            </Animated.View>
           </Animated.View>
-        </Animated.View>
-      </View>
+        </View>
+      </Navigator.Config>
     );
   }
 }
@@ -121,21 +145,24 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
 
-  instructions: {
+  text: {
     fontSize: 15,
     textAlign: 'center',
     margin: 10,
     marginBottom: 20,
   },
+
   btn: {
-    marginBottom: 5,
-    padding: 15,
-    backgroundColor: '#eaa',
-    borderRadius: 5,
+    marginBottom: 10,
+    padding: 10,
+    backgroundColor: '#00E2AD',
+    borderRadius: 3,
   },
+
   btnLabel: {
     textAlign: 'center',
-    color: '#333333',
-    fontSize: 16,
+    color: '#FFFFFF',
+    fontSize: 13,
+    fontWeight: '600',
   },
 });
