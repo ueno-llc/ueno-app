@@ -1,4 +1,5 @@
-import Navigator from 'native-navigation';
+/* eslint global-require: 0 */
+import registerConnectedScreen from './utils/registerConnectedScreen';
 
-Navigator.registerScreen('Home', () => require('./screens/Home'));
-Navigator.registerScreen('Contacts', () => require('./screens/Contacts'));
+registerConnectedScreen('Home', () => require('./screens/Home'));
+registerConnectedScreen('Contacts', () => require('./screens/Contacts'));

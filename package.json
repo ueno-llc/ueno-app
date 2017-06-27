@@ -7,19 +7,34 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "fix-ios": "sed -i 's/#import <RCTAnimation\\/RCTValueAnimatedNode.h>/#import \"RCTValueAnimatedNode.h\"/' ./node_modules/react-native/Libraries/NativeAnimation/RCTNativeAnimatedNodesManager.h",
-    "fix-android": "sed -i 's/0.11.0/1.0.1/' ./node_modules/native-navigation/lib/android/build.gradle"
+    "fix-android": "sed -i 's/0.11.0/1.0.1/' ./node_modules/native-navigation/lib/android/build.gradle",
+    "lint": "eslint src"
   },
   "dependencies": {
+    "core-decorators": "0.19.0",
+    "mobx": "3.1.16",
+    "mobx-react": "4.2.1",
     "native-navigation": "0.2.1",
+    "prop-types": "15.5.10",
     "react": "16.0.0-alpha.12",
+    "react-apollo": "1.4.2",
     "react-native": "0.45.1",
     "react-native-code-push": "2.1.0-beta",
     "react-native-google-signin": "0.10.0"
   },
   "devDependencies": {
+    "babel-eslint": "7.2.3",
     "babel-jest": "20.0.3",
+    "babel-plugin-inline-import-graphql-ast": "1.2.3",
+    "babel-plugin-module-resolver": "2.7.1",
     "babel-preset-react-native": "2.0.0",
     "babel-preset-react-native-stage-0": "1.0.1",
+    "eslint": "3.19.0",
+    "eslint-config-airbnb": "15.0.1",
+    "eslint-import-resolver-babel-module": "3.0.0",
+    "eslint-plugin-import": "2.6.0",
+    "eslint-plugin-jsx-a11y": "5.1.0",
+    "eslint-plugin-react": "7.1.0",
     "jest": "20.0.4",
     "react-test-renderer": "16.0.0-alpha.12"
   },

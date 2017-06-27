@@ -1,47 +1,28 @@
 import React, { Component } from 'react';
 import Navigator from 'native-navigation';
-import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
-import { GoogleSignin } from 'react-native-google-signin';
+import { Platform, TouchableOpacity, Text, StyleSheet, View } from 'react-native';
+import Posts from 'components/posts';
 
-export default class Home extends Component {
-  componentDidMount() {
-    this.setup();
-  }
+export default class Contacts extends Component {
 
-  onLoginPress() {
-    GoogleSignin.signIn()
-    .then((user) => {
-      console.log(user);
-    })
-    .catch((err) => {
-      console.log('WRONG SIGNIN', err);
-    })
-    .done();
-  }
-
-  async setup() {
-    await GoogleSignin.hasPlayServices({ autoResolve: true });
-    await GoogleSignin.configure({
-      iosClientId: '***REMOVED***',
-      offlineAccess: false,
-    });
-    GoogleSignin.currentUserAsync().then((user) => {
-      console.log('USER', user);
-    }).done();
+  state = {
+    hidden: false,
   }
 
   render() {
+    const { hidden } = this.state;
+    const marginTop = (Platform.OS === 'android' && !hidden) ? 56 : 0;
     return (
       <Navigator.Config
-        title="ueno."
-        hidden={false}
+        title={hidden ? 'hidden' : 'ueno.'}
+        hidden={hidden}
+        elevation={5}
+        backgroundColor="#fff"
       >
-        <View style={styles.container}>
-          <Text style={styles.welcome}>
-            List of contacts!
-          </Text>
-          <TouchableOpacity onPress={this.onLoginPress}>
-            <Text>Login</Text>
+        <View style={[styles.container, { marginTop }]}>
+          <Posts />
+          <TouchableOpacity onPress={() => this.setState({ hidden: !hidden })}>
+            <Text>Toggle hidden</Text>
           </TouchableOpacity>
         </View>
       </Navigator.Config>
@@ -51,19 +32,11 @@ export default class Home extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: 56,
     flex: 1,
+    padding: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 30,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+    backgroundColor: '#FFFFFF',
   },
 });

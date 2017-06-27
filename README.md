@@ -55,3 +55,27 @@ Pipeline
  - Crash reports
  - Code Push management
  - Push Notifications
+
+
+native-navigation issues in android
+===================================
+
+Doesn't work to hide the navbar. (its a native one, android changed something).
+Workaround:
+
+```js
+// ./node_modules/native-navigation/lib/android/src/main/res/layout/fragment_react_native.xml
+android:layout_marginTop="?attr/actionBarSize" // Remove this line
+
+// ./node_modules/native-navigation/lib/android/src/main/java/com/airbnb/android/react/navigation/ReactNativeFragment.java
+private void reconcileNavigationProperties() {
+  getImplementation().reconcileNavigationProperties(
+          this,
+          getToolbar(),
+          activity.getSupportActionBar(), // <--- Change from null to this
+          this.previousConfig,
+          this.renderedConfig,
+          false
+  );
+}
+```

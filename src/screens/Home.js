@@ -1,32 +1,65 @@
+/* eslint no-console: 0 */
 import React, { Component } from 'react';
 import Navigator from 'native-navigation';
+import { observer } from 'mobx-react/native';
+import { observable } from 'mobx';
 import { StyleSheet, Text, Animated, View, TouchableOpacity, Dimensions, Easing } from 'react-native';
 import { GoogleSignin } from 'react-native-google-signin';
+import { autobind } from 'core-decorators';
 
+@observer
 export default class Home extends Component {
 
-  state = {
-    user: null,
-    height: new Animated.Value(0),
-    opacity: new Animated.Value(0),
-  };
-
   componentDidMount() {
-
     try {
       this.setup();
     } catch (err) {
+      // eslint-disable-next-line no-console
       console.log('Error Google SignIn', err);
     }
 
+    this.animateScreenIn();
+  }
+
+  onContactsPress() {
+    Navigator.push('Contacts');
+  }
+
+  @autobind
+  async onGoogleSignin() {
+    this.checkLoginAttempts = 0;
+    GoogleSignin.signIn().then(user => (this.user = user));
+    this.checkLogin();
+  }
+
+  @autobind
+  async onGoogleSignout() {
+    await GoogleSignin.signOut();
+    this.user = null;
+  }
+
+  async setup() {
+    try {
+      await GoogleSignin.hasPlayServices({ autoResolve: true });
+      await GoogleSignin.configure({
+        iosClientId: '***REMOVED***',
+        offlineAccess: false,
+      });
+      this.user = await GoogleSignin.currentUserAsync();
+    } catch (err) {
+      console.log('Play services error %o %o', err.code, err.message);
+    }
+  }
+
+  animateScreenIn() {
     const { height } = Dimensions.get('window');
     Animated.sequence([
-      Animated.timing(this.state.height, {
+      Animated.timing(this.height, {
         toValue: height - 65,
         easing: Easing.quad,
         duration: 660,
       }),
-      Animated.timing(this.state.opacity, {
+      Animated.timing(this.opacity, {
         toValue: 1,
         easing: Easing.quad,
         duration: 330,
@@ -34,79 +67,62 @@ export default class Home extends Component {
     ]).start();
   }
 
-  async setup() {
-    await GoogleSignin.hasPlayServices({ autoResolve: true });
-    await GoogleSignin.configure({
-      iosClientId: '***REMOVED***',
-      offlineAccess: false,
-    });
-    this.setState({
-      user: await GoogleSignin.currentUserAsync(),
-    });
+  /**
+   * Callback doesn't seem to work on Android.
+   * This is a workaround for that edge case.
+   * @todo Make sure its working before prod.
+   */
+  @autobind
+  async checkLogin() {
+    if (this.user) return;
+    this.checkLoginAttempts += 1;
+    this.user = await GoogleSignin.currentUserAsync();
+    if (this.user) return;
+    if (this.checkLoginAttempts < 5) {
+      setTimeout(this.checkLogin, 3000);
+    } else {
+      console.log('Timeout waiting for login');
+    }
   }
 
-  onContactsPress = () => {
-    Navigator.push('Contacts');
-  }
-
-  onGoogleSignin = () => {
-    GoogleSignin.signIn()
-    .then((user) => {
-      console.log('User is %o', user);
-      this.setState({ user });
-    })
-    .catch((err) => {
-      console.log('WRONG SIGNIN %o', err);
-    })
-    .done();
-  }
-
-  onGoogleSignout = () => {
-    GoogleSignin.signOut()
-    .then(() => {
-      this.setState({
-        user: null,
-      });
-    })
-    .catch((err) => {
-      console.log('Could not sign out', err);
-    });
-  }
+  @observable user = null;
+  @observable height = new Animated.Value(0)
+  @observable opacity = new Animated.Value(0)
 
   render() {
-    const { height, opacity, user } = this.state;
+    const { height, opacity } = this;
     return (
-      <Navigator.Config
-        title="ueno."
-        hidden
-        backgroundColor="#FFFFFF"
-      >
-        <View style={styles.background}>
-          <Animated.View style={[styles.container, { height }]}>
-            <Animated.View style={{ opacity, flex: 1 }}>
-              <Text style={styles.logo}>ueno.</Text>
-              <Text style={styles.subtitle}>internal app</Text>
-              <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                {user ? (
-                  <View>
-                    <Text style={styles.text}>{user.name}</Text>
-                    <TouchableOpacity onPress={this.onContactsPress} style={styles.btn}>
-                      <Text style={styles.btnLabel}>CONTACTS</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={this.onGoogleSignout} style={styles.btn}>
-                      <Text style={styles.btnLabel}>SIGN OUT</Text>
-                    </TouchableOpacity>
-                  </View>
-                ) : (
-                  <TouchableOpacity onPress={this.onGoogleSignin} style={styles.btn}>
-                    <Text style={styles.btnLabel}>SIGN IN</Text>
+      <View style={styles.background}>
+        <Navigator.Config
+          backgroundColor="#FFF"
+          elevation={0}
+          hidden
+          onBarHeightChanged={h => console.log('height is %o', h)}
+        />
+        <Animated.View style={[styles.container, { height }]}>
+          <Animated.View style={{ opacity, flex: 1 }}>
+            <Text style={styles.logo}>ueno.</Text>
+            <Text style={styles.subtitle}>internal app</Text>
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+              {this.user ? (
+                <View>
+                  <Text style={styles.text}>{this.user.name}</Text>
+                  <TouchableOpacity onPress={this.onContactsPress} style={styles.btn}>
+                    <Text style={styles.btnLabel}>CONTACTS</Text>
                   </TouchableOpacity>
-                )}
-              </View>
-            </Animated.View>
+                  <TouchableOpacity onPress={this.onGoogleSignout} style={styles.btn}>
+                    <Text style={styles.btnLabel}>SIGN OUT</Text>
+                  </TouchableOpacity>
+                </View>
+              ) : (
+                <TouchableOpacity onPress={this.onGoogleSignin} style={styles.btn}>
+                  <Text style={styles.btnLabel}>SIGN IN</Text>
+                </TouchableOpacity>
+              )}
+            </View>
           </Animated.View>
-        </View>
-      </Navigator.Config>
+        </Animated.View>
+      </View>
     );
   }
 }

@@ -1,0 +1,14 @@
+{
+  "presets": ["react-native-stage-0/decorator-support"],
+  "plugins": [
+    [
+      "module-resolver", {
+        "extensions": [".js", ".graphql", ".gql"],
+        "root": [
+          "./src"
+        ]
+      }
+    ],
+    "babel-plugin-inline-import-graphql-ast"
+  ]
+}
