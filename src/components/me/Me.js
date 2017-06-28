@@ -14,19 +14,19 @@ export default class Me extends Component {
     me: PropTypes.shape({
       loading: PropTypes.bool,
       error: PropTypes.object, // eslint-disable-line
-      viewer: PropTypes.object, // eslint-disable-line
+      me: PropTypes.object, // eslint-disable-line
     }).isRequired,
   }
 
   render() {
-    const { viewer, error, loading } = this.props.me;
+    const { me, error, loading } = this.props.me;
     return (
       <View style={{ marginBottom: 20 }}>
         <Spacer />
         <Text>
           {loading && 'Loading...'}
           {error && error.message}
-          {viewer && viewer.me.email}
+          {me && me.email}
         </Text>
       </View>
     );

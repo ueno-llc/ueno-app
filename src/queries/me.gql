@@ -1,7 +1,5 @@
 query {
-  viewer {
-    me {
-      email
-    }
+  me {
+    email
   }
 }

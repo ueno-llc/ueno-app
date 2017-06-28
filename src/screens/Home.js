@@ -60,6 +60,7 @@ export default class Home extends Component {
               {isSignedIn ? (
                 <View>
                   <Me />
+                  <Button onPress={() => Navigator.push('Articles')}>ARTICLES</Button>
                   <Button onPress={() => Navigator.push('Contacts')}>CONTACTS</Button>
                   <Button onPress={this.props.user.signOut}>SIGN OUT</Button>
                 </View>

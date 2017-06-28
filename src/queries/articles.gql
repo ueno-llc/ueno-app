@@ -1,0 +1,9 @@
+query {
+  articles {
+    id
+    title
+    description
+    image
+    url
+  }
+}

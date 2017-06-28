@@ -1,28 +1,11 @@
 import React, { Component } from 'react';
 import Navigator from 'native-navigation';
 import codePush from 'react-native-code-push';
-import { ApolloClient, createNetworkInterface, ApolloProvider } from 'react-apollo';
+import { ApolloProvider } from 'react-apollo';
 import { Provider } from 'mobx-react/native';
 import Store from '../store';
 
 const store = new Store();
-
-const networkInterface = createNetworkInterface({
-  uri: 'https://ueno-graphql-dev.herokuapp.com/graphql',
-});
-
-networkInterface.use([{
-  applyMiddleware(req, next) {
-    if (!req.options.headers) {
-      req.options.headers = {};
-    }
-    const { idToken } = store.user.user;
-    req.options.headers.authorization = idToken ? `Bearer ${idToken}` : null;
-    next();
-  },
-}]);
-
-const client = new ApolloClient({ networkInterface });
 
 const wrapScreenGetter = (route, getScreen) => {
   class ConnectedScreen extends Component {
@@ -33,7 +16,7 @@ const wrapScreenGetter = (route, getScreen) => {
       const Screen = getScreen().default;
       return (
         <Provider user={store.user} ui={store.ui}>
-          <ApolloProvider client={client}>
+          <ApolloProvider client={store.apolloClient}>
             <Screen {...this.props} />
           </ApolloProvider>
         </Provider>

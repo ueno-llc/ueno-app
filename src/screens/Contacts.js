@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import Navigator from 'native-navigation';
 import { Platform, TouchableOpacity, Text, StyleSheet, View } from 'react-native';
+import { graphql } from 'react-apollo';
+import { observer } from 'mobx-react/native';
+import articlesQuery from 'queries/articles.gql';
 
+@observer
+@graphql(articlesQuery, { name: 'articles' })
 export default class Contacts extends Component {
 
   state = {
@@ -9,6 +14,7 @@ export default class Contacts extends Component {
   }
 
   render() {
+    console.log(this.props.articles);
     const { hidden } = this.state;
     const marginTop = (Platform.OS === 'android' && !hidden) ? 56 : 0;
     return (
