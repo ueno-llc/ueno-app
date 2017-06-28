@@ -7,8 +7,19 @@ import { observer } from 'mobx-react/native';
 import { autobind } from 'core-decorators';
 import articlesQuery from 'queries/articles.gql';
 
+const articlesOptions = {
+  name: 'articles',
+  options: {
+    variables: {
+      offset: 0,
+      limit: 2,
+    },
+    fetchPolicy: 'network-only',
+  },
+};
+
 @observer
-@graphql(articlesQuery, { name: 'articles' })
+@graphql(articlesQuery, articlesOptions)
 export default class Articles extends Component {
 
   static propTypes = {
@@ -17,6 +28,7 @@ export default class Articles extends Component {
       error: PropTypes.object, // eslint-disable-line
       articles: PropTypes.array, // eslint-disable-line
       refetch: PropTypes.func,
+      fetchMore: PropTypes.func,
     }).isRequired,
   }
 
@@ -27,6 +39,25 @@ export default class Articles extends Component {
   @autobind
   onScroll(event) {
     const scrollY = event.nativeEvent.contentOffset.y; // eslint-disable-line
+  }
+
+  @autobind
+  onEndReached() {
+    const { fetchMore, articles } = this.props.articles;
+    if (!articles) return;
+    fetchMore({
+      variables: {
+        offset: articles.length,
+      },
+      updateQuery: (previousResult, { fetchMoreResult }) => {
+        if (!fetchMoreResult) { return previousResult; }
+        return {
+          ...previousResult,
+          articles: [...previousResult.articles, ...fetchMoreResult.articles]
+          .filter((item, pos, self) => self.findIndex(sitem => sitem.id === item.id) === pos),
+        };
+      },
+    });
   }
 
   @autobind
@@ -70,6 +101,7 @@ export default class Articles extends Component {
             keyExtractor={item => item.id}
             refreshing={loading}
             onRefresh={refetch}
+            onEndReached={this.onEndReached}
           />
         </View>
       </Navigator.Config>
