@@ -4,6 +4,8 @@ import android.app.Application;
 import android.view.Window;
 
 import com.facebook.react.ReactApplication;
+import com.microsoft.azure.mobile.react.crashes.RNCrashesPackage;
+import com.microsoft.azure.mobile.react.analytics.RNAnalyticsPackage;
 import com.airbnb.android.react.navigation.NativeNavigationPackage;
 import com.airbnb.android.react.navigation.ReactNavigationCoordinator;
 import com.facebook.react.ReactNativeHost;
@@ -37,6 +39,8 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
           new NativeNavigationPackage(),
           new RNGoogleSigninPackage(),
+          new RNCrashesPackage(MainApplication.this, getResources().getString(R.string.mobileCenterCrashes_whenToSendCrashes)),
+          new RNAnalyticsPackage(MainApplication.this, getResources().getString(R.string.mobileCenterAnalytics_whenToEnableAnalytics)),
           new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG)
       );
     }

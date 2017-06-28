@@ -1,3 +1,5 @@
+platform :ios, '9.0'
+
 target 'UenoInternalApp' do
   # Native Navigation uses Swift, so this line is required!
   use_frameworks!
@@ -13,6 +15,10 @@ target 'UenoInternalApp' do
 
   # react-native-google-signin
   pod 'Google/SignIn'
+
+  # Pods for Mobile Center
+  pod 'RNMobileCenterShared', '~> 0.6.0'
+  pod 'MobileCenter', '~> 0.10.1'
 
   # You don't necessarily need all of these subspecs, but this would be a typical setup.
   pod 'React', :path => '../node_modules/react-native', :subspecs => [

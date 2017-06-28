@@ -22,6 +22,7 @@ export default class Home extends Component {
     this.animateScreenIn();
 
     codePush.getUpdateMetadata().then((update) => {
+      if (!update) return;
       this.version = `${update.appVersion} (${update.label}-${update.packageHash.substr(0, 7)})`;
     });
   }

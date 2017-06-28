@@ -2,6 +2,12 @@ rootProject.name = 'UenoInternalApp'
 
 include ':app'
 
+include ':mobile-center-crashes'
+project(':mobile-center-crashes').projectDir = new File(rootProject.projectDir, '../node_modules/mobile-center-crashes/android')
+
+include ':mobile-center-analytics'
+project(':mobile-center-analytics').projectDir = new File(rootProject.projectDir, '../node_modules/mobile-center-analytics/android')
+
 include ':native-navigation'
 project(':native-navigation').projectDir = new File(rootProject.projectDir, '../node_modules/native-navigation/lib/android')
 

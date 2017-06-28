@@ -3,15 +3,15 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "postinstall": "(cd ios; pod install); yarn fix-ios; yarn fix-android",
+    "postinstall": "(cd ios; pod install); sh ./scripts/migrate.sh",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "fix-ios": "sed -i'.bak' -e 's/#import <RCTAnimation\\/RCTValueAnimatedNode.h>/#import \"RCTValueAnimatedNode.h\"/' ./node_modules/react-native/Libraries/NativeAnimation/RCTNativeAnimatedNodesManager.h",
-    "fix-android": "sed -i'.bak' -e 's/0.11.0/1.0.1/' ./node_modules/native-navigation/lib/android/build.gradle",
     "lint": "eslint src"
   },
   "dependencies": {
     "core-decorators": "0.19.0",
+    "mobile-center-analytics": "0.6.0",
+    "mobile-center-crashes": "0.6.0",
     "mobx": "3.1.16",
     "mobx-react": "4.2.1",
     "native-navigation": "0.2.1",
