@@ -2,10 +2,25 @@ import React, { Component } from 'react';
 import Navigator from 'native-navigation';
 import codePush from 'react-native-code-push';
 import { ApolloClient, createNetworkInterface, ApolloProvider } from 'react-apollo';
+import { Provider } from 'mobx-react/native';
+import Store from '../store';
+
+const store = new Store();
 
 const networkInterface = createNetworkInterface({
-  uri: 'https://api.graph.cool/simple/v1/cj4flswof7u7e0157jzu27cy6',
+  uri: 'https://ueno-graphql-dev.herokuapp.com/graphql',
 });
+
+networkInterface.use([{
+  applyMiddleware(req, next) {
+    if (!req.options.headers) {
+      req.options.headers = {};
+    }
+    const { idToken } = store.user.user;
+    req.options.headers.authorization = idToken ? `Bearer ${idToken}` : null;
+    next();
+  },
+}]);
 
 const client = new ApolloClient({ networkInterface });
 
@@ -17,9 +32,11 @@ const wrapScreenGetter = (route, getScreen) => {
     render() {
       const Screen = getScreen().default;
       return (
-        <ApolloProvider client={client}>
-          <Screen {...this.props} />
-        </ApolloProvider>
+        <Provider user={store.user} ui={store.ui}>
+          <ApolloProvider client={client}>
+            <Screen {...this.props} />
+          </ApolloProvider>
+        </Provider>
       );
     }
   }

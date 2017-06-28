@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Navigator from 'native-navigation';
 import { Platform, TouchableOpacity, Text, StyleSheet, View } from 'react-native';
-import Posts from 'components/posts';
 
 export default class Contacts extends Component {
 
@@ -20,7 +19,7 @@ export default class Contacts extends Component {
         backgroundColor="#fff"
       >
         <View style={[styles.container, { marginTop }]}>
-          <Posts />
+          <Text style={{ textAlign: 'center', marginBottom: 20 }}>Contacts will appear here, in the meantime, try toggling the navbar</Text>
           <TouchableOpacity onPress={() => this.setState({ hidden: !hidden })}>
             <Text>Toggle hidden</Text>
           </TouchableOpacity>
