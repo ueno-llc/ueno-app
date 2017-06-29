@@ -4004,9 +4004,9 @@ react-devtools-core@^2.1.8:
     object-assign "^4.1.0"
     prop-types "^15.5.6"
 
-react-native-code-push@2.1.0-beta:
-  version "2.1.0-beta"
-  resolved "https://registry.yarnpkg.com/react-native-code-push/-/react-native-code-push-2.1.0-beta.tgz#95cd5f4ca8588074dfd97db0caeb17103428d910"
+react-native-code-push@3.0.0-beta:
+  version "3.0.0-beta"
+  resolved "https://registry.yarnpkg.com/react-native-code-push/-/react-native-code-push-3.0.0-beta.tgz#9cd3afb719b66d9f08c5f093f15f902ec1da8845"
   dependencies:
     code-push "1.11.2-beta"
     glob "^5.0.15"

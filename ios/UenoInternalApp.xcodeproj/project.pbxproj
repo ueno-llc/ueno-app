@@ -24,6 +24,7 @@
 		E3094E661F05591900AF90D5 /* RNGoogleSignIn.m in Sources */ = {isa = PBXBuildFile; fileRef = E3094E611F05591900AF90D5 /* RNGoogleSignIn.m */; };
 		E3306BBD1F01F0B0008B0636 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3306BBC1F01F0B0008B0636 /* GoogleSignIn.framework */; };
 		E3306BBF1F01F119008B0636 /* GoogleSignIn.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = E3306BBE1F01F119008B0636 /* GoogleSignIn.bundle */; };
+		E3F96BE81F055C1F00AD9869 /* RNGoogleSigninButtonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F96BE71F055C1F00AD9869 /* RNGoogleSigninButtonManager.m */; };
 		FACD0F140E0548AD82BE10DC /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F7C4061CEC4F42ED9B375295 /* libz.tbd */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		E3306BBC1F01F0B0008B0636 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSignIn.framework; path = Pods/GoogleSignIn/Frameworks/GoogleSignIn.framework; sourceTree = "<group>"; };
 		E3306BBE1F01F119008B0636 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleSignIn.bundle; path = Pods/GoogleSignIn/Resources/GoogleSignIn.bundle; sourceTree = "<group>"; };
 		E332E84C1F01D94000FBF391 /* UenoInternalApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = UenoInternalApp.entitlements; path = UenoInternalApp/UenoInternalApp.entitlements; sourceTree = "<group>"; };
+		E3F96BE71F055C1F00AD9869 /* RNGoogleSigninButtonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNGoogleSigninButtonManager.m; sourceTree = "<group>"; };
 		F7C4061CEC4F42ED9B375295 /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -227,6 +229,7 @@
 		E3094E5F1F05591900AF90D5 /* RNGoogleSignIn */ = {
 			isa = PBXGroup;
 			children = (
+				E3F96BE71F055C1F00AD9869 /* RNGoogleSigninButtonManager.m */,
 				E3094E601F05591900AF90D5 /* RNGoogleSignIn.h */,
 				E3094E611F05591900AF90D5 /* RNGoogleSignIn.m */,
 			);
@@ -515,6 +518,7 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				E3094E641F05591900AF90D5 /* RNCrashesDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				E3F96BE81F055C1F00AD9869 /* RNGoogleSigninButtonManager.m in Sources */,
 				E3094E631F05591900AF90D5 /* RNCrashes.m in Sources */,
 				E3094E661F05591900AF90D5 /* RNGoogleSignIn.m in Sources */,
 				E3094E651F05591900AF90D5 /* RNCrashesUtils.m in Sources */,

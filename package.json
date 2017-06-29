@@ -19,7 +19,7 @@
     "react": "16.0.0-alpha.12",
     "react-apollo": "1.4.2",
     "react-native": "0.45.1",
-    "react-native-code-push": "2.1.0-beta",
+    "react-native-code-push": "3.0.0-beta",
     "react-native-google-signin": "0.10.0"
   },
   "devDependencies": {
