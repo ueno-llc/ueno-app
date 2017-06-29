@@ -1,0 +1,10 @@
+--- RCTNativeAnimatedNodesManager.h	2017-06-29 09:56:57.000000000 -0400
++++ RCTNativeAnimatedNodesManager.h	2017-06-29 10:03:07.000000000 -0400
+@@ -9,7 +9,7 @@
+
+ #import <Foundation/Foundation.h>
+ 
+-#import <RCTAnimation/RCTValueAnimatedNode.h>
++#import "RCTValueAnimatedNode.h"
+ #import <React/RCTBridgeModule.h>
+ #import <React/RCTUIManager.h>
