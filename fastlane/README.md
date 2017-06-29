@@ -77,11 +77,16 @@ Deploy changes to Android [Staging]
 fastlane android promote
 ```
 Promote Android [Staging -> Release]
-### android beta
+### android test
 ```
-fastlane android beta
+fastlane android test
 ```
-Build and upload APK to the Play Store (beta)
+
+### android alpha
+```
+fastlane android alpha
+```
+Build and upload APK to the Play Store (alpha)
 
 ----
 

@@ -57,6 +57,7 @@ GEM
       xcpretty (>= 0.2.4, < 1.0.0)
       xcpretty-travis-formatter (>= 0.0.3)
     fastlane-plugin-code_push (0.1.1)
+    fastlane-plugin-increment_version_code (0.4.3)
     gh_inspector (1.0.3)
     google-api-client (0.12.0)
       addressable (~> 2.5, >= 2.5.1)
@@ -135,6 +136,7 @@ PLATFORMS
 DEPENDENCIES
   fastlane
   fastlane-plugin-code_push
+  fastlane-plugin-increment_version_code
 
 BUNDLED WITH
    1.15.1

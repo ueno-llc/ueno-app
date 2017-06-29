@@ -101,9 +101,9 @@ android {
     signingConfigs {
         release {
             storeFile file(RELEASE_STORE_FILE)
-            storePassword RELEASE_PASSWORD
+            storePassword System.getenv('KEYSTORE_PASSWORD')
             keyAlias RELEASE_KEY_ALIAS
-            keyPassword RELEASE_PASSWORD
+            keyPassword System.getenv('KEYSTORE_PASSWORD')
         }
     }
 
@@ -132,7 +132,7 @@ android {
         manifestPlaceholders = [excludeSystemAlertWindowPermission: "false"]
       }
       release {
-          manifestPlaceholders = [excludeSystemAlertWindowPermission: "false"]
+          manifestPlaceholders = [excludeSystemAlertWindowPermission: "true"]
           minifyEnabled enableProguardInReleaseBuilds
           proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
           signingConfig signingConfigs.release
