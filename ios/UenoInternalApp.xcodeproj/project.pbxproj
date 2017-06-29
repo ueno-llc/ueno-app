@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* UenoInternalAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* UenoInternalAppTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
@@ -15,13 +16,15 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* UenoInternalAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* UenoInternalAppTests.m */; };
-		3E1D7B2E934C83DDF634FC7B /* Pods_UenoInternalApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE663F06053951943177F8E0 /* Pods_UenoInternalApp.framework */; };
+		9995405B78B7915D161143E0 /* Pods_UenoInternalApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF91B632208A44667184D7FA /* Pods_UenoInternalApp.framework */; };
+		E3094E621F05591900AF90D5 /* RNAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = E3094E571F05591900AF90D5 /* RNAnalytics.m */; };
+		E3094E631F05591900AF90D5 /* RNCrashes.m in Sources */ = {isa = PBXBuildFile; fileRef = E3094E5A1F05591900AF90D5 /* RNCrashes.m */; };
+		E3094E641F05591900AF90D5 /* RNCrashesDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3094E5C1F05591900AF90D5 /* RNCrashesDelegate.m */; };
+		E3094E651F05591900AF90D5 /* RNCrashesUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E3094E5E1F05591900AF90D5 /* RNCrashesUtils.m */; };
+		E3094E661F05591900AF90D5 /* RNGoogleSignIn.m in Sources */ = {isa = PBXBuildFile; fileRef = E3094E611F05591900AF90D5 /* RNGoogleSignIn.m */; };
 		E3306BBD1F01F0B0008B0636 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3306BBC1F01F0B0008B0636 /* GoogleSignIn.framework */; };
 		E3306BBF1F01F119008B0636 /* GoogleSignIn.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = E3306BBE1F01F119008B0636 /* GoogleSignIn.bundle */; };
-		E3306BC31F01F1D9008B0636 /* RNGoogleSignIn.m in Sources */ = {isa = PBXBuildFile; fileRef = E3306BC21F01F1D9008B0636 /* RNGoogleSignIn.m */; };
 		FACD0F140E0548AD82BE10DC /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F7C4061CEC4F42ED9B375295 /* libz.tbd */; };
-		D69A00BB49274217944F3294 /* libRNAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C2AE149B24A4578B49D652C /* libRNAnalytics.a */; };
-		4CFBA48104054189930BB994 /* libRNCrashes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F701E3B325784B0FB9975DF7 /* libRNCrashes.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,17 +60,21 @@
 		2D02E4901E0B4A5D006451C7 /* UenoInternalApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UenoInternalApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D8D865C04F55B5E21ED6907 /* Pods-UenoInternalApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UenoInternalApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-UenoInternalApp/Pods-UenoInternalApp.release.xcconfig"; sourceTree = "<group>"; };
 		80D1B18618D38E0B48222864 /* Pods-UenoInternalApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UenoInternalApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UenoInternalApp/Pods-UenoInternalApp.debug.xcconfig"; sourceTree = "<group>"; };
+		CF91B632208A44667184D7FA /* Pods_UenoInternalApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UenoInternalApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3094E561F05591900AF90D5 /* RNAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNAnalytics.h; sourceTree = "<group>"; };
+		E3094E571F05591900AF90D5 /* RNAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNAnalytics.m; sourceTree = "<group>"; };
+		E3094E591F05591900AF90D5 /* RNCrashes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNCrashes.h; sourceTree = "<group>"; };
+		E3094E5A1F05591900AF90D5 /* RNCrashes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNCrashes.m; sourceTree = "<group>"; };
+		E3094E5B1F05591900AF90D5 /* RNCrashesDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNCrashesDelegate.h; sourceTree = "<group>"; };
+		E3094E5C1F05591900AF90D5 /* RNCrashesDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNCrashesDelegate.m; sourceTree = "<group>"; };
+		E3094E5D1F05591900AF90D5 /* RNCrashesUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNCrashesUtils.h; sourceTree = "<group>"; };
+		E3094E5E1F05591900AF90D5 /* RNCrashesUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNCrashesUtils.m; sourceTree = "<group>"; };
+		E3094E601F05591900AF90D5 /* RNGoogleSignIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNGoogleSignIn.h; sourceTree = "<group>"; };
+		E3094E611F05591900AF90D5 /* RNGoogleSignIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNGoogleSignIn.m; sourceTree = "<group>"; };
 		E3306BBC1F01F0B0008B0636 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSignIn.framework; path = Pods/GoogleSignIn/Frameworks/GoogleSignIn.framework; sourceTree = "<group>"; };
 		E3306BBE1F01F119008B0636 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleSignIn.bundle; path = Pods/GoogleSignIn/Resources/GoogleSignIn.bundle; sourceTree = "<group>"; };
-		E3306BC11F01F1A0008B0636 /* RNGoogleSignIn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNGoogleSignIn.h; sourceTree = "<group>"; };
-		E3306BC21F01F1D9008B0636 /* RNGoogleSignIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNGoogleSignIn.m; sourceTree = "<group>"; };
 		E332E84C1F01D94000FBF391 /* UenoInternalApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = UenoInternalApp.entitlements; path = UenoInternalApp/UenoInternalApp.entitlements; sourceTree = "<group>"; };
-		EE663F06053951943177F8E0 /* Pods_UenoInternalApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UenoInternalApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C4061CEC4F42ED9B375295 /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		0B3DF4592ADE44DD827B9D6B /* RNAnalytics.xcodeproj */ = {isa = PBXFileReference; name = "RNAnalytics.xcodeproj"; path = "../node_modules/mobile-center-analytics/ios/RNAnalytics.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		5C2AE149B24A4578B49D652C /* libRNAnalytics.a */ = {isa = PBXFileReference; name = "libRNAnalytics.a"; path = "libRNAnalytics.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
-		61F05986B8F249498E16D35D /* RNCrashes.xcodeproj */ = {isa = PBXFileReference; name = "RNCrashes.xcodeproj"; path = "../node_modules/mobile-center-crashes/ios/RNCrashes.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		F701E3B325784B0FB9975DF7 /* libRNCrashes.a */ = {isa = PBXFileReference; name = "libRNCrashes.a"; path = "libRNCrashes.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,10 +91,8 @@
 			files = (
 				E3306BBF1F01F119008B0636 /* GoogleSignIn.bundle in Frameworks */,
 				E3306BBD1F01F0B0008B0636 /* GoogleSignIn.framework in Frameworks */,
-				3E1D7B2E934C83DDF634FC7B /* Pods_UenoInternalApp.framework in Frameworks */,
 				FACD0F140E0548AD82BE10DC /* libz.tbd in Frameworks */,
-				D69A00BB49274217944F3294 /* libRNAnalytics.a in Frameworks */,
-				4CFBA48104054189930BB994 /* libRNCrashes.a in Frameworks */,
+				9995405B78B7915D161143E0 /* Pods_UenoInternalApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,8 +157,9 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				0B3DF4592ADE44DD827B9D6B /* RNAnalytics.xcodeproj */,
-				61F05986B8F249498E16D35D /* RNCrashes.xcodeproj */,
+				E3094E551F05591900AF90D5 /* RNAnalytics */,
+				E3094E581F05591900AF90D5 /* RNCrashes */,
+				E3094E5F1F05591900AF90D5 /* RNGoogleSignIn */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -162,7 +168,6 @@
 			isa = PBXGroup;
 			children = (
 				13B07FAE1A68108700A75B9A /* UenoInternalApp */,
-				E3306BC01F01F17D008B0636 /* RNGoogleSignin */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* UenoInternalAppTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
@@ -189,19 +194,44 @@
 			children = (
 				E3306BBE1F01F119008B0636 /* GoogleSignIn.bundle */,
 				E3306BBC1F01F0B0008B0636 /* GoogleSignIn.framework */,
-				EE663F06053951943177F8E0 /* Pods_UenoInternalApp.framework */,
 				F7C4061CEC4F42ED9B375295 /* libz.tbd */,
+				CF91B632208A44667184D7FA /* Pods_UenoInternalApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E3306BC01F01F17D008B0636 /* RNGoogleSignin */ = {
+		E3094E551F05591900AF90D5 /* RNAnalytics */ = {
 			isa = PBXGroup;
 			children = (
-				E3306BC11F01F1A0008B0636 /* RNGoogleSignIn.h */,
-				E3306BC21F01F1D9008B0636 /* RNGoogleSignIn.m */,
+				E3094E561F05591900AF90D5 /* RNAnalytics.h */,
+				E3094E571F05591900AF90D5 /* RNAnalytics.m */,
 			);
-			name = RNGoogleSignin;
+			name = RNAnalytics;
+			path = UenoInternalApp/RNAnalytics;
+			sourceTree = "<group>";
+		};
+		E3094E581F05591900AF90D5 /* RNCrashes */ = {
+			isa = PBXGroup;
+			children = (
+				E3094E591F05591900AF90D5 /* RNCrashes.h */,
+				E3094E5A1F05591900AF90D5 /* RNCrashes.m */,
+				E3094E5B1F05591900AF90D5 /* RNCrashesDelegate.h */,
+				E3094E5C1F05591900AF90D5 /* RNCrashesDelegate.m */,
+				E3094E5D1F05591900AF90D5 /* RNCrashesUtils.h */,
+				E3094E5E1F05591900AF90D5 /* RNCrashesUtils.m */,
+			);
+			name = RNCrashes;
+			path = UenoInternalApp/RNCrashes;
+			sourceTree = "<group>";
+		};
+		E3094E5F1F05591900AF90D5 /* RNGoogleSignIn */ = {
+			isa = PBXGroup;
+			children = (
+				E3094E601F05591900AF90D5 /* RNGoogleSignIn.h */,
+				E3094E611F05591900AF90D5 /* RNGoogleSignIn.m */,
+			);
+			name = RNGoogleSignIn;
+			path = UenoInternalApp/RNGoogleSignIn;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -481,9 +511,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3094E621F05591900AF90D5 /* RNAnalytics.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				E3094E641F05591900AF90D5 /* RNCrashesDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
-				E3306BC31F01F1D9008B0636 /* RNGoogleSignIn.m in Sources */,
+				E3094E631F05591900AF90D5 /* RNCrashes.m in Sources */,
+				E3094E661F05591900AF90D5 /* RNGoogleSignIn.m in Sources */,
+				E3094E651F05591900AF90D5 /* RNCrashesUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,13 +577,15 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
-					"$(SRCROOT)/../node_modules/mobile-center-crashes/ios/RNCrashes"
+					"$(SRCROOT)/../node_modules/mobile-center-crashes/ios/RNCrashes",
+					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
 				);
 				INFOPLIST_FILE = UenoInternalAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -570,13 +606,15 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
-					"$(SRCROOT)/../node_modules/mobile-center-crashes/ios/RNCrashes"
+					"$(SRCROOT)/../node_modules/mobile-center-crashes/ios/RNCrashes",
+					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
 				);
 				INFOPLIST_FILE = UenoInternalAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -612,7 +650,8 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
-					"$(SRCROOT)/../node_modules/mobile-center-crashes/ios/RNCrashes"
+					"$(SRCROOT)/../node_modules/mobile-center-crashes/ios/RNCrashes",
+					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
 				);
 				INFOPLIST_FILE = UenoInternalApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -645,7 +684,8 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
-					"$(SRCROOT)/../node_modules/mobile-center-crashes/ios/RNCrashes"
+					"$(SRCROOT)/../node_modules/mobile-center-crashes/ios/RNCrashes",
+					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
 				);
 				INFOPLIST_FILE = UenoInternalApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -678,12 +718,14 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
-					"$(SRCROOT)/../node_modules/mobile-center-crashes/ios/RNCrashes"
+					"$(SRCROOT)/../node_modules/mobile-center-crashes/ios/RNCrashes",
+					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
 				);
 				INFOPLIST_FILE = "UenoInternalApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -714,12 +756,14 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
-					"$(SRCROOT)/../node_modules/mobile-center-crashes/ios/RNCrashes"
+					"$(SRCROOT)/../node_modules/mobile-center-crashes/ios/RNCrashes",
+					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
 				);
 				INFOPLIST_FILE = "UenoInternalApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -752,6 +796,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.UenoInternalApp-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -776,6 +821,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);

@@ -8,8 +8,8 @@
  */
 
 #import "AppDelegate.h"
-#import <RNCrashes/RNCrashes.h>
-#import <RNAnalytics/RNAnalytics.h>
+#import "RNCrashes.h"
+#import "RNAnalytics.h"
 #import "RNGoogleSignIn.h"
 #import <React/RCTBundleURLProvider.h>
 #import <CodePush/CodePush.h>
