@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "postinstall": "(cd ios; pod install); sh ./scripts/migrate.sh",
+    "postinstall": "(cd ios; pod repo update; pod install); sh ./scripts/migrate.sh",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "lint": "eslint src"
