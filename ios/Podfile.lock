@@ -83,7 +83,7 @@ PODS:
 DEPENDENCIES:
   - CodePush (from `../node_modules/react-native-code-push`)
   - Google/SignIn
-  - MobileCenter (~> 0.10.1)
+  - MobileCenter
   - native-navigation (from `../node_modules/native-navigation`)
   - React/BatchedBridge (from `../node_modules/react-native`)
   - React/Core (from `../node_modules/react-native`)
@@ -93,7 +93,7 @@ DEPENDENCIES:
   - React/RCTNetwork (from `../node_modules/react-native`)
   - React/RCTText (from `../node_modules/react-native`)
   - React/RCTWebSocket (from `../node_modules/react-native`)
-  - RNMobileCenterShared (~> 0.6.0)
+  - RNMobileCenterShared
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga/Yoga.podspec`)
 
 EXTERNAL SOURCES:
@@ -122,6 +122,6 @@ SPEC CHECKSUMS:
   RNMobileCenterShared: 6c43fa38e6ae7221c9344a42f4303179d7c6455e
   Yoga: 89c8738d42a0b46a113acb4e574336d61cba2985
 
-PODFILE CHECKSUM: 09c104b43dfa92913aa330c700c9d5317ff1b603
+PODFILE CHECKSUM: 4480faae115450832af664b29edd21df818a0deb
 
 COCOAPODS: 1.3.0.beta.2
