@@ -29,29 +29,59 @@ xcode-select --install
 </table>
 
 # Available Actions
+### deploy
+```
+fastlane deploy
+```
+Deploy changes to iOS and Android [Staging]
+### promote
+```
+fastlane promote
+```
+Promote iOS and Android [Staging -> Release]
+
+----
+
 ## iOS
-### ios test
+### ios deploy
 ```
-fastlane ios test
+fastlane ios deploy
 ```
-Runs all the tests
-### ios qa
+Deploy changes to iOS [Staging]
+### ios promote
 ```
-fastlane ios qa
+fastlane ios promote
 ```
-Builds a QA version of the app
+Promote iOS [Staging -> Release]
 ### ios beta
 ```
 fastlane ios beta
 ```
 Submit a new Beta Build to Apple TestFlight
-
-This will also make sure the profile is up to date
 ### ios release
 ```
 fastlane ios release
 ```
-Deploy a new version to the App Store
+Build and deploy a new version to the App Store
+
+----
+
+## Android
+### android deploy
+```
+fastlane android deploy
+```
+Deploy changes to Android [Staging]
+### android promote
+```
+fastlane android promote
+```
+Promote Android [Staging -> Release]
+### android beta
+```
+fastlane android beta
+```
+Build and upload APK to the Play Store (beta)
 
 ----
 

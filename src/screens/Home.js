@@ -18,6 +18,10 @@ export default class Home extends Component {
     ui: PropTypes.object, // eslint-disable-line
   };
 
+  componentDidMount() {
+    this.props.user.setup();
+  }
+
   onLayout = (e) => {
     const { height } = e.nativeEvent.layout;
     this.animateScreenIn(height);

@@ -6,25 +6,17 @@ platform :ios do
   before_all do
   end
 
-  desc "Runs all the tests"
-  lane :test do
-    scan(
-      scheme: "UenoInternalApp",
-      workspace: "ios/UenoInternalApp.xcworkspace"
-    )
+  desc "Deploy changes to iOS [Staging]"
+  lane :deploy do |options|
+    deploy_ios(options)
   end
 
-  desc "Builds a QA version of the app"
-  lane :qa do
-    gym(
-      scheme: "UenoInternalApp",
-      workspace: "ios/UenoInternalApp.xcworkspace",
-      output_directory: "ios/build"
-    )
+  desc "Promote iOS [Staging -> Release]"
+  lane :promote do
+    promote_ios()
   end
 
   desc "Submit a new Beta Build to Apple TestFlight"
-  desc "This will also make sure the profile is up to date"
   lane :beta do
     increment_build_number(
       workspace: "ios/UenoInternalApp.xcworkspace"
@@ -39,10 +31,10 @@ platform :ios do
       project: "ios/UenoInternalApp.xcodeproj",
       output_directory: "ios/build"
     )
-    pilot
+    pilot(skip_submission: true)
   end
 
-  desc "Deploy a new version to the App Store"
+  desc "Build and deploy a new version to the App Store"
   lane :release do
     match(
       type: "appstore",
@@ -62,4 +54,94 @@ platform :ios do
 
   error do |lane, exception|
   end
+end
+
+
+platform :android do
+
+  before_all do
+  end
+
+  desc "Deploy changes to Android [Staging]"
+  lane :deploy do |options|
+    deploy_android(options)
+  end
+
+  desc "Promote Android [Staging -> Release]"
+  lane :promote do
+    promote_android()
+  end
+
+  desc "Build and upload APK to the Play Store (beta)"
+  lane :beta do
+    # Clean the project
+    gradle(
+      task: 'clean',
+      project_dir: "android"
+    )
+    # Build project
+    gradle(
+      task: "assemble",
+      build_type: "Release",
+      project_dir: "android"
+    )
+    # Upload the APK to the Play Store (beta)
+    supply(
+      track: "beta",
+      apk: "android/app/build/outputs/apk/app-release.apk"
+    )
+  end
+
+  after_all do |lane|
+  end
+
+  error do |lane, exception|
+  end
+
+end
+
+desc "Deploy changes to iOS and Android [Staging]"
+lane :deploy do |options|
+  deploy_ios(options)
+  deploy_android(options)
+end
+
+desc "Promote iOS and Android [Staging -> Release]"
+lane :promote do
+  promote_ios()
+  promote_android()
+end
+
+private_lane :deploy_ios do |options|
+  code_push_release_react(
+    app_name: "ueno-internal-app-ios",
+    platform: "ios",
+    deployment: "Staging -x",
+    description: options[:description],
+    dry_run: true
+  )
+end
+
+private_lane :deploy_android do |options|
+  code_push_release_react(
+    app_name: "ueno-internal-app-android",
+    platform: "android",
+    deployment: "Staging -x",
+    description: options[:description],
+    dry_run: true
+  )
+end
+
+private_lane :promote_ios do
+  code_push_promote(
+    app_name: "ueno-internal-app-ios",
+    dry_run: true
+  )
+end
+
+private_lane :promote_android do
+  code_push_promote(
+    app_name: "ueno-internal-app-android",
+    dry_run: true
+  )
 end

@@ -25,7 +25,7 @@ export default class Contacts extends Component {
         backgroundColor="#fff"
       >
         <View style={[styles.container, { marginTop }]}>
-          <Text style={{ textAlign: 'center', marginBottom: 20 }}>Contacts will appear here, in the meantime, try toggling the navbar</Text>
+          <Text style={{ textAlign: 'center', marginBottom: 20 }}>Contacts will appear here, in the meantime, try toggling the navbar buddy</Text>
           <TouchableOpacity onPress={() => this.setState({ hidden: !hidden })}>
             <Text>Toggle hidden</Text>
           </TouchableOpacity>

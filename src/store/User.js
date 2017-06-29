@@ -8,10 +8,6 @@ const SIGN_IN_TIMEOUT = 60 * 1000;
 
 export default class User {
 
-  constructor() {
-    this.setup();
-  }
-
   async setup() {
     try {
       await GoogleSignin.hasPlayServices({ autoResolve: true });
@@ -36,6 +32,7 @@ export default class User {
 
   @autobind
   async signIn() {
+    console.log('sign in');
     if (Platform.OS === 'android') {
       // Sometimes android doesn't trigger a callback after GoogleSignin.signin() so we need
       // to manually check if signed in.
