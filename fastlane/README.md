@@ -77,11 +77,6 @@ Deploy changes to Android [Staging]
 fastlane android promote
 ```
 Promote Android [Staging -> Release]
-### android test
-```
-fastlane android test
-```
-
 ### android alpha
 ```
 fastlane android alpha

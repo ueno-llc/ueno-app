@@ -89,10 +89,10 @@ platform :android do
       project_dir: "android"
     )
     # Upload the APK to the Play Store (alpha)
-    # supply(
-    #   track: "alpha",
-    #   apk: "android/app/build/outputs/apk/app-release.apk"
-    # )
+    supply(
+      track: "alpha",
+      apk: "android/app/build/outputs/apk/app-release.apk"
+    )
   end
 
   after_all do |lane|
