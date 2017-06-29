@@ -74,9 +74,26 @@ platform :android do
 
   desc "Build and upload APK to the Play Store (alpha)"
   lane :alpha do
-    increment_version_code(
-      gradle_file_path: "android/app/build.gradle"
+    # Clean the project
+    gradle(
+      task: 'clean',
+      project_dir: "android"
     )
+    # Build project
+    gradle(
+      task: "assemble",
+      build_type: "ReleaseStaging",
+      project_dir: "android"
+    )
+    # Upload the APK to the Play Store (alpha)
+    supply(
+      track: "alpha",
+      apk: "android/app/build/outputs/apk/app-releaseStaging.apk"
+    )
+  end
+
+  desc "Build and upload APK to the Play Store"
+  lane :release do
     # Clean the project
     gradle(
       task: 'clean',
@@ -94,7 +111,6 @@ platform :android do
       apk: "android/app/build/outputs/apk/app-release.apk"
     )
   end
-
   after_all do |lane|
   end
 
