@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Navigator from 'native-navigation';
 import { inject, observer } from 'mobx-react/native';
 import { observable } from 'mobx';
-import { StyleSheet, Text, Animated, View, Dimensions, Easing } from 'react-native';
+import { StyleSheet, Text, Animated, View, Easing } from 'react-native';
 
 import Me from 'components/me';
 import Button from 'components/button';
@@ -18,12 +18,12 @@ export default class Home extends Component {
     ui: PropTypes.object, // eslint-disable-line
   };
 
-  componentDidMount() {
-    this.animateScreenIn();
+  onLayout = (e) => {
+    const { height } = e.nativeEvent.layout;
+    this.animateScreenIn(height);
   }
 
-  animateScreenIn() {
-    const { height } = Dimensions.get('window');
+  animateScreenIn(height) {
     Animated.sequence([
       Animated.timing(this.height, {
         toValue: height - 50,
@@ -44,9 +44,9 @@ export default class Home extends Component {
   render() {
     const { height, opacity } = this;
     const { ui } = this.props;
-    const { isSignedIn } = this.props.user;
+    const { isSignedIn, signOut, signIn } = this.props.user;
     return (
-      <View style={styles.background}>
+      <View style={styles.background} onLayout={this.onLayout}>
         <Navigator.Config
           backgroundColor="#FFF"
           elevation={0}
@@ -62,10 +62,10 @@ export default class Home extends Component {
                   <Me />
                   <Button onPress={() => Navigator.push('Articles')}>ARTICLES</Button>
                   <Button onPress={() => Navigator.push('Contacts')}>CONTACTS</Button>
-                  <Button onPress={this.props.user.signOut}>SIGN OUT</Button>
+                  <Button onPress={signOut}>SIGN OUT</Button>
                 </View>
               ) : (
-                <Button onPress={this.props.user.signIn}>SIGN IN</Button>
+                <Button onPress={signIn}>SIGN IN</Button>
               )}
             </View>
           </Animated.View>
@@ -121,8 +121,11 @@ const styles = StyleSheet.create({
 
   version: {
     position: 'absolute',
-    bottom: 15,
+    bottom: 0,
     left: 15,
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   versionLabel: {

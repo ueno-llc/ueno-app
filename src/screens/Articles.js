@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Navigator, { Spacer } from 'native-navigation';
-import { Dimensions, StyleSheet, VirtualizedList, Image, View, Text } from 'react-native';
+import { Animated, Dimensions, StyleSheet, VirtualizedList, Image, View, Text } from 'react-native';
 import { graphql } from 'react-apollo';
 import { observer } from 'mobx-react/native';
+import { observable } from 'mobx';
 import { autobind } from 'core-decorators';
 import articlesQuery from 'queries/articles.gql';
+
+const { width, height } = Dimensions.get('window');
 
 const articlesOptions = {
   name: 'articles',
@@ -32,13 +35,8 @@ export default class Articles extends Component {
     }).isRequired,
   }
 
-  /**
-   * Fired on every scroll event inside list
-   * @todo Create parallax effect for images on scroll
-   */
-  @autobind
-  onScroll(event) {
-    const scrollY = event.nativeEvent.contentOffset.y; // eslint-disable-line
+  state = {
+    scrollY: new Animated.Value(0),
   }
 
   @autobind
@@ -60,15 +58,41 @@ export default class Articles extends Component {
     });
   }
 
+  @observable
+  items = new Map();
+
   @autobind
-  renderItem({ item }) {
+  renderItem({ item, index }) {
+
+    const topOffset = Array.from(this.items.values()).slice(0, index).reduce((a, b) => a + b, 0);
+    const inputRange = [topOffset - height, topOffset];
+
+    if (index === 0) {
+      // We have no height for first item.
+      // Let's just assume it.
+      inputRange[0] = -height;
+      inputRange[1] = height;
+    }
+
     return (
-      <View>
-        <Image
-          source={{ uri: `https:${item.image}` }}
-          resizeMode="contain"
-          style={styles.image}
-        />
+      <View onLayout={e => this.items.set(index, e.nativeEvent.layout.height)}>
+        <View style={{ height: width, overflow: 'hidden' }}>
+          <Animated.View
+            style={{
+              top: this.state.scrollY.interpolate({
+                inputRange,
+                outputRange: [0, -100],
+                extrapolate: 'clamp',
+              }),
+            }}
+          >
+            <Image
+              source={{ uri: `https:${item.image}` }}
+              resizeMode="contain"
+              style={styles.image}
+            />
+          </Animated.View>
+        </View>
         <View style={styles.card}>
           <Text style={styles.title}>{item.title}</Text>
           <Text style={styles.description}>{item.description}</Text>
@@ -95,7 +119,9 @@ export default class Articles extends Component {
           <VirtualizedList
             data={articles}
             renderItem={this.renderItem}
-            // onScroll={this.onScroll}
+            onScroll={Animated.event([{
+              nativeEvent: { contentOffset: { y: this.state.scrollY } },
+            }])}
             getItemCount={data => data.length}
             getItem={(data, i) => data[i]}
             keyExtractor={item => item.id}
@@ -108,8 +134,6 @@ export default class Articles extends Component {
     );
   }
 }
-
-const { width } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
@@ -127,6 +151,7 @@ const styles = StyleSheet.create({
 
   card: {
     padding: 20,
+    backgroundColor: '#FFFFFF',
   },
 
   title: {
