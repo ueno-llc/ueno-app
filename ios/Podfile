@@ -2,6 +2,8 @@ platform :ios, '8.0'
 
 target 'UenoInternalApp' do
 
+  pod 'react-native-navigation', :path => '../node_modules/react-native-navigation'
+
   # Code Push
   pod 'CodePush', :path => '../node_modules/react-native-code-push'
 

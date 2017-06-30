@@ -11,12 +11,11 @@
 #import "RNCrashes.h"
 #import "RNAnalytics.h"
 #import "RNGoogleSignIn.h"
+#import "RCCManager.h"
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import <CodePush/CodePush.h>
-#import <ReactNativeNavigation/ReactNativeNavigation.h>
-
-@import NativeNavigation;
+// #import <ReactNativeNavigation/ReactNativeNavigation.h>
 
 @implementation AppDelegate
 
@@ -32,8 +31,8 @@
   // react-native-navigation
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   self.window.backgroundColor = [UIColor whiteColor];
-  // [[RCCManager sharedInstance] initBridgeWithBundleURL:jsCodeLocation launchOptions:launchOptions];
-  [ReactNativeNavigation bootstrap:jsCodeLocation launchOptions:launchOptions];
+  [[RCCManager sharedInstance] initBridgeWithBundleURL:jsCodeLocation launchOptions:launchOptions];
+  // [ReactNativeNavigation bootstrap:jsCodeLocation launchOptions:launchOptions];
 
 
   // Mobile Center
