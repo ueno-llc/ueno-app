@@ -13,20 +13,20 @@ Libraries
 Getting started
 ===============
 
-1. Install the react-native command line utility.
+Read the [Getting started guide](./GETTING_STARTED.md) for complete tutorial on a fresh Mac OS X.
+
+If you already have all necessery tools for react-native development:
 
 ```bash
-npm install -g react-native-cli
+# Terminal 1
+yarn start
+
+# Terminal 2
+react-native run-ios
+react-native run-android --appIdSuffix=debug
 ```
 
-2. [Install xcode and fastlane](./fastlane/README.md)
-
-3. Run yarn start in a separate terminal window from the react-native run.
-
-```bash
-yarn start # Terminal 1
-react-native run-[ios|android] # Terminal 2
-```
+Use [fastlane](./fastlane/README.md) if you are going to be publishing, deploying or testing releases.
 
 Pipeline
 ========
