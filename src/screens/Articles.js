@@ -32,10 +32,18 @@ export default class Articles extends Component {
       refetch: PropTypes.func,
       fetchMore: PropTypes.func,
     }).isRequired,
+    navigator: PropTypes.shape({
+      setTitle: PropTypes.func,
+    }).isRequired,
   }
 
   state = {
     scrollY: new Animated.Value(0),
+  }
+
+  componentDidMount() {
+    const { navigator } = this.props;
+    navigator.setTitle({ title: 'Articles' });
   }
 
   @autobind

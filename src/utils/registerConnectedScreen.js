@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Navigation } from 'react-native-navigation';
-// import codePush from 'react-native-code-push';
+import codePush from 'react-native-code-push';
 import { ApolloProvider } from 'react-apollo';
 import { Provider } from 'mobx-react/native';
 import Store from '../store';
@@ -24,7 +24,7 @@ const wrapScreenGetter = (route, getScreen) => {
     }
   }
 
-  return () => ConnectedScreen;
+  return () => codePush(ConnectedScreen);
 };
 
 const registerConnectedScreen = (route, getScreen) =>

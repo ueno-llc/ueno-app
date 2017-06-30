@@ -12,6 +12,7 @@ export default class User {
     try {
       await GoogleSignin.hasPlayServices({ autoResolve: true });
       await GoogleSignin.configure({
+        // TODO: Move this into dotenv and load on runtime with react-native-config etc.
         iosClientId: '***REMOVED***',
         webClientId: '***REMOVED***',
         offlineAccess: false,
@@ -32,7 +33,6 @@ export default class User {
 
   @autobind
   async signIn() {
-    console.log('sign in');
     if (Platform.OS === 'android') {
       // Sometimes android doesn't trigger a callback after GoogleSignin.signin() so we need
       // to manually check if signed in.
