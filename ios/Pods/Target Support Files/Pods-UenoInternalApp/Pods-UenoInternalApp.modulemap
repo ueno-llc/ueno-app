@@ -1,6 +1,0 @@
-framework module Pods_UenoInternalApp {
-  umbrella header "Pods-UenoInternalApp-umbrella.h"
-
-  export *
-  module * { export * }
-}

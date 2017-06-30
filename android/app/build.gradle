@@ -168,7 +168,7 @@ dependencies {
     compile 'com.android.support:support-annotations:25.1.1'
     compile "com.facebook.react:react-native:+"  // From node_modules
     compile project(':react-native-code-push')
-    compile project(':native-navigation')
+    compile project(':react-native-navigation')
     compile(project(":react-native-google-signin"))
 }
 

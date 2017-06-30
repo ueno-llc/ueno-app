@@ -12,7 +12,9 @@
 #import "RNAnalytics.h"
 #import "RNGoogleSignIn.h"
 #import <React/RCTBundleURLProvider.h>
+#import <React/RCTRootView.h>
 #import <CodePush/CodePush.h>
+#import <ReactNativeNavigation/ReactNativeNavigation.h>
 
 @import NativeNavigation;
 
@@ -20,37 +22,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self
-                                            launchOptions:launchOptions];
-  ReactNavigationCoordinator *coordinator = [ReactNavigationCoordinator sharedInstance];
-
-  [coordinator setBridge:bridge];
-  [coordinator setDelegate:self];
-
-  [RNCrashes registerWithCrashDelegate: [[RNCrashesDelegateAlwaysSend alloc] init]];  // Initialize Mobile Center crashes
-  [RNAnalytics registerWithInitiallyEnabled:true];  // Initialize Mobile Center analytics
-
-  self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-  ReactViewController *mainViewController = [[ReactViewController alloc] initWithModuleName:@"Home"];
-  self.window.rootViewController = [[coordinator navigation] makeNavigationControllerWithRootViewController:mainViewController];
-  [self.window makeKeyAndVisible];
-  return YES;
-}
-
-// code-push
-- (NSURL *)sourceURLForBridge:(RCTBridge *)bridge {
   NSURL *jsCodeLocation;
   #ifdef DEBUG
     jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
   #else
     jsCodeLocation = [CodePush bundleURL];
   #endif
-  return jsCodeLocation;
-}
 
-// native-navigation
-- (UIViewController *)rootViewControllerForCoordinator: (ReactNavigationCoordinator *)coordinator {
-  return self.window.rootViewController;
+  // react-native-navigation
+  self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+  self.window.backgroundColor = [UIColor whiteColor];
+  // [[RCCManager sharedInstance] initBridgeWithBundleURL:jsCodeLocation launchOptions:launchOptions];
+  [ReactNativeNavigation bootstrap:jsCodeLocation launchOptions:launchOptions];
+
+
+  // Mobile Center
+  [RNCrashes registerWithCrashDelegate: [[RNCrashesDelegateAlwaysSend alloc] init]];  // Initialize Mobile Center crashes
+  [RNAnalytics registerWithInitiallyEnabled:true];  // Initialize Mobile Center analytics
+
+  return YES;
 }
 
 // for google authentication

@@ -1,11 +1,6 @@
 platform :ios, '8.0'
 
 target 'UenoInternalApp' do
-  # Native Navigation uses Swift, so this line is required!
-  use_frameworks!
-
-  # Native Navigation!
-  pod 'native-navigation', :path => '../node_modules/native-navigation'
 
   # Code Push
   pod 'CodePush', :path => '../node_modules/react-native-code-push'

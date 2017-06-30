@@ -1,11 +1,6 @@
 package com.uenointernalapp;
+import com.reactnativenavigation.controllers.SplashActivity;
 
-import com.airbnb.android.react.navigation.ReactActivity;
+public class MainActivity extends SplashActivity {
 
-public class MainActivity extends ReactActivity {
-
-    @Override
-    protected String getInitialScreenName() {
-        return "Home";
-    }
 }

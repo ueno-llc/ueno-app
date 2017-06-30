@@ -1,7 +1,7 @@
 /* eslint no-console: 0 */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Navigator from 'native-navigation';
+import { Navigation } from 'react-native-navigation';
 import { inject, observer } from 'mobx-react/native';
 import { observable } from 'mobx';
 import { StyleSheet, Text, Animated, View, Easing } from 'react-native';
@@ -16,6 +16,9 @@ export default class Home extends Component {
   static propTypes = {
     user: PropTypes.object, // eslint-disable-line
     ui: PropTypes.object, // eslint-disable-line
+    navigator: PropTypes.shape({
+      push: PropTypes.func,
+    }).isRequired,
   };
 
   componentDidMount() {
@@ -45,17 +48,17 @@ export default class Home extends Component {
   @observable height = new Animated.Value(0)
   @observable opacity = new Animated.Value(0)
 
+  push = screen => () => this.props.navigator.push({
+    screen,
+    animationType: 'slide-horizontal',
+  });
+
   render() {
     const { height, opacity } = this;
     const { ui } = this.props;
     const { isSignedIn, signOut, signIn } = this.props.user;
     return (
       <View style={styles.background} onLayout={this.onLayout}>
-        <Navigator.Config
-          backgroundColor="#FFF"
-          elevation={0}
-          hidden
-        />
         <Animated.View style={[styles.container, { height }]}>
           <Animated.View style={{ opacity, flex: 1 }}>
             <Text style={styles.logo}>ueno.</Text>
@@ -64,8 +67,8 @@ export default class Home extends Component {
               {isSignedIn ? (
                 <View>
                   <Me />
-                  <Button onPress={() => Navigator.push('Articles')}>ARTICLES</Button>
-                  <Button onPress={() => Navigator.push('Contacts')}>CONTACTS</Button>
+                  <Button onPress={this.push('Articles')}>ARTICLES</Button>
+                  <Button onPress={this.push('Contacts')}>CONTACTS</Button>
                   <Button onPress={signOut}>SIGN OUT</Button>
                 </View>
               ) : (

@@ -16,7 +16,7 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* UenoInternalAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* UenoInternalAppTests.m */; };
-		9995405B78B7915D161143E0 /* Pods_UenoInternalApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF91B632208A44667184D7FA /* Pods_UenoInternalApp.framework */; };
+		AC9D6D4EE34FC49A16B52534 /* libPods-UenoInternalApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 104782DBFE0F9F052F66A56B /* libPods-UenoInternalApp.a */; };
 		E3094E621F05591900AF90D5 /* RNAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = E3094E571F05591900AF90D5 /* RNAnalytics.m */; };
 		E3094E631F05591900AF90D5 /* RNCrashes.m in Sources */ = {isa = PBXBuildFile; fileRef = E3094E5A1F05591900AF90D5 /* RNCrashes.m */; };
 		E3094E641F05591900AF90D5 /* RNCrashesDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3094E5C1F05591900AF90D5 /* RNCrashesDelegate.m */; };
@@ -50,6 +50,7 @@
 		00E356EE1AD99517003FC87E /* UenoInternalAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UenoInternalAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* UenoInternalAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UenoInternalAppTests.m; sourceTree = "<group>"; };
+		104782DBFE0F9F052F66A56B /* libPods-UenoInternalApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UenoInternalApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* UenoInternalApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UenoInternalApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = UenoInternalApp/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = UenoInternalApp/AppDelegate.m; sourceTree = "<group>"; };
@@ -59,9 +60,9 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = UenoInternalApp/main.m; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* UenoInternalApp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UenoInternalApp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* UenoInternalApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UenoInternalApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EC116877DE741D0DE0AC321 /* Pods-UenoInternalApp.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UenoInternalApp.staging.xcconfig"; path = "Pods/Target Support Files/Pods-UenoInternalApp/Pods-UenoInternalApp.staging.xcconfig"; sourceTree = "<group>"; };
 		6D8D865C04F55B5E21ED6907 /* Pods-UenoInternalApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UenoInternalApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-UenoInternalApp/Pods-UenoInternalApp.release.xcconfig"; sourceTree = "<group>"; };
 		80D1B18618D38E0B48222864 /* Pods-UenoInternalApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UenoInternalApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UenoInternalApp/Pods-UenoInternalApp.debug.xcconfig"; sourceTree = "<group>"; };
-		CF91B632208A44667184D7FA /* Pods_UenoInternalApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UenoInternalApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3094E561F05591900AF90D5 /* RNAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNAnalytics.h; sourceTree = "<group>"; };
 		E3094E571F05591900AF90D5 /* RNAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNAnalytics.m; sourceTree = "<group>"; };
 		E3094E591F05591900AF90D5 /* RNCrashes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNCrashes.h; sourceTree = "<group>"; };
@@ -94,7 +95,7 @@
 				E3306BBF1F01F119008B0636 /* GoogleSignIn.bundle in Frameworks */,
 				E3306BBD1F01F0B0008B0636 /* GoogleSignIn.framework in Frameworks */,
 				FACD0F140E0548AD82BE10DC /* libz.tbd in Frameworks */,
-				9995405B78B7915D161143E0 /* Pods_UenoInternalApp.framework in Frameworks */,
+				AC9D6D4EE34FC49A16B52534 /* libPods-UenoInternalApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +153,7 @@
 			children = (
 				80D1B18618D38E0B48222864 /* Pods-UenoInternalApp.debug.xcconfig */,
 				6D8D865C04F55B5E21ED6907 /* Pods-UenoInternalApp.release.xcconfig */,
+				3EC116877DE741D0DE0AC321 /* Pods-UenoInternalApp.staging.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -197,7 +199,7 @@
 				E3306BBE1F01F119008B0636 /* GoogleSignIn.bundle */,
 				E3306BBC1F01F0B0008B0636 /* GoogleSignIn.framework */,
 				F7C4061CEC4F42ED9B375295 /* libz.tbd */,
-				CF91B632208A44667184D7FA /* Pods_UenoInternalApp.framework */,
+				104782DBFE0F9F052F66A56B /* libPods-UenoInternalApp.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -444,6 +446,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-UenoInternalApp/Pods-UenoInternalApp-resources.sh",
+				"${PODS_ROOT}/GTMOAuth2/Source/Touch/GTMOAuth2ViewTouch.xib",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -954,7 +957,7 @@
 		};
 		E3D1BF8E1F068C7000376CA5 /* Staging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6D8D865C04F55B5E21ED6907 /* Pods-UenoInternalApp.release.xcconfig */;
+			baseConfigurationReference = 3EC116877DE741D0DE0AC321 /* Pods-UenoInternalApp.staging.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Birkir Rafn Gudjonsson (***REMOVED***)";

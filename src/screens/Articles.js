@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Navigator, { Spacer } from 'native-navigation';
 import { Animated, Dimensions, StyleSheet, VirtualizedList, Image, View, Text } from 'react-native';
 import { graphql } from 'react-apollo';
 import { observer } from 'mobx-react/native';
@@ -109,28 +108,21 @@ export default class Articles extends Component {
     } = this.props.articles;
 
     return (
-      <Navigator.Config
-        hidden={false}
-        title="Articles"
-        backgroundColor="#FFFFFF"
-      >
-        <View style={{ flex: 1 }}>
-          <Spacer animated />
-          <VirtualizedList
-            data={articles}
-            renderItem={this.renderItem}
-            onScroll={Animated.event([{
-              nativeEvent: { contentOffset: { y: this.state.scrollY } },
-            }])}
-            getItemCount={data => data.length}
-            getItem={(data, i) => data[i]}
-            keyExtractor={item => item.id}
-            refreshing={loading}
-            onRefresh={refetch}
-            onEndReached={this.onEndReached}
-          />
-        </View>
-      </Navigator.Config>
+      <View style={{ flex: 1 }}>
+        <VirtualizedList
+          data={articles}
+          renderItem={this.renderItem}
+          onScroll={Animated.event([{
+            nativeEvent: { contentOffset: { y: this.state.scrollY } },
+          }])}
+          getItemCount={data => data.length}
+          getItem={(data, i) => data[i]}
+          keyExtractor={item => item.id}
+          refreshing={loading}
+          onRefresh={refetch}
+          onEndReached={this.onEndReached}
+        />
+      </View>
     );
   }
 }

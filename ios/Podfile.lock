@@ -50,8 +50,6 @@ PODS:
   - MobileCenter/Core (0.10.1)
   - MobileCenter/Crashes (0.10.1):
     - MobileCenter/Core
-  - native-navigation (0.2.1):
-    - React
   - React (0.45.1):
     - React/Core (= 0.45.1)
   - React/BatchedBridge (0.45.1):
@@ -84,7 +82,6 @@ DEPENDENCIES:
   - CodePush (from `../node_modules/react-native-code-push`)
   - Google/SignIn
   - MobileCenter (~> 0.10.1)
-  - native-navigation (from `../node_modules/native-navigation`)
   - React/BatchedBridge (from `../node_modules/react-native`)
   - React/Core (from `../node_modules/react-native`)
   - React/DevSupport (from `../node_modules/react-native`)
@@ -99,8 +96,6 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   CodePush:
     :path: ../node_modules/react-native-code-push
-  native-navigation:
-    :path: ../node_modules/native-navigation
   React:
     :path: ../node_modules/react-native
   Yoga:
@@ -117,11 +112,10 @@ SPEC CHECKSUMS:
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
   MobileCenter: 2ef7c02fd337dbde11cf15552c2006db2c3774c3
-  native-navigation: 0bc771c8a427dfb0d31eb9707dde48e9fbac42fa
   React: 0c9191a8b0c843d7004f950ac6b5f6cba9d125c7
   RNMobileCenterShared: 6c43fa38e6ae7221c9344a42f4303179d7c6455e
   Yoga: 89c8738d42a0b46a113acb4e574336d61cba2985
 
-PODFILE CHECKSUM: 317e6cb3745ca983418d3bc25f9905ba1d089605
+PODFILE CHECKSUM: 9561e0d3b27c42605dfc0b4abc79189003ceac9c
 
 COCOAPODS: 1.3.0.beta.2
