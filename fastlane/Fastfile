@@ -72,13 +72,28 @@ platform :android do
     promote_android()
   end
 
-  desc "Build and upload APK to the Play Store (alpha)"
-  lane :alpha do
+  desc "Clean the android project"
+  lane :clean do
     # Clean the project
     gradle(
       task: 'clean',
       project_dir: "android"
     )
+  end
+
+  desc "Build a debug version"
+  lane :debug do
+    clean()
+    gradle(
+      task: "assemble",
+      build_type: "Debug",
+      project_dir: "android"
+    )
+  end
+
+  desc "Build and upload APK to the Play Store (alpha)"
+  lane :alpha do
+    clean()
     # Build project
     gradle(
       task: "assemble",

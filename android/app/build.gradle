@@ -129,19 +129,16 @@ android {
     }
     buildTypes {
       debug {
-          manifestPlaceholders = [excludeSystemAlertWindowPermission: "false"]
           buildConfigField "String", "CODEPUSH_KEY", '""'
           applicationIdSuffix ".debug"
       }
       releaseStaging {
-          manifestPlaceholders = [excludeSystemAlertWindowPermission: "true"]
           minifyEnabled enableProguardInReleaseBuilds
           proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
           signingConfig signingConfigs.release
           buildConfigField "String", "CODEPUSH_KEY", "\"" + System.getenv('CODEPUSH_ANDROID_STAGING_KEY') + "\""
       }
       release {
-          manifestPlaceholders = [excludeSystemAlertWindowPermission: "true"]
           minifyEnabled enableProguardInReleaseBuilds
           proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
           signingConfig signingConfigs.release

@@ -77,11 +77,26 @@ Deploy changes to Android [Staging]
 fastlane android promote
 ```
 Promote Android [Staging -> Release]
+### android clean
+```
+fastlane android clean
+```
+Clean the android project
+### android debug
+```
+fastlane android debug
+```
+Build a debug version
 ### android alpha
 ```
 fastlane android alpha
 ```
 Build and upload APK to the Play Store (alpha)
+### android release
+```
+fastlane android release
+```
+Build and upload APK to the Play Store
 
 ----
 
