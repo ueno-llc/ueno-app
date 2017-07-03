@@ -670,7 +670,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ueno.internal;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ueno.internal-debug";
 				PRODUCT_NAME = "ueno. (dev)";
 				PROVISIONING_PROFILE = "9b73063d-f9da-4ce1-bf9d-168bd7605196";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.ueno.internal";
