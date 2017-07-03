@@ -16,6 +16,15 @@ platform :ios do
     promote_ios()
   end
 
+  lane :build do
+    gym(
+      scheme: "UenoInternalApp",
+      workspace: "ios/UenoInternalApp.xcworkspace",
+      output_directory: "ios/build",
+      configuration: "Staging"
+    )
+  end
+
   desc "Submit a new Beta Build to Apple TestFlight"
   lane :beta do
     increment_build_number(
@@ -28,8 +37,9 @@ platform :ios do
     )
     gym(
       scheme: "UenoInternalApp",
-      project: "ios/UenoInternalApp.xcodeproj",
-      output_directory: "ios/build"
+      workspace: "ios/UenoInternalApp.xcworkspace",
+      output_directory: "ios/build",
+      configuration: "Staging"
     )
     pilot(skip_submission: true)
   end
@@ -43,7 +53,7 @@ platform :ios do
     )
     gym(
       scheme: "UenoInternalApp",
-      project: "ios/UenoInternalApp.xcodeproj",
+      workspace: "ios/UenoInternalApp.xcworkspace",
       output_directory: "ios/build"
     )
     deliver(force: true)
@@ -77,16 +87,6 @@ platform :android do
     # Clean the project
     gradle(
       task: 'clean',
-      project_dir: "android"
-    )
-  end
-
-  desc "Build a debug version"
-  lane :debug do
-    clean()
-    gradle(
-      task: "assemble",
-      build_type: "Debug",
       project_dir: "android"
     )
   end

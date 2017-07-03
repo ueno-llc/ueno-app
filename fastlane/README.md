@@ -53,6 +53,11 @@ Deploy changes to iOS [Staging]
 fastlane ios promote
 ```
 Promote iOS [Staging -> Release]
+### ios build
+```
+fastlane ios build
+```
+
 ### ios beta
 ```
 fastlane ios beta
@@ -82,11 +87,6 @@ Promote Android [Staging -> Release]
 fastlane android clean
 ```
 Clean the android project
-### android debug
-```
-fastlane android debug
-```
-Build a debug version
 ### android alpha
 ```
 fastlane android alpha
