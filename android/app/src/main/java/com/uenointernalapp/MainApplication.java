@@ -17,7 +17,7 @@ public class MainApplication extends NavigationApplication {
 
     @Override
     public String getJSBundleFile() {
-      return CodePush.getJSBundleFile();
+      return CodePush.getJSBundleFile("index.android.bundle");
     }
 
     @Override
