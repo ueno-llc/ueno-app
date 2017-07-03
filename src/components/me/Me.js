@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Spacer } from 'native-navigation';
 import { graphql } from 'react-apollo';
 import { observer } from 'mobx-react/native';
 import { View, Text } from 'react-native';
@@ -22,7 +21,6 @@ export default class Me extends Component {
     const { me, error, loading } = this.props.me;
     return (
       <View style={{ marginBottom: 20 }}>
-        <Spacer />
         <Text>
           {loading && 'Loading...'}
           {error && error.message}

@@ -1,7 +1,18 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 
 export default class Button extends Component {
+
+  static propTypes = {
+    children: PropTypes.node,
+    onPress: PropTypes.func,
+  };
+
+  static defaultProps = {
+    children: null,
+    onPress: () => {},
+  };
 
   render() {
     const { children, onPress } = this.props;
