@@ -16,7 +16,6 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* UenoInternalAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* UenoInternalAppTests.m */; };
-		AC9D6D4EE34FC49A16B52534 /* libPods-UenoInternalApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 104782DBFE0F9F052F66A56B /* libPods-UenoInternalApp.a */; };
 		E3094E621F05591900AF90D5 /* RNAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = E3094E571F05591900AF90D5 /* RNAnalytics.m */; };
 		E3094E631F05591900AF90D5 /* RNCrashes.m in Sources */ = {isa = PBXBuildFile; fileRef = E3094E5A1F05591900AF90D5 /* RNCrashes.m */; };
 		E3094E641F05591900AF90D5 /* RNCrashesDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3094E5C1F05591900AF90D5 /* RNCrashesDelegate.m */; };
@@ -24,6 +23,7 @@
 		E3094E661F05591900AF90D5 /* RNGoogleSignIn.m in Sources */ = {isa = PBXBuildFile; fileRef = E3094E611F05591900AF90D5 /* RNGoogleSignIn.m */; };
 		E3306BBD1F01F0B0008B0636 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3306BBC1F01F0B0008B0636 /* GoogleSignIn.framework */; };
 		E3306BBF1F01F119008B0636 /* GoogleSignIn.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = E3306BBE1F01F119008B0636 /* GoogleSignIn.bundle */; };
+		E3609D401F0AAB8200CC458C /* libPods-UenoInternalApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3609D3F1F0AAB8200CC458C /* libPods-UenoInternalApp.a */; };
 		E3F96BE81F055C1F00AD9869 /* RNGoogleSigninButtonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F96BE71F055C1F00AD9869 /* RNGoogleSigninButtonManager.m */; };
 		FACD0F140E0548AD82BE10DC /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F7C4061CEC4F42ED9B375295 /* libz.tbd */; };
 /* End PBXBuildFile section */
@@ -51,7 +51,7 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* UenoInternalAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UenoInternalAppTests.m; sourceTree = "<group>"; };
 		104782DBFE0F9F052F66A56B /* libPods-UenoInternalApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UenoInternalApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07F961A680F5B00A75B9A /* UenoInternalApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UenoInternalApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* ueno. (dev).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ueno. (dev).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = UenoInternalApp/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = UenoInternalApp/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -76,6 +76,8 @@
 		E3306BBC1F01F0B0008B0636 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSignIn.framework; path = Pods/GoogleSignIn/Frameworks/GoogleSignIn.framework; sourceTree = "<group>"; };
 		E3306BBE1F01F119008B0636 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleSignIn.bundle; path = Pods/GoogleSignIn/Resources/GoogleSignIn.bundle; sourceTree = "<group>"; };
 		E332E84C1F01D94000FBF391 /* UenoInternalApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = UenoInternalApp.entitlements; path = UenoInternalApp/UenoInternalApp.entitlements; sourceTree = "<group>"; };
+		E3609D3D1F0AA76D00CC458C /* libPods-UenoInternalApp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-UenoInternalApp.a"; path = "../../../Library/Developer/Xcode/DerivedData/UenoInternalApp-epxnnhjwdsnqxdhckxnmvmpnckse/Build/Products/Debug-iphonesimulator/libPods-UenoInternalApp.a"; sourceTree = "<group>"; };
+		E3609D3F1F0AAB8200CC458C /* libPods-UenoInternalApp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-UenoInternalApp.a"; path = "../../../Library/Developer/Xcode/DerivedData/UenoInternalApp-epxnnhjwdsnqxdhckxnmvmpnckse/Build/Products/Staging-iphonesimulator/libPods-UenoInternalApp.a"; sourceTree = "<group>"; };
 		E3F96BE71F055C1F00AD9869 /* RNGoogleSigninButtonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNGoogleSigninButtonManager.m; sourceTree = "<group>"; };
 		F7C4061CEC4F42ED9B375295 /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -92,10 +94,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3609D401F0AAB8200CC458C /* libPods-UenoInternalApp.a in Frameworks */,
 				E3306BBF1F01F119008B0636 /* GoogleSignIn.bundle in Frameworks */,
 				E3306BBD1F01F0B0008B0636 /* GoogleSignIn.framework in Frameworks */,
 				FACD0F140E0548AD82BE10DC /* libz.tbd in Frameworks */,
-				AC9D6D4EE34FC49A16B52534 /* libPods-UenoInternalApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,7 +187,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* UenoInternalApp.app */,
+				13B07F961A680F5B00A75B9A /* ueno. (dev).app */,
 				00E356EE1AD99517003FC87E /* UenoInternalAppTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* UenoInternalApp-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* UenoInternalApp-tvOSTests.xctest */,
@@ -196,6 +198,8 @@
 		BEFF88A1C283FD88EFCB6C1B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E3609D3F1F0AAB8200CC458C /* libPods-UenoInternalApp.a */,
+				E3609D3D1F0AA76D00CC458C /* libPods-UenoInternalApp.a */,
 				E3306BBE1F01F119008B0636 /* GoogleSignIn.bundle */,
 				E3306BBC1F01F0B0008B0636 /* GoogleSignIn.framework */,
 				F7C4061CEC4F42ED9B375295 /* libz.tbd */,
@@ -278,7 +282,7 @@
 			);
 			name = UenoInternalApp;
 			productName = "Hello World";
-			productReference = 13B07F961A680F5B00A75B9A /* UenoInternalApp.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* ueno. (dev).app */;
 			productType = "com.apple.product-type.application";
 		};
 		2D02E47A1E0B4A5D006451C7 /* UenoInternalApp-tvOS */ = {
@@ -594,16 +598,13 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UenoInternalApp.app/UenoInternalApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ueno. (dev).app/ueno. (dev)";
 			};
 			name = Debug;
 		};
@@ -625,16 +626,13 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UenoInternalApp.app/UenoInternalApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ueno..app/ueno.";
 			};
 			name = Release;
 		};
@@ -673,7 +671,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ueno.internal;
-				PRODUCT_NAME = UenoInternalApp;
+				PRODUCT_NAME = "ueno. (dev)";
 				PROVISIONING_PROFILE = "9b73063d-f9da-4ce1-bf9d-168bd7605196";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.ueno.internal";
 				SWIFT_VERSION = 3.0;
@@ -708,7 +706,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ueno.internal;
-				PRODUCT_NAME = UenoInternalApp;
+				PRODUCT_NAME = ueno.;
 				PROVISIONING_PROFILE = "9b73063d-f9da-4ce1-bf9d-168bd7605196";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.ueno.internal";
 				SWIFT_VERSION = 3.0;
@@ -973,6 +971,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Birkir Rafn Gudjonsson (***REMOVED***)";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/Staging$(EFFECTIVE_PLATFORM_NAME)";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ***REMOVED***;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -994,7 +993,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ueno.internal;
-				PRODUCT_NAME = UenoInternalApp;
+				PRODUCT_NAME = ueno.;
 				PROVISIONING_PROFILE = "9b73063d-f9da-4ce1-bf9d-168bd7605196";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.ueno.internal";
 				SWIFT_VERSION = 3.0;
@@ -1020,16 +1019,13 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UenoInternalApp.app/UenoInternalApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ueno..app/ueno.";
 			};
 			name = Staging;
 		};
