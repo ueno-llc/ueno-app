@@ -9,5 +9,9 @@ cp -r ./node_modules/mobile-center-analytics/ios/RNAnalytics ios/UenoInternalApp
 cp -r ./node_modules/mobile-center-analytics/ios/RNAnalytics ios/UenoInternalApp/.
 cp -r ./node_modules/react-native-google-signin/ios/RNGoogleSignin ios/UenoInternalApp/.
 
+# Fix this shit
+perl -pi -w -e 's/appName = scheme/appName = \'ueno. (dev)\'/g;' ./node_modules/react-native/local-cli/runIOS/runIOS.js
+
+
 # DONE
 echo "===> prebuild done"
