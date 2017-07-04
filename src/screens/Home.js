@@ -55,7 +55,7 @@ export default class Home extends Component {
   render() {
     const { height, opacity } = this;
     const { ui } = this.props;
-    const { isSignedIn, signOut, signIn } = this.props.user;
+    const { isValidOrganization, isSignedIn, signOut, signIn } = this.props.user;
     return (
       <View style={styles.background} onLayout={this.onLayout}>
         <Animated.View style={[styles.container, { height }]}>
@@ -63,7 +63,7 @@ export default class Home extends Component {
             <Text style={styles.logo}>ueno.</Text>
             <Text style={styles.subtitle}>internal app</Text>
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-              {isSignedIn ? (
+              {isSignedIn && isValidOrganization ? (
                 <View>
                   <Me />
                   <Button onPress={this.push('Articles')}>ARTICLES</Button>
@@ -77,7 +77,7 @@ export default class Home extends Component {
           </Animated.View>
         </Animated.View>
         <View style={styles.version}>
-          <Text style={styles.versionLabel}>ueno-internal-app {ui.appVersionString}</Text>
+          <Text style={styles.versionLabel}>ueno. {ui.appVersionString}</Text>
         </View>
       </View>
     );

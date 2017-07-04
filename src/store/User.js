@@ -1,5 +1,5 @@
 /* eslint no-console: 0 */
-import { Platform } from 'react-native';
+import { Platform, AlertIOS, ToastAndroid } from 'react-native';
 import { GoogleSignin } from 'react-native-google-signin';
 import { computed, observable } from 'mobx';
 import { autobind } from 'core-decorators';
@@ -18,6 +18,7 @@ export default class User {
         offlineAccess: false,
       });
       this.user = await GoogleSignin.currentUserAsync();
+      this.ensureAuthenticated();
     } catch (err) {
       console.log('Play services error %o %o', err.code, err.message);
     }
@@ -28,7 +29,27 @@ export default class User {
 
   @computed
   get isSignedIn() {
-    return !!this.user;
+    const isSignedIn = !!this.user;
+    return isSignedIn;
+  }
+
+  @computed
+  get isValidOrganization() {
+    const { email = '' } = this.user || {};
+    const isValid = email.indexOf('ueno.co') >= 0;
+    return isValid;
+  }
+
+  @autobind
+  async ensureAuthenticated() {
+    if (this.isSignedIn && !this.isValidOrganization) {
+      this.revokeAccess();
+      if (Platform.OS === 'ios') {
+        AlertIOS.alert('Error signing in', 'Not in the ueno.co organization');
+      } else if (Platform.OS === 'android') {
+        ToastAndroid.show('Error: Not in the ueno.co organization.');
+      }
+    }
   }
 
   @autobind
@@ -40,6 +61,7 @@ export default class User {
       this.onCheckSignIn();
     }
     this.user = await GoogleSignin.signIn();
+    this.ensureAuthenticated();
   }
 
   @autobind
@@ -52,6 +74,8 @@ export default class User {
     if (!this.user) {
       // Check again in 2 seconds
       setTimeout(this.onCheckSignIn, 2000);
+    } else {
+      this.ensureAuthenticated();
     }
   }
 
@@ -59,5 +83,11 @@ export default class User {
   async signOut() {
     await GoogleSignin.signOut();
     this.user = null;
+  }
+
+  @autobind
+  async revokeAccess() {
+    await GoogleSignin.revokeAccess();
+    this.signOut();
   }
 }
