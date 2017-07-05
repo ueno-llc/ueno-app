@@ -334,6 +334,8 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = ***REMOVED***;
+						ProvisioningStyle = Manual;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
@@ -583,6 +585,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = ***REMOVED***;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -606,6 +609,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ueno. (dev).app/ueno. (dev)";
 			};
 			name = Debug;
@@ -615,6 +619,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = ***REMOVED***;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
@@ -634,6 +639,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ueno..app/ueno.";
 			};
 			name = Release;
@@ -643,10 +649,10 @@
 			baseConfigurationReference = 80D1B18618D38E0B48222864 /* Pods-UenoInternalApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Birkir Rafn Gudjonsson (***REMOVED***)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = ***REMOVED***;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/GoogleSignIn/Frameworks",
@@ -674,8 +680,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ueno.internal-debug";
 				PRODUCT_NAME = "ueno. (dev)";
-				PROVISIONING_PROFILE = "9b73063d-f9da-4ce1-bf9d-168bd7605196";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.ueno.internal";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -686,7 +692,7 @@
 			baseConfigurationReference = 6D8D865C04F55B5E21ED6907 /* Pods-UenoInternalApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Birkir Rafn Gudjonsson (***REMOVED***)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ***REMOVED***;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -709,8 +715,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ueno.internal;
 				PRODUCT_NAME = ueno.;
-				PROVISIONING_PROFILE = "9b73063d-f9da-4ce1-bf9d-168bd7605196";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.ueno.internal";
+				PROVISIONING_PROFILE = "abec7868-3251-4438-a840-9cfc7a5c1a01";
+				PROVISIONING_PROFILE_SPECIFIER = "iOS development ueno internal";
 				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -972,7 +978,7 @@
 			baseConfigurationReference = 3EC116877DE741D0DE0AC321 /* Pods-UenoInternalApp.staging.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Birkir Rafn Gudjonsson (***REMOVED***)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/Staging$(EFFECTIVE_PLATFORM_NAME)";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ***REMOVED***;
@@ -996,8 +1002,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ueno.internal;
 				PRODUCT_NAME = ueno.;
-				PROVISIONING_PROFILE = "9b73063d-f9da-4ce1-bf9d-168bd7605196";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.ueno.internal";
+				PROVISIONING_PROFILE = "abec7868-3251-4438-a840-9cfc7a5c1a01";
+				PROVISIONING_PROFILE_SPECIFIER = "iOS development ueno internal";
 				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1008,6 +1014,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = ***REMOVED***;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
@@ -1027,6 +1034,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ueno..app/ueno.";
 			};
 			name = Staging;
