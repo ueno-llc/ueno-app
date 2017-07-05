@@ -38,7 +38,6 @@ export default class UI {
 
   @autobind
   async persistScreen(screen) {
-    console.log('Persisting screen %o', screen.screen);
     try {
       await AsyncStorage.setItem('@UenoInternalApp:screen', JSON.stringify(screen));
     } catch (err) {

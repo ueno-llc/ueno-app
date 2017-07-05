@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Animated, Dimensions, StyleSheet, VirtualizedList, Image, View, Text } from 'react-native';
+import { Animated, Dimensions, StyleSheet, VirtualizedList, Image, View, Text, Linking, TouchableOpacity } from 'react-native';
 import { graphql } from 'react-apollo';
 import { observer } from 'mobx-react/native';
 import { observable } from 'mobx';
@@ -73,6 +73,8 @@ export default class Articles extends Component {
 
     const topOffset = Array.from(this.items.values()).slice(0, index).reduce((a, b) => a + b, 0);
     const inputRange = [topOffset - height, topOffset];
+    const onPress = () => Linking.canOpenURL(item.url)
+      .then(isSupported => isSupported && Linking.openURL(item.url));
 
     if (index === 0) {
       // We have no height for first item.
@@ -82,37 +84,39 @@ export default class Articles extends Component {
     }
 
     return (
-      <View onLayout={e => this.items.set(index, e.nativeEvent.layout.height)}>
-        <View style={{ height: width, overflow: 'hidden' }}>
-          <Animated.View
-            style={{
-              top: this.state.scrollY.interpolate({
-                inputRange,
-                outputRange: [0, -100],
-                extrapolate: 'clamp',
-              }),
-            }}
-          >
-            <Image
-              source={{ uri: `https:${item.image}` }}
-              resizeMode="contain"
-              style={styles.image}
-            />
-          </Animated.View>
+      <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
+        <View onLayout={e => this.items.set(index, e.nativeEvent.layout.height)}>
+          <View style={{ height: width, overflow: 'hidden' }}>
+            <Animated.View
+              style={{
+                top: this.state.scrollY.interpolate({
+                  inputRange,
+                  outputRange: [0, -100],
+                  extrapolate: 'clamp',
+                }),
+              }}
+            >
+              <Image
+                source={{ uri: `https:${item.image}` }}
+                resizeMode="contain"
+                style={styles.image}
+              />
+            </Animated.View>
+          </View>
+          <View style={styles.card}>
+            <Text style={styles.title}>{item.title}</Text>
+            <Text style={styles.description}>{item.description}</Text>
+          </View>
         </View>
-        <View style={styles.card}>
-          <Text style={styles.title}>{item.title}</Text>
-          <Text style={styles.description}>{item.description}</Text>
-        </View>
-      </View>
+      </TouchableOpacity>
     );
   }
 
   render() {
     const {
       articles = [],
-      loading,
-      refetch,
+      // loading,
+      // refetch,
     } = this.props.articles;
 
     return (
@@ -126,8 +130,8 @@ export default class Articles extends Component {
           getItemCount={data => data.length}
           getItem={(data, i) => data[i]}
           keyExtractor={item => item.id}
-          refreshing={loading}
-          onRefresh={refetch}
+          // refreshing={loading}
+          // onRefresh={refetch}
           onEndReached={this.onEndReached}
         />
       </View>

@@ -27,6 +27,7 @@ target 'UenoInternalApp' do
     'RCTAnimation',
     'RCTImage',
     'RCTNetwork',
+    'RCTLinkingIOS',
     'DevSupport',
     # Add any other subspecs you want to use in your project
   ]
