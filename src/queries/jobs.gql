@@ -1,0 +1,22 @@
+query Jobs($limit: Int, $after: String) {
+  applications(limit: $limit, after: $after) {
+    cursor
+    hasMore
+    items {
+      id
+      # created
+      email
+      # externals {
+      #   name
+      #   url
+      # }
+      job {
+        position
+        location
+        # type
+      }
+      # visaStatus
+      # messageStatus
+    }
+  }
+}

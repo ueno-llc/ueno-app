@@ -68,6 +68,7 @@ export default class Home extends Component {
                   <Me />
                   <Button onPress={this.push('Articles')}>ARTICLES</Button>
                   <Button onPress={this.push('Contacts')}>CONTACTS</Button>
+                  <Button onPress={this.push('JobApplications')}>JOB APPLICATIONS</Button>
                   <Button onPress={signOut}>SIGN OUT</Button>
                 </View>
               ) : (
