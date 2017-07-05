@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { inject, observer } from 'mobx-react/native';
 import { observable } from 'mobx';
-import { StyleSheet, Text, Animated, View, Easing } from 'react-native';
+import { Alert, StyleSheet, TouchableWithoutFeedback, Text, Animated, View, Easing } from 'react-native';
 
 import Me from 'components/me';
 import Button from 'components/button';
@@ -39,6 +39,36 @@ export default class Home extends Component {
     const { height } = e.nativeEvent.layout;
     this.animateScreenIn(height);
   }
+
+  onVersionPress = () => {
+    this.isDeveloperCount += 1;
+    if (this.isDeveloperCount === 5) {
+      this.isDeveloperCount = 0;
+      const { appMetaData, codePushConfiguration } = this.props.ui;
+      const {
+        appVersion,
+        buildVersion,
+        deploymentKey,
+        clientUniqueId,
+        serverUrl,
+      } = codePushConfiguration;
+
+      Alert.alert(`ueno. v${appVersion} (Build ${buildVersion})`, `
+deploymentKey
+${deploymentKey || 'NONE'}
+
+clientUniqueId
+${clientUniqueId}
+
+serverUrl
+${serverUrl}${appMetaData ? `
+
+Package hash
+${appMetaData.packageHash}` : ''}`);
+    }
+  }
+
+  isDeveloperCount = 0;
 
   animateScreenIn(height) {
     Animated.sequence([
@@ -86,9 +116,11 @@ export default class Home extends Component {
             </View>
           </Animated.View>
         </Animated.View>
-        <View style={styles.version}>
-          <Text style={styles.versionLabel}>ueno. {ui.appVersionString}</Text>
-        </View>
+        <TouchableWithoutFeedback onPress={this.onVersionPress}>
+          <View style={styles.version}>
+            <Text style={styles.versionLabel}>ueno. {ui.appVersionString}</Text>
+          </View>
+        </TouchableWithoutFeedback>
       </View>
     );
   }

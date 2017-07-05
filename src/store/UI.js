@@ -57,8 +57,12 @@ export default class UI {
   @observable
   appMetaData = null;
 
+  @observable
+  codePushConfiguration = null;
+
   async getUpdateMetadata() {
     const update = await codePush.getUpdateMetadata();
+    this.codePushConfiguration = await codePush.getConfiguration();
     if (!update) return;
     this.appMetaData = update;
   }
@@ -66,7 +70,11 @@ export default class UI {
   @computed
   get appVersionString() {
     const update = this.appMetaData;
-    if (!update) return '~';
+    const configuration = this.codePushConfiguration;
+    if (!update) {
+      if (!configuration) return '~';
+      return `${configuration.appVersion} (Build ${configuration.buildVersion})`;
+    }
     return `${update.appVersion} (${update.label}-${update.packageHash.substr(0, 7)})`;
   }
 }
