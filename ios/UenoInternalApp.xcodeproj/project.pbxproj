@@ -16,6 +16,7 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* UenoInternalAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* UenoInternalAppTests.m */; };
+		75CDD940A2C467FB1AB4E701 /* libPods-UenoInternalApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 104782DBFE0F9F052F66A56B /* libPods-UenoInternalApp.a */; };
 		E3094E621F05591900AF90D5 /* RNAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = E3094E571F05591900AF90D5 /* RNAnalytics.m */; };
 		E3094E631F05591900AF90D5 /* RNCrashes.m in Sources */ = {isa = PBXBuildFile; fileRef = E3094E5A1F05591900AF90D5 /* RNCrashes.m */; };
 		E3094E641F05591900AF90D5 /* RNCrashesDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3094E5C1F05591900AF90D5 /* RNCrashesDelegate.m */; };
@@ -98,6 +99,7 @@
 				E3306BBF1F01F119008B0636 /* GoogleSignIn.bundle in Frameworks */,
 				E3306BBD1F01F0B0008B0636 /* GoogleSignIn.framework in Frameworks */,
 				FACD0F140E0548AD82BE10DC /* libz.tbd in Frameworks */,
+				75CDD940A2C467FB1AB4E701 /* libPods-UenoInternalApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

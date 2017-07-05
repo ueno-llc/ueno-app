@@ -3,13 +3,14 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "postinstall": "sh ./scripts/prebuild.sh; (cd ios; pod repo update; pod install)",
+    "postinstall": "node ./scripts/prebuild.js; (cd ios; pod repo update; pod install)",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "lint": "eslint src"
   },
   "dependencies": {
     "core-decorators": "0.19.0",
+    "fs-extra": "3.0.1",
     "mobile-center-analytics": "0.6.0",
     "mobile-center-crashes": "0.6.0",
     "mobx": "3.1.16",
@@ -20,7 +21,8 @@
     "react-native": "0.45.1",
     "react-native-code-push": "3.0.0-beta",
     "react-native-google-signin": "0.10.0",
-    "react-native-navigation": "1.1.125"
+    "react-native-navigation": "1.1.125",
+    "replace-in-file": "2.5.3"
   },
   "devDependencies": {
     "babel-eslint": "7.2.3",
