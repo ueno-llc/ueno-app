@@ -17,11 +17,22 @@ export default class Home extends Component {
     ui: PropTypes.object, // eslint-disable-line
     navigator: PropTypes.shape({
       push: PropTypes.func,
+      setOnNavigatorEvent: PropTypes.func,
     }).isRequired,
   };
 
   componentDidMount() {
     this.props.user.setup();
+    // Set as root navigator
+    this.props.ui.navigator = this.props.navigator;
+    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
+  }
+
+  onNavigatorEvent = (e) => {
+    if (e.type === 'ScreenChangedEvent' && e.id === 'didAppear') {
+      // Always start the app with this screen if it was the last shown screen
+      this.props.ui.screen = { screen: 'Home' };
+    }
   }
 
   onLayout = (e) => {
@@ -44,13 +55,11 @@ export default class Home extends Component {
     ]).start();
   }
 
-  @observable height = new Animated.Value(0)
-  @observable opacity = new Animated.Value(0)
+  @observable
+  height = new Animated.Value(0);
 
-  push = screen => () => this.props.navigator.push({
-    screen,
-    animationType: 'slide-horizontal',
-  });
+  @observable
+  opacity = new Animated.Value(0);
 
   render() {
     const { height, opacity } = this;
@@ -66,9 +75,9 @@ export default class Home extends Component {
               {isSignedIn && isValidOrganization ? (
                 <View>
                   <Me />
-                  <Button onPress={this.push('Articles')}>ARTICLES</Button>
-                  <Button onPress={this.push('Contacts')}>CONTACTS</Button>
-                  <Button onPress={this.push('JobApplications')}>JOB APPLICATIONS</Button>
+                  <Button onPress={() => ui.push({ screen: 'Articles' })}>ARTICLES</Button>
+                  <Button onPress={() => ui.push({ screen: 'Contacts' })}>CONTACTS</Button>
+                  <Button onPress={() => ui.push({ screen: 'JobApplications' })}>JOB APPLICATIONS</Button>
                   <Button onPress={signOut}>SIGN OUT</Button>
                 </View>
               ) : (

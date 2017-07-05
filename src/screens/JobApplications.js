@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Animated, Dimensions, StyleSheet, VirtualizedList, Image, View, Text } from 'react-native';
+import { StyleSheet, VirtualizedList, View, Text } from 'react-native';
 import { graphql } from 'react-apollo';
 import { autobind } from 'core-decorators';
 import jobsQuery from 'queries/jobs.gql';
-// import test from 'queries/articles.gql';
 
 const jobsOptions = {
   name: 'jobs',
@@ -16,8 +15,11 @@ const jobsOptions = {
   },
 };
 
+const TITLE = 'Job Applications';
+
 @graphql(jobsQuery, jobsOptions)
 export default class JobApplications extends Component {
+
   static propTypes = {
     jobs: PropTypes.shape({
       applications: PropTypes.object,
@@ -25,10 +27,14 @@ export default class JobApplications extends Component {
       refetch: PropTypes.func,
       fetchMore: PropTypes.func,
     }).isRequired,
+    navigator: PropTypes.shape({
+      setTitle: PropTypes.func,
+    }).isRequired,
   }
 
-  state = {
-    scrollY: new Animated.Value(0),
+  componentDidMount() {
+    const { navigator } = this.props;
+    navigator.setTitle({ title: TITLE });
   }
 
   @autobind
@@ -62,7 +68,7 @@ export default class JobApplications extends Component {
     });
   }
 
-  renderItem({ item, index }) {
+  renderItem({ item }) {
     return (
       <View style={styles.card}>
         <Text style={styles.title}>{`${item.email}`}</Text>
@@ -86,9 +92,6 @@ export default class JobApplications extends Component {
           onRefresh={refetch}
           keyExtractor={item => item.id}
           onEndReached={this.onEndReached}
-          onScroll={Animated.event([{
-            nativeEvent: { contentOffset: { y: this.state.scrollY } },
-          }])}
         />
       </View>
     );

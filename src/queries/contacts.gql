@@ -1,0 +1,16 @@
+# NOTE: GraphQL queries are cached hardly. File change is needed where query is imported.
+# Sorry.
+query Contacts($limit: Int, $after: String) {
+  contacts(limit: $limit, after: $after) {
+    cursor
+    hasMore
+    items {
+      id
+      created
+      name
+      email
+      message
+      avatarUrl
+    }
+  }
+}
