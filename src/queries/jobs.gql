@@ -4,7 +4,7 @@ query Jobs($limit: Int, $after: String) {
     hasMore
     items {
       id
-      # created
+      created
       email
       # externals {
       #   name
@@ -15,6 +15,7 @@ query Jobs($limit: Int, $after: String) {
         location
         # type
       }
+      avatarUrl
       # visaStatus
       # messageStatus
     }

@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, VirtualizedList, View, Text } from 'react-native';
+import { StyleSheet, SectionList, View, Text, Image, TouchableOpacity } from 'react-native';
 import { graphql } from 'react-apollo';
 import { autobind } from 'core-decorators';
+import { inject } from 'mobx-react/native';
 import jobsQuery from 'queries/jobs.gql';
 
 const jobsOptions = {
   name: 'jobs',
   options: {
     variables: {
-      limit: 5,
+      limit: 20,
     },
     fetchPolicy: 'network-only',
   },
@@ -17,6 +18,7 @@ const jobsOptions = {
 
 const TITLE = 'Job Applications';
 
+@inject('ui')
 @graphql(jobsQuery, jobsOptions)
 export default class JobApplications extends Component {
 
@@ -29,6 +31,9 @@ export default class JobApplications extends Component {
     }).isRequired,
     navigator: PropTypes.shape({
       setTitle: PropTypes.func,
+    }).isRequired,
+    ui: PropTypes.shape({
+      push: PropTypes.func,
     }).isRequired,
   }
 
@@ -68,11 +73,33 @@ export default class JobApplications extends Component {
     });
   }
 
+  @autobind
   renderItem({ item }) {
+    const onPress = () => this.props.ui.push({
+      screen: 'JobApplicationDetail',
+      title: item.email,
+      passProps: { item },
+    });
+
     return (
-      <View style={styles.card}>
-        <Text style={styles.title}>{`${item.email}`}</Text>
-        <Text>{item.job.position} - {item.job.location}</Text>
+      <TouchableOpacity onPress={onPress}>
+        <View style={styles.item}>
+          <View style={styles.itemAvatar}>
+            <Image style={styles.itemAvatarImage} source={{ uri: item.avatarUrl }} />
+          </View>
+          <View style={styles.itemDetails}>
+            <Text style={styles.itemTitle}>{`${item.email}`}</Text>
+            <Text>{item.job.position} - {item.job.location}</Text>
+          </View>
+        </View>
+      </TouchableOpacity>
+    );
+  }
+
+  renderSectionHeader({ section }) {
+    return (
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>{section.title}</Text>
       </View>
     );
   }
@@ -81,11 +108,22 @@ export default class JobApplications extends Component {
     const { applications = {}, loading, refetch } = this.props.jobs;
     const { items = [] } = applications;
 
+    const groups = items.reduce((obj, item) => {
+      const date = (new Date(+item.created)).toDateString();
+      (obj[date] || (obj[date] = [])).push(item);
+
+      return obj;
+    }, {});
+
+    const sections = Object.entries(groups)
+      .map(([title, data]) => ({ title, data }));
+
     return (
       <View style={{ flex: 1 }}>
-        <VirtualizedList
-          data={items}
+        <SectionList
+          sections={sections}
           renderItem={this.renderItem}
+          renderSectionHeader={this.renderSectionHeader}
           getItem={(data, i) => data[i]}
           getItemCount={data => data.length}
           refreshing={loading}
@@ -103,10 +141,45 @@ const styles = StyleSheet.create({
     padding: 20,
   },
 
-  title: {
+  item: {
+    padding: 10,
+    flexDirection: 'row',
+  },
+
+  itemAvatar: {
+    paddingRight: 10,
+  },
+
+  itemAvatarImage: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+  },
+
+  itemDetails: {
+    flexDirection: 'column',
+    flex: 1,
+  },
+
+  itemTitle: {
     color: '#000000',
     fontFamily: 'HelveticaNeue',
     fontSize: 18,
     marginBottom: 10,
+  },
+
+  section: {
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 5,
+    paddingBottom: 5,
+    backgroundColor: '#F5F5F5',
+    borderBottomColor: '#E0E0E0',
+    borderBottomWidth: 1,
+  },
+
+  sectionTitle: {
+    fontSize: 13,
+    color: '#444444',
   },
 });
