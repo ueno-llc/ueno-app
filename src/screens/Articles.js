@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Animated, Dimensions, StyleSheet, VirtualizedList, Image, View, Text, Linking, TouchableOpacity } from 'react-native';
+import { Animated, Dimensions, StyleSheet, VirtualizedList, Image, View, Text, TouchableOpacity } from 'react-native';
 import { graphql } from 'react-apollo';
-import { observer } from 'mobx-react/native';
+import { observer, inject } from 'mobx-react/native';
 import { observable } from 'mobx';
 import { autobind } from 'core-decorators';
 import articlesQuery from 'queries/articles.gql';
@@ -20,6 +20,7 @@ const articlesOptions = {
   },
 };
 
+@inject('ui')
 @observer
 @graphql(articlesQuery, articlesOptions)
 export default class Articles extends Component {
@@ -34,6 +35,9 @@ export default class Articles extends Component {
     }).isRequired,
     navigator: PropTypes.shape({
       setTitle: PropTypes.func,
+    }).isRequired,
+    ui: PropTypes.shape({
+      push: PropTypes.func,
     }).isRequired,
   }
 
@@ -73,8 +77,14 @@ export default class Articles extends Component {
 
     const topOffset = Array.from(this.items.values()).slice(0, index).reduce((a, b) => a + b, 0);
     const inputRange = [topOffset - height, topOffset];
-    const onPress = () => Linking.canOpenURL(item.url)
-      .then(isSupported => isSupported && Linking.openURL(item.url));
+    const onPress = () => this.props.ui.push({
+      screen: 'ArticlesDetail',
+      title: item.title,
+      passProps: {
+        title: item.title,
+        url: item.url,
+      },
+    });
 
     if (index === 0) {
       // We have no height for first item.

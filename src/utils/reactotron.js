@@ -1,3 +1,4 @@
+/* global __DEV__ */
 import { spy } from 'mobx';
 
 const getNameForThis = (who) => {
@@ -13,7 +14,6 @@ const getNameForThis = (who) => {
   return `${typeof who}`;
 };
 
-/* global __DEV__ */
 if (__DEV__) {
   // eslint-disable-next-line global-require, import/no-extraneous-dependencies
   const Reactotron = require('reactotron-react-native').default;
