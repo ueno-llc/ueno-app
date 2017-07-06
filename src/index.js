@@ -1,4 +1,5 @@
 /* eslint global-require: 0 */
+import 'utils/reactotron';
 import { Navigation } from 'react-native-navigation';
 import registerConnectedScreen from './utils/registerConnectedScreen';
 import Home from './screens/Home';
