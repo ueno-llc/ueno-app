@@ -36,7 +36,7 @@ if (__DEV__) {
       } break;
 
       case 'update': {
-        const path = [getNameForThis(rest.object).replace(/@\d+$/, ''), rest.name].filter(n => String(n).trim() !== '').join('.');
+        const path = [String(getNameForThis(rest.object)).replace(/@\d+$/, ''), rest.name].filter(n => String(n).trim() !== '').join('.');
         const value = rest.newValue;
         Reactotron.send('state.values.response', { path, value, valid: true }, false);
       } break;
