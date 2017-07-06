@@ -28,6 +28,11 @@ react-native run-android --appIdSuffix=debug
 
 Use [fastlane](./fastlane/README.md) if you are going to be publishing, deploying or testing releases.
 
+
+### Debugging
+
+[Reactotron](https://github.com/infinitered/reactotron) is enabled in development mode, they have both GUI and CLI to view mobx actions and network requests.
+
 Pipeline
 ========
 

@@ -1,6 +1,6 @@
 import codePush from 'react-native-code-push';
 import { AsyncStorage } from 'react-native';
-import { observable, computed, reaction } from 'mobx';
+import { observable, computed, action, reaction } from 'mobx';
 import { autobind } from 'core-decorators';
 
 export default class UI {
@@ -23,6 +23,7 @@ export default class UI {
   };
 
   @autobind
+  @action
   async restoreScreen() {
     try {
       const screen = JSON.parse(await AsyncStorage.getItem('@UenoInternalApp:screen'));
@@ -37,6 +38,7 @@ export default class UI {
   }
 
   @autobind
+  @action
   async persistScreen(screen) {
     try {
       await AsyncStorage.setItem('@UenoInternalApp:screen', JSON.stringify(screen));
@@ -46,6 +48,7 @@ export default class UI {
   }
 
   @autobind
+  @action
   push(screen) {
     this.screen = screen;
     this.navigator.push({
@@ -60,6 +63,7 @@ export default class UI {
   @observable
   codePushConfiguration = null;
 
+  @action
   async getUpdateMetadata() {
     const update = await codePush.getUpdateMetadata();
     this.codePushConfiguration = await codePush.getConfiguration();
