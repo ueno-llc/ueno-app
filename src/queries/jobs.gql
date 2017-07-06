@@ -6,18 +6,11 @@ query Jobs($limit: Int, $after: String) {
       id
       created
       email
-      # externals {
-      #   name
-      #   url
-      # }
       job {
         position
         location
-        # type
       }
       avatarUrl
-      # visaStatus
-      # messageStatus
     }
   }
 }
