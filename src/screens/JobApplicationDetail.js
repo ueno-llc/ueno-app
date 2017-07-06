@@ -16,19 +16,20 @@ const queryOptions = {
 @graphql(jobDetailQuery, queryOptions)
 export default class JobApplicationDetail extends Component {
   static propTypes = {
-    data: {
-      application: {
+    data: PropTypes.shape({
+      application: PropTypes.shape({
         email: PropTypes.string,
         avatarUrl: PropTypes.string,
         job: PropTypes.object,
         created: PropTypes.string,
         externals: PropTypes.array,
-      },
-    }.isRequired,
+      }),
+      loading: PropTypes.bool,
+    }).isRequired,
   }
 
   render() {
-    const { application = { job: {} } } = this.props.data;
+    const { application = { job: {} }, loading } = this.props.data;
     const {
       email,
       avatarUrl,
@@ -37,6 +38,8 @@ export default class JobApplicationDetail extends Component {
       externals = [],
       visaStatus,
     } = application;
+
+    if (loading) return null;
 
     return (
       <View style={styles.container}>

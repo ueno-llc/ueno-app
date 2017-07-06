@@ -12,7 +12,6 @@ const jobsOptions = {
     variables: {
       limit: 20,
     },
-    fetchPolicy: 'network-only',
   },
 };
 
@@ -165,7 +164,6 @@ const styles = StyleSheet.create({
     color: '#000000',
     fontFamily: 'HelveticaNeue',
     fontSize: 18,
-    marginBottom: 10,
   },
 
   section: {
