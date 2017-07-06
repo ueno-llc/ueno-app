@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, SectionList, View, Text, Image } from 'react-native';
+import { StyleSheet, SectionList, View, Text, Image, TouchableOpacity } from 'react-native';
 import { graphql } from 'react-apollo';
 import { autobind } from 'core-decorators';
+import { inject } from 'mobx-react/native';
 import jobsQuery from 'queries/jobs.gql';
 
 const jobsOptions = {
   name: 'jobs',
   options: {
     variables: {
-      limit: 5,
+      limit: 20,
     },
     fetchPolicy: 'network-only',
   },
@@ -17,6 +18,7 @@ const jobsOptions = {
 
 const TITLE = 'Job Applications';
 
+@inject('ui')
 @graphql(jobsQuery, jobsOptions)
 export default class JobApplications extends Component {
 
@@ -29,6 +31,9 @@ export default class JobApplications extends Component {
     }).isRequired,
     navigator: PropTypes.shape({
       setTitle: PropTypes.func,
+    }).isRequired,
+    ui: PropTypes.shape({
+      push: PropTypes.func,
     }).isRequired,
   }
 
@@ -68,17 +73,26 @@ export default class JobApplications extends Component {
     });
   }
 
+  @autobind
   renderItem({ item }) {
+    const onPress = () => this.props.ui.push({
+      screen: 'JobApplicationDetail',
+      title: item.email,
+      passProps: { item },
+    });
+
     return (
-      <View style={styles.item}>
-        <View style={styles.itemAvatar}>
-          <Image style={styles.itemAvatarImage} source={{ uri: item.avatarUrl }} />
+      <TouchableOpacity onPress={onPress}>
+        <View style={styles.item}>
+          <View style={styles.itemAvatar}>
+            <Image style={styles.itemAvatarImage} source={{ uri: item.avatarUrl }} />
+          </View>
+          <View style={styles.itemDetails}>
+            <Text style={styles.itemTitle}>{`${item.email}`}</Text>
+            <Text>{item.job.position} - {item.job.location}</Text>
+          </View>
         </View>
-        <View style={styles.itemDetails}>
-          <Text style={styles.itemTitle}>{`${item.email}`}</Text>
-          <Text>{item.job.position} - {item.job.location}</Text>
-        </View>
-      </View>
+      </TouchableOpacity>
     );
   }
 

@@ -6,10 +6,12 @@ import Articles from './screens/Articles';
 import Contacts from './screens/Contacts';
 import ContactsDetail from './screens/ContactsDetail';
 import JobApplications from './screens/JobApplications';
+import JobApplicationDetail from './screens/JobApplicationDetail';
 
 registerConnectedScreen('Home', () => Home);
 registerConnectedScreen('Articles', () => Articles);
 registerConnectedScreen('JobApplications', () => JobApplications);
+registerConnectedScreen('JobApplicationDetail', () => JobApplicationDetail);
 registerConnectedScreen('Contacts', () => Contacts);
 registerConnectedScreen('ContactsDetail', () => ContactsDetail);
 

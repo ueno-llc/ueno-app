@@ -1,0 +1,19 @@
+query Jobs($id: String) {
+  application(id: $id) {
+    id
+    created
+    email
+    externals {
+      name
+      url
+    }
+    job {
+      position
+      location
+      # type
+    }
+    avatarUrl
+    visaStatus
+    # messageStatus
+  }
+}
