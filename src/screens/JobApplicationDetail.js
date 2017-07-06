@@ -6,11 +6,11 @@ import jobDetailQuery from 'queries/job.gql';
 
 const queryOptions = {
   name: 'data',
-  options: {
+  options: ({ item }) => ({
     variables: {
-      id: '-KoMfgv3hqI6fKCHUap8',
+      id: item.id,
     },
-  },
+  }),
 };
 
 @graphql(jobDetailQuery, queryOptions)
