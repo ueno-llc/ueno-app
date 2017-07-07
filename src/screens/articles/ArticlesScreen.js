@@ -9,8 +9,6 @@ import articlesQuery from 'queries/articles.gql';
 import { ARTICLES_DETAIL_SCREEN } from 'screens';
 import { PRIMARY_COLOR_TEXT } from 'theme';
 
-const { width, height } = Dimensions.get('window');
-
 const articlesOptions = {
   name: 'articles',
   options: {
@@ -35,7 +33,6 @@ export default class ArticlesScreen extends Component {
       fetchMore: PropTypes.func,
     }).isRequired,
     navigator: PropTypes.shape({
-      setTitle: PropTypes.func,
       push: PropTypes.func,
     }).isRequired,
   }
@@ -49,11 +46,6 @@ export default class ArticlesScreen extends Component {
 
   state = {
     scrollY: new Animated.Value(0),
-  }
-
-  componentDidMount() {
-    const { navigator } = this.props;
-    navigator.setTitle({ title: 'Articles' });
   }
 
   @autobind
@@ -75,6 +67,15 @@ export default class ArticlesScreen extends Component {
     });
   }
 
+  @autobind
+  onLayout() {
+    // Update dimensions of viewport
+    this.dimensions = Dimensions.get('window');
+  }
+
+  @observable
+  dimensions = Dimensions.get('window');
+
   @observable
   items = new Map();
 
@@ -82,7 +83,7 @@ export default class ArticlesScreen extends Component {
   renderItem({ item, index }) {
 
     const topOffset = Array.from(this.items.values()).slice(0, index).reduce((a, b) => a + b, 0);
-    const inputRange = [topOffset - height, topOffset];
+    const inputRange = [topOffset - this.dimensions.height, topOffset];
     const onPress = () => this.props.navigator.push({
       screen: ARTICLES_DETAIL_SCREEN,
       title: item.title,
@@ -95,14 +96,14 @@ export default class ArticlesScreen extends Component {
     if (index === 0) {
       // We have no height for first item.
       // Let's just assume it.
-      inputRange[0] = -height;
-      inputRange[1] = height;
+      inputRange[0] = -this.dimensions.height;
+      inputRange[1] = this.dimensions.height;
     }
 
     return (
       <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
         <View onLayout={e => this.items.set(index, e.nativeEvent.layout.height)}>
-          <View style={{ height: width, overflow: 'hidden' }}>
+          <View style={{ height: this.dimensions.width, overflow: 'hidden' }}>
             <Animated.View
               style={{
                 transform: [{
@@ -117,7 +118,10 @@ export default class ArticlesScreen extends Component {
               <Image
                 source={{ uri: `https:${item.image}` }}
                 resizeMode="contain"
-                style={styles.image}
+                style={{
+                  width: this.dimensions.width,
+                  height: this.dimensions.width * (380 / 300),
+                }}
               />
             </Animated.View>
           </View>
@@ -147,7 +151,7 @@ export default class ArticlesScreen extends Component {
     }
 
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, width: this.dimensions.width }} onLayout={this.onLayout}>
         <VirtualizedList
           data={articles}
           renderItem={this.renderItem}
@@ -172,11 +176,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
-  },
-
-  image: {
-    width,
-    height: width * (380 / 300),
   },
 
   card: {
