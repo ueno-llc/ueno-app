@@ -1,4 +1,4 @@
-query Jobs($id: String) {
+query Jobs($id: ID!) {
   application(id: $id) {
     id
     created

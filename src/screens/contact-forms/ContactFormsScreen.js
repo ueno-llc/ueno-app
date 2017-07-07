@@ -5,6 +5,7 @@ import { graphql } from 'react-apollo';
 import { observer, inject } from 'mobx-react/native';
 import { autobind } from 'core-decorators';
 import contactsQuery from 'queries/contacts.gql';
+import { CONTACT_FORMS_DETAIL_SCREEN } from 'screens';
 
 const contactsOptions = {
   name: 'contacts',
@@ -16,12 +17,10 @@ const contactsOptions = {
   },
 };
 
-const TITLE = 'Contacts';
-
 @inject('ui')
 @observer
 @graphql(contactsQuery, contactsOptions)
-export default class Contacts extends Component {
+export default class ContactScreen extends Component {
 
   static propTypes = {
     contacts: PropTypes.shape({
@@ -31,16 +30,8 @@ export default class Contacts extends Component {
       fetchMore: PropTypes.func,
     }).isRequired,
     navigator: PropTypes.shape({
-      setTitle: PropTypes.func,
-    }).isRequired,
-    ui: PropTypes.shape({
       push: PropTypes.func,
     }).isRequired,
-  }
-
-  componentDidMount() {
-    const { navigator } = this.props;
-    navigator.setTitle({ title: TITLE });
   }
 
   @autobind
@@ -77,8 +68,8 @@ export default class Contacts extends Component {
   @autobind
   renderItem({ item }) {
 
-    const onPress = () => this.props.ui.push({
-      screen: 'ContactsDetail',
+    const onPress = () => this.props.navigator.push({
+      screen: CONTACT_FORMS_DETAIL_SCREEN,
       title: item.name,
       passProps: { item },
     });
@@ -129,8 +120,6 @@ export default class Contacts extends Component {
           renderSectionHeader={this.renderSectionHeader}
           getItem={(data, i) => data[i]}
           getItemCount={data => data.length}
-          // refreshing={loading}
-          // onRefresh={refetch}
           keyExtractor={item => item.id}
           onEndReached={this.onEndReached}
         />

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Animated, Dimensions, StyleSheet, VirtualizedList, Image, View, Text, TouchableOpacity } from 'react-native';
+import { Animated, Dimensions, StyleSheet, VirtualizedList, Image, View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { graphql } from 'react-apollo';
-import { observer, inject } from 'mobx-react/native';
+import { observer } from 'mobx-react/native';
 import { observable } from 'mobx';
 import { autobind } from 'core-decorators';
 import articlesQuery from 'queries/articles.gql';
+import { ARTICLES_DETAIL_SCREEN } from 'screens';
 
 const { width, height } = Dimensions.get('window');
 
@@ -20,10 +21,9 @@ const articlesOptions = {
   },
 };
 
-@inject('ui')
-@observer
 @graphql(articlesQuery, articlesOptions)
-export default class Articles extends Component {
+@observer
+export default class ArticlesScreen extends Component {
 
   static propTypes = {
     articles: PropTypes.shape({
@@ -35,8 +35,6 @@ export default class Articles extends Component {
     }).isRequired,
     navigator: PropTypes.shape({
       setTitle: PropTypes.func,
-    }).isRequired,
-    ui: PropTypes.shape({
       push: PropTypes.func,
     }).isRequired,
   }
@@ -77,8 +75,8 @@ export default class Articles extends Component {
 
     const topOffset = Array.from(this.items.values()).slice(0, index).reduce((a, b) => a + b, 0);
     const inputRange = [topOffset - height, topOffset];
-    const onPress = () => this.props.ui.push({
-      screen: 'ArticlesDetail',
+    const onPress = () => this.props.navigator.push({
+      screen: ARTICLES_DETAIL_SCREEN,
       title: item.title,
       passProps: {
         title: item.title,
@@ -125,12 +123,21 @@ export default class Articles extends Component {
   render() {
     const {
       articles = [],
-      // loading,
-      // refetch,
+      error,
     } = this.props.articles;
 
+    if (error) {
+      return (
+        <ScrollView>
+          <View style={{ height: 1000, backgroundColor: '#AEC' }}>
+            <Text>Hello</Text>
+          </View>
+        </ScrollView>
+      );
+    }
+
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, marginBottom: -64 }}>
         <VirtualizedList
           data={articles}
           renderItem={this.renderItem}
@@ -140,8 +147,6 @@ export default class Articles extends Component {
           getItemCount={data => data.length}
           getItem={(data, i) => data[i]}
           keyExtractor={item => item.id}
-          // refreshing={loading}
-          // onRefresh={refetch}
           onEndReached={this.onEndReached}
         />
       </View>

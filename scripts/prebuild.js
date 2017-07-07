@@ -28,3 +28,27 @@ replace({
 fs.remove(path.join(__dirname, '..', 'node_modules/react-native/node_modules/simple-plist/node_modules/base64-js'))
 .then(() => console.log('Removed duplicate node_modules'))
 .catch(err => console.error('Error removing duplicate node_modules', err));
+
+// Add blur option to react-native-navigation's tabBar
+const tabBarBlurMethod = `}
+
+    NSString *tabBarBlur = tabsStyle[@"tabBarBlur"];
+    if (tabBarBlur) {
+      [[UITabBar appearance] setBackgroundImage:[UIImage new]];
+      UIToolbar* blurredView = [[UIToolbar alloc] initWithFrame:self.tabBar.bounds];
+      BOOL isDefault = [tabBarBlur boolValue];
+      if (!isDefault && [tabBarBlur isEqualToString:@"dark"]) {
+        [blurredView setBarStyle:UIBarStyleBlack];
+      }
+      [self.tabBar insertSubview:blurredView atIndex:0];
+    }
+
+    // Done adding tabBlur
+    NSString *tabBarHideShadow`;
+replace({
+  files: path.join(__dirname, '../node_modules/react-native-navigation/ios/RCCTabBarController.m'),
+  from: /}\n\s*NSString \*tabBarHideShadow/,
+  to: tabBarBlurMethod,
+})
+.then(files => console.log('Modified file', files.join(', ')))
+.catch(err => console.error('Error modifying file', err));

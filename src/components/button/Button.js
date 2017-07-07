@@ -18,7 +18,7 @@ export default class Button extends Component {
     const { children, onPress } = this.props;
     return (
       <TouchableOpacity onPress={onPress} style={styles.container}>
-        <Text style={styles.label}>{children}</Text>
+        <Text style={styles.label}>{children.toString().toUpperCase()}</Text>
       </TouchableOpacity>
     );
   }

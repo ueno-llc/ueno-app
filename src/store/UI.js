@@ -1,3 +1,4 @@
+/* eslint no-console: 0 */
 import codePush from 'react-native-code-push';
 import { AsyncStorage } from 'react-native';
 import { observable, computed, action, reaction } from 'mobx';

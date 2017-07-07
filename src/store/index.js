@@ -20,7 +20,7 @@ export default class Store {
   setupNetworkInterfaceMiddleware() {
     networkInterface.use([{
       applyMiddleware: (req, next) => {
-        const { idToken } = this.user.user;
+        const { idToken } = this.user.user || {};
         req.options.headers = req.options.headers || {};
         req.options.headers.authorization = idToken ? `Bearer ${idToken}` : null;
         next();

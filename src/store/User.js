@@ -1,10 +1,8 @@
 /* eslint no-console: 0 */
-import { Platform, AlertIOS, ToastAndroid } from 'react-native';
+import { Alert } from 'react-native';
 import { GoogleSignin } from 'react-native-google-signin';
 import { computed, observable } from 'mobx';
 import { autobind } from 'core-decorators';
-
-const SIGN_IN_TIMEOUT = 60 * 1000;
 
 export default class User {
 
@@ -18,10 +16,11 @@ export default class User {
         offlineAccess: false,
       });
       this.user = await GoogleSignin.currentUserAsync();
-      this.ensureAuthenticated();
+      return this.ensureAuthenticated();
     } catch (err) {
       console.log('Play services error %o %o', err.code, err.message);
     }
+    return false;
   }
 
   @observable
@@ -43,40 +42,21 @@ export default class User {
   @autobind
   async ensureAuthenticated() {
     if (this.isSignedIn && !this.isValidOrganization) {
-      this.revokeAccess();
-      if (Platform.OS === 'ios') {
-        AlertIOS.alert('Error signing in', 'Not in the ueno.co organization');
-      } else if (Platform.OS === 'android') {
-        ToastAndroid.show('Error: Not in the ueno.co organization.');
-      }
+      await this.revokeAccess();
+      Alert.alert('Error signing in', 'Not in the ueno.co organization');
+      return false;
     }
+    return this.isSignedIn;
   }
 
   @autobind
   async signIn() {
-    if (Platform.OS === 'android') {
-      // Sometimes android doesn't trigger a callback after GoogleSignin.signin() so we need
-      // to manually check if signed in.
-      this.checkSignInTimestamp = new Date();
-      this.onCheckSignIn();
-    }
+    // Prompts the Sign In modal and awaits a successful login / or failure.
     this.user = await GoogleSignin.signIn();
-    this.ensureAuthenticated();
-  }
-
-  @autobind
-  async onCheckSignIn() {
-    const hasTimeoutOut = (this.checkSignInTimestamp - SIGN_IN_TIMEOUT) > new Date();
-    if (this.isSignedIn || hasTimeoutOut) {
-      return;
-    }
-    this.user = await GoogleSignin.currentUserAsync();
-    if (!this.user) {
-      // Check again in 2 seconds
-      setTimeout(this.onCheckSignIn, 2000);
-    } else {
-      this.ensureAuthenticated();
-    }
+    console.log('1. signIn', this.user);
+    const isAuthenticationEnsured = await this.ensureAuthenticated();
+    console.log('2. isEnsured', isAuthenticationEnsured);
+    return isAuthenticationEnsured;
   }
 
   @autobind

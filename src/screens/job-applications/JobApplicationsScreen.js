@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { StyleSheet, SectionList, View, Text, Image, TouchableOpacity } from 'react-native';
 import { graphql } from 'react-apollo';
 import { autobind } from 'core-decorators';
-import { inject } from 'mobx-react/native';
 import jobsQuery from 'queries/jobs.gql';
+import { JOB_APPLICATIONS_DETAIL_SCREEN } from 'screens';
 
 const jobsOptions = {
   name: 'jobs',
@@ -15,11 +15,8 @@ const jobsOptions = {
   },
 };
 
-const TITLE = 'Job Applications';
-
-@inject('ui')
 @graphql(jobsQuery, jobsOptions)
-export default class JobApplications extends Component {
+export default class JobApplicationsScreen extends Component {
 
   static propTypes = {
     jobs: PropTypes.shape({
@@ -30,15 +27,8 @@ export default class JobApplications extends Component {
     }).isRequired,
     navigator: PropTypes.shape({
       setTitle: PropTypes.func,
-    }).isRequired,
-    ui: PropTypes.shape({
       push: PropTypes.func,
     }).isRequired,
-  }
-
-  componentDidMount() {
-    const { navigator } = this.props;
-    navigator.setTitle({ title: TITLE });
   }
 
   @autobind
@@ -74,8 +64,8 @@ export default class JobApplications extends Component {
 
   @autobind
   renderItem({ item }) {
-    const onPress = () => this.props.ui.push({
-      screen: 'JobApplicationDetail',
+    const onPress = () => this.props.navigator.push({
+      screen: JOB_APPLICATIONS_DETAIL_SCREEN,
       title: item.email,
       passProps: { item },
     });
@@ -109,8 +99,7 @@ export default class JobApplications extends Component {
 
     const groups = items.reduce((obj, item) => {
       const date = (new Date(+item.created)).toDateString();
-      (obj[date] || (obj[date] = [])).push(item);
-
+      (obj[date] || (obj[date] = [])).push(item); // eslint-disable-line
       return obj;
     }, {});
 

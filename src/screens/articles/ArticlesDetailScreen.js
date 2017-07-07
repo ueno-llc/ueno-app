@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Platform, WebView } from 'react-native';
 
-export default class ArticlesDetail extends Component {
+export default class ArticlesDetailScreen extends Component {
 
   static propTypes = {
     navigator: PropTypes.shape({
@@ -44,7 +44,7 @@ export default class ArticlesDetail extends Component {
     return (
       <WebView
         source={{ uri: url.trim() }}
-        style={{ flex: 1 }}
+        style={{ flex: 1, marginBottom: -navbarHeight }}
         onNavigationStateChange={this.onNavigationStateChange}
         injectedJavaScript={injectedJavaScript}
       />

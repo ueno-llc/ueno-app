@@ -4,11 +4,8 @@ import codePush from 'react-native-code-push';
 import { ApolloProvider } from 'react-apollo';
 import { Provider } from 'mobx-react/native';
 import hoistNonReactStatic from 'hoist-non-react-statics';
-import Store from '../store';
 
-const store = new Store();
-
-const wrapScreenGetter = (route, getScreen) => {
+const wrapScreenGetter = (route, getScreen, store) => {
 
   const Screen = getScreen();
 
@@ -33,7 +30,7 @@ const wrapScreenGetter = (route, getScreen) => {
   return () => ComposedComponent;
 };
 
-const registerConnectedScreen = (route, getScreen) =>
-  Navigation.registerComponent(route, wrapScreenGetter(route, getScreen));
+const registerConnectedScreen = (route, getScreen, store) =>
+  Navigation.registerComponent(route, wrapScreenGetter(route, getScreen, store));
 
 export default registerConnectedScreen;
