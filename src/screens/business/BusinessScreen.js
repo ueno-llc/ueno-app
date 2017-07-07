@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, View, Text } from 'react-native';
+import Button from 'components/button';
 import {
   JOB_APPLICATIONS_SCREEN,
   CONTACT_FORMS_SCREEN,
 } from 'screens';
-import Button from 'components/button';
+import { PRIMARY_COLOR_TEXT } from 'theme';
 
 export default class BusinessScreen extends Component {
 
@@ -15,6 +16,9 @@ export default class BusinessScreen extends Component {
     }).isRequired,
   };
 
+  static navigatorStyle = {
+    navBarButtonColor: PRIMARY_COLOR_TEXT,
+  }
   onJobApplicationsPress = () => {
     this.props.navigator.push({
       screen: JOB_APPLICATIONS_SCREEN,

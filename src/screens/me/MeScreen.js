@@ -4,6 +4,7 @@ import { StyleSheet, View, Text } from 'react-native';
 import { observer, inject } from 'mobx-react/native';
 import { autobind } from 'core-decorators';
 import { startSplashScreen } from 'screens';
+import { PRIMARY_COLOR_TEXT } from 'theme';
 
 @inject('user')
 @observer
@@ -22,6 +23,7 @@ export default class MeScreen extends Component {
     rightButtons: [{
       title: 'Sign out',
       id: 'sign-out',
+      buttonColor: PRIMARY_COLOR_TEXT,
     }],
   };
 

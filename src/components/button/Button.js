@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { PRIMARY_COLOR } from 'theme';
 
 export default class Button extends Component {
 
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
   container: {
     marginBottom: 10,
     padding: 10,
-    backgroundColor: '#00E2AD',
+    backgroundColor: PRIMARY_COLOR,
     borderRadius: 3,
   },
 

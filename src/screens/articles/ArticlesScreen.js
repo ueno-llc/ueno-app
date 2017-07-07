@@ -7,6 +7,7 @@ import { observable } from 'mobx';
 import { autobind } from 'core-decorators';
 import articlesQuery from 'queries/articles.gql';
 import { ARTICLES_DETAIL_SCREEN } from 'screens';
+import { PRIMARY_COLOR_TEXT } from 'theme';
 
 const { width, height } = Dimensions.get('window');
 
@@ -37,6 +38,13 @@ export default class ArticlesScreen extends Component {
       setTitle: PropTypes.func,
       push: PropTypes.func,
     }).isRequired,
+  }
+
+  static navigatorStyle = {
+    navBarTranslucent: true,
+    drawUnderNavBar: true,
+    drawUnderTabBar: true,
+    navBarButtonColor: PRIMARY_COLOR_TEXT,
   }
 
   state = {
@@ -97,11 +105,13 @@ export default class ArticlesScreen extends Component {
           <View style={{ height: width, overflow: 'hidden' }}>
             <Animated.View
               style={{
-                top: this.state.scrollY.interpolate({
-                  inputRange,
-                  outputRange: [0, -100],
-                  extrapolate: 'clamp',
-                }),
+                transform: [{
+                  translateY: this.state.scrollY.interpolate({
+                    inputRange,
+                    outputRange: [-100, 0],
+                    extrapolate: 'clamp',
+                  }),
+                }],
               }}
             >
               <Image
@@ -137,17 +147,18 @@ export default class ArticlesScreen extends Component {
     }
 
     return (
-      <View style={{ flex: 1, marginBottom: -64 }}>
+      <View style={{ flex: 1 }}>
         <VirtualizedList
           data={articles}
           renderItem={this.renderItem}
-          onScroll={Animated.event([{
-            nativeEvent: { contentOffset: { y: this.state.scrollY } },
-          }])}
+          onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: this.state.scrollY } } }])}
+          scrollEventThrottle={1}
           getItemCount={data => data.length}
           getItem={(data, i) => data[i]}
           keyExtractor={item => item.id}
           onEndReached={this.onEndReached}
+          ListHeaderComponent={() => <View style={{ height: 64 }} />}
+          ListFooterComponent={() => <View style={{ height: 49 }} />}
         />
       </View>
     );
