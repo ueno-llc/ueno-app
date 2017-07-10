@@ -78,7 +78,7 @@ export default class JobApplicationsScreen extends Component {
           </View>
           <View style={styles.itemDetails}>
             <Text style={styles.itemTitle}>{`${item.email}`}</Text>
-            <Text>{item.job.position} - {item.job.location}</Text>
+            <Text style={styles.itemSub}>{item.job.position} - {item.job.location}</Text>
           </View>
         </View>
       </TouchableOpacity>
@@ -125,10 +125,6 @@ export default class JobApplicationsScreen extends Component {
 }
 
 const styles = StyleSheet.create({
-  card: {
-    padding: 20,
-  },
-
   item: {
     padding: 10,
     flexDirection: 'row',
@@ -150,9 +146,13 @@ const styles = StyleSheet.create({
   },
 
   itemTitle: {
-    color: '#000000',
-    fontFamily: 'HelveticaNeue',
-    fontSize: 18,
+    fontWeight: '700',
+    fontSize: 14,
+    paddingBottom: 1,
+  },
+
+  itemSub: {
+    color: '#333333',
   },
 
   section: {

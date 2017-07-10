@@ -4,7 +4,6 @@ query Jobs($id: ID!) {
     created
     email
     externals {
-      name
       url
     }
     job {

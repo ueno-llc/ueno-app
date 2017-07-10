@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { ScrollView, View, Text, Image } from 'react-native';
+import { Alert, ScrollView, View, Text, Image, TouchableOpacity, Linking } from 'react-native';
 import { graphql } from 'react-apollo';
 import jobDetailQuery from 'queries/job.gql';
 
@@ -27,6 +27,24 @@ export default class JobApplicationDetail extends Component {
       }),
       loading: PropTypes.bool,
     }).isRequired,
+  }
+
+  renderExternal({ url }) {
+    const onPress = () => {
+      const link = /^https?:\/\//.test(url) ? url : `http://${url}`;
+      Linking.canOpenURL(link).then((isSupported) => {
+        if (isSupported) {
+          return Linking.openURL(link);
+        }
+        return Alert.alert('Could not open', 'No suitable app found');
+      });
+    };
+
+    return (
+      <TouchableOpacity onPress={onPress} style={styles.head} key={url}>
+        <Text style={styles.status}>{url}</Text>
+      </TouchableOpacity>
+    );
   }
 
   render() {
@@ -60,12 +78,7 @@ export default class JobApplicationDetail extends Component {
         </View>
         <ScrollView style={styles.content}>
           <Text style={styles.status}>{visaStatus}</Text>
-          {externals.map(({ name, url }) => (
-            <View style={styles.head} key={url}>
-              <Text style={styles.status}>{name}: </Text>
-              <Text style={styles.status}>{url}</Text>
-            </View>
-          ))}
+          {externals.map(this.renderExternal)}
         </ScrollView>
       </View>
     );
@@ -81,6 +94,8 @@ const styles = {
 
   head: {
     flexDirection: 'row',
+    paddingTop: 10,
+    paddingBottom: 10,
   },
 
   headImage: {
