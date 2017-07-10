@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import { StyleSheet, View, Text } from 'react-native';
 import { observer, inject } from 'mobx-react/native';
 import { autobind } from 'core-decorators';
+import { withApollo } from 'react-apollo';
 import { startSplashScreen } from 'screens';
 import { PRIMARY_COLOR_TEXT } from 'theme';
 
 @inject('user')
 @observer
+@withApollo
 export default class MeScreen extends Component {
 
   static propTypes = {
@@ -16,6 +18,9 @@ export default class MeScreen extends Component {
     }).isRequired,
     user: PropTypes.shape({
       signOut: PropTypes.func,
+    }).isRequired,
+    client: PropTypes.shape({
+      resetStore: PropTypes.func,
     }).isRequired,
   };
 
@@ -34,7 +39,12 @@ export default class MeScreen extends Component {
   @autobind
   onNavigatorEvent(e) {
     if (e.type === 'NavBarButtonPress' && e.id === 'sign-out') {
-      this.props.user.signOut().then(startSplashScreen);
+      this.props.user.signOut()
+        .then(startSplashScreen)
+        .then(() => {
+          // clear data from client cache
+          this.props.client.resetStore();
+        });
     }
   }
 
