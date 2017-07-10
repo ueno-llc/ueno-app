@@ -1,21 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, SectionList, View, Text, Image, TouchableOpacity } from 'react-native';
-import { graphql } from 'react-apollo';
 import { autobind } from 'core-decorators';
 import jobsQuery from 'queries/jobs.gql';
+import graphql, { withLoadMore } from 'utils/graphql';
 import { JOB_APPLICATIONS_DETAIL_SCREEN } from 'screens';
 
-const jobsOptions = {
-  name: 'jobs',
-  options: {
-    variables: {
-      limit: 20,
-    },
-  },
-};
-
-@graphql(jobsQuery, jobsOptions)
+@graphql
 export default class JobApplicationsScreen extends Component {
 
   static propTypes = {
@@ -23,7 +14,7 @@ export default class JobApplicationsScreen extends Component {
       applications: PropTypes.object,
       loading: PropTypes.bool,
       refetch: PropTypes.func,
-      fetchMore: PropTypes.func,
+      loadMore: PropTypes.func,
     }).isRequired,
     navigator: PropTypes.shape({
       setTitle: PropTypes.func,
@@ -31,35 +22,17 @@ export default class JobApplicationsScreen extends Component {
     }).isRequired,
   }
 
-  @autobind
-  onEndReached() {
-    const { fetchMore, applications } = this.props.jobs;
-
-    if (!applications) return;
-
-    const { hasMore, cursor } = applications;
-
-    if (!hasMore) return;
-
-    fetchMore({
+  static graphql = {
+    query: jobsQuery,
+    name: 'jobs',
+    options: {
       variables: {
-        after: cursor,
+        limit: 20,
       },
-      updateQuery: (previousResult, { fetchMoreResult }) => {
-        if (!fetchMoreResult) { return previousResult; }
-
-        return {
-          ...previousResult,
-          applications: {
-            ...fetchMoreResult.applications,
-            items: [
-              ...previousResult.applications.items,
-              ...fetchMoreResult.applications.items,
-            ].filter((item, pos, self) => self.findIndex(sitem => sitem.id === item.id) === pos),
-          },
-        };
-      },
-    });
+    },
+    props(props) {
+      return withLoadMore('jobs.applications', 'items', props);
+    },
   }
 
   @autobind
@@ -94,7 +67,7 @@ export default class JobApplicationsScreen extends Component {
   }
 
   render() {
-    const { applications = {}, loading, refetch } = this.props.jobs;
+    const { applications = {}, loadMore } = this.props.jobs;
     const { items = [] } = applications;
 
     const groups = items.reduce((obj, item) => {
@@ -114,10 +87,8 @@ export default class JobApplicationsScreen extends Component {
           renderSectionHeader={this.renderSectionHeader}
           getItem={(data, i) => data[i]}
           getItemCount={data => data.length}
-          refreshing={loading}
-          onRefresh={refetch}
           keyExtractor={item => item.id}
-          onEndReached={this.onEndReached}
+          onEndReached={loadMore}
         />
       </View>
     );

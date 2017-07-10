@@ -1,68 +1,40 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, SectionList, View, Text, Image, TouchableOpacity } from 'react-native';
-import { graphql } from 'react-apollo';
 import { observer, inject } from 'mobx-react/native';
 import { autobind } from 'core-decorators';
 import contactsQuery from 'queries/contacts.gql';
+import graphql, { withLoadMore } from 'utils/graphql';
 import { CONTACT_FORMS_DETAIL_SCREEN } from 'screens';
-
-const contactsOptions = {
-  name: 'contacts',
-  options: {
-    variables: {
-      limit: 20,
-    },
-    fetchPolicy: 'network-only',
-  },
-};
 
 @inject('ui')
 @observer
-@graphql(contactsQuery, contactsOptions)
-export default class ContactScreen extends Component {
+@graphql
+export default class ContactFormsScreen extends Component {
 
   static propTypes = {
     contacts: PropTypes.shape({
       contacts: PropTypes.object,
       loading: PropTypes.bool,
       refetch: PropTypes.func,
-      fetchMore: PropTypes.func,
+      loadMore: PropTypes.func,
     }).isRequired,
     navigator: PropTypes.shape({
       push: PropTypes.func,
     }).isRequired,
   }
 
-  @autobind
-  onEndReached() {
-    const { fetchMore, contacts } = this.props.contacts;
-
-    if (!contacts) return;
-
-    const { hasMore, cursor } = contacts;
-
-    if (!hasMore) return;
-
-    fetchMore({
+  static graphql = {
+    query: contactsQuery,
+    name: 'contacts',
+    options: {
       variables: {
-        after: cursor,
+        limit: 20,
       },
-      updateQuery: (previousResult, { fetchMoreResult }) => {
-        if (!fetchMoreResult) { return previousResult; }
-
-        return {
-          ...previousResult,
-          contacts: {
-            ...fetchMoreResult.contacts,
-            items: [
-              ...previousResult.contacts.items,
-              ...fetchMoreResult.contacts.items,
-            ].filter((item, pos, self) => self.findIndex(sitem => sitem.id === item.id) === pos),
-          },
-        };
-      },
-    });
+    },
+    props(props) {
+      return withLoadMore('contacts.contacts', 'items', props);
+    },
   }
 
   @autobind
@@ -98,7 +70,7 @@ export default class ContactScreen extends Component {
   }
 
   render() {
-    const { contacts = {} } = this.props.contacts;
+    const { contacts = {}, loadMore } = this.props.contacts;
     const { items = [] } = contacts;
 
     // Group items by Date.toDateString
@@ -121,7 +93,7 @@ export default class ContactScreen extends Component {
           getItem={(data, i) => data[i]}
           getItemCount={data => data.length}
           keyExtractor={item => item.id}
-          onEndReached={this.onEndReached}
+          onEndReached={loadMore}
         />
       </View>
     );
