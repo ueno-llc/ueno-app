@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Alert, StyleSheet, Text, ScrollView, View, Linking } from 'react-native';
 import { autobind } from 'core-decorators';
 
-export default class ContactsDetail extends Component {
+export default class ContactFormsDetailScreen extends Component {
 
   static propTypes = {
     navigator: PropTypes.shape({

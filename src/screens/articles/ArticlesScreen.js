@@ -1,27 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Animated, Dimensions, StyleSheet, VirtualizedList, Image, View, Text, TouchableOpacity, ScrollView } from 'react-native';
-import { graphql } from 'react-apollo';
 import { observer } from 'mobx-react/native';
 import { observable } from 'mobx';
 import { autobind } from 'core-decorators';
 import articlesQuery from 'queries/articles.gql';
+import graphql, { withLoadMore } from 'utils/graphql';
 import { ARTICLES_DETAIL_SCREEN } from 'screens';
 import { PRIMARY_COLOR_TEXT } from 'theme';
 
-const articlesOptions = {
-  name: 'articles',
-  options: {
-    variables: {
-      offset: 0,
-      limit: 2,
-    },
-    fetchPolicy: 'network-only',
-  },
-};
-
-@graphql(articlesQuery, articlesOptions)
 @observer
+@graphql
 export default class ArticlesScreen extends Component {
 
   static propTypes = {
@@ -30,12 +19,27 @@ export default class ArticlesScreen extends Component {
       error: PropTypes.object, // eslint-disable-line
       articles: PropTypes.array, // eslint-disable-line
       refetch: PropTypes.func,
-      fetchMore: PropTypes.func,
+      loadMore: PropTypes.func,
     }).isRequired,
     navigator: PropTypes.shape({
       push: PropTypes.func,
     }).isRequired,
   }
+
+  static graphql = {
+    query: articlesQuery,
+    name: 'articles',
+    options: {
+      variables: {
+        offset: 0,
+        limit: 2,
+      },
+      fetchPolicy: 'network-only',
+    },
+    props(props) {
+      return withLoadMore('articles', 'articles', props);
+    },
+  };
 
   static navigatorStyle = {
     navBarTranslucent: true,
@@ -46,25 +50,6 @@ export default class ArticlesScreen extends Component {
 
   state = {
     scrollY: new Animated.Value(0),
-  }
-
-  @autobind
-  onEndReached() {
-    const { fetchMore, articles } = this.props.articles;
-    if (!articles) return;
-    fetchMore({
-      variables: {
-        offset: articles.length,
-      },
-      updateQuery: (previousResult, { fetchMoreResult }) => {
-        if (!fetchMoreResult) { return previousResult; }
-        return {
-          ...previousResult,
-          articles: [...previousResult.articles, ...fetchMoreResult.articles]
-          .filter((item, pos, self) => self.findIndex(sitem => sitem.id === item.id) === pos),
-        };
-      },
-    });
   }
 
   @autobind
@@ -138,6 +123,7 @@ export default class ArticlesScreen extends Component {
     const {
       articles = [],
       error,
+      loadMore,
     } = this.props.articles;
 
     if (error) {
@@ -160,7 +146,7 @@ export default class ArticlesScreen extends Component {
           getItemCount={data => data.length}
           getItem={(data, i) => data[i]}
           keyExtractor={item => item.id}
-          onEndReached={this.onEndReached}
+          onEndReached={loadMore}
           ListHeaderComponent={() => <View style={{ height: 64 }} />}
           ListFooterComponent={() => <View style={{ height: 49 }} />}
         />
