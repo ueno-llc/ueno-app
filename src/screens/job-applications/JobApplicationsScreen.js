@@ -5,6 +5,7 @@ import { autobind } from 'core-decorators';
 import jobsQuery from 'queries/jobs.gql';
 import graphql, { withLoadMore } from 'utils/graphql';
 import { JOB_APPLICATIONS_DETAIL_SCREEN } from 'screens';
+import Error from 'components/error';
 
 @graphql
 export default class JobApplicationsScreen extends Component {
@@ -67,8 +68,12 @@ export default class JobApplicationsScreen extends Component {
   }
 
   render() {
-    const { applications = {}, loadMore } = this.props.jobs;
+    const { applications = {}, error, loadMore } = this.props.jobs;
     const { items = [] } = applications;
+
+    if (error) {
+      return <Error />;
+    }
 
     const groups = items.reduce((obj, item) => {
       const date = (new Date(+item.created)).toDateString();

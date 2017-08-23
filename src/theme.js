@@ -11,4 +11,6 @@ const BrandColors = {
 
 export const PRIMARY_COLOR = BrandColors.blue;
 export const PRIMARY_COLOR_TEXT = BrandColors.blue;
+export const COLOR_GREEN = BrandColors.green;
+export const COLOR_RED = BrandColors.red;
 export default null;

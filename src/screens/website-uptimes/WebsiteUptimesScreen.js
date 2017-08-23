@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, SectionList, View, Text, Image, TouchableOpacity } from 'react-native';
-import { observer, inject } from 'mobx-react/native';
+import { StyleSheet, View, Text, SectionList, TouchableOpacity } from 'react-native';
 import { autobind } from 'core-decorators';
-import contactsQuery from 'queries/contacts.gql';
 import graphql, { withLoadMore } from 'utils/graphql';
-import { CONTACT_FORMS_DETAIL_SCREEN } from 'screens';
+import websitesQuery from 'queries/websites.gql';
+import { WEBSITE_UPTIMES_DETAIL_SCREEN } from 'screens';
+import { COLOR_GREEN, COLOR_RED } from 'theme';
 import Error from 'components/error';
 
-@inject('ui')
-@observer
 @graphql
-export default class ContactFormsScreen extends Component {
+export default class WebsiteUptimesScreen extends Component {
 
   static propTypes = {
-    contacts: PropTypes.shape({
-      contacts: PropTypes.object,
+    websites: PropTypes.shape({
       loading: PropTypes.bool,
+      error: PropTypes.object, // eslint-disable-line
+      articles: PropTypes.array, // eslint-disable-line
       refetch: PropTypes.func,
       loadMore: PropTypes.func,
     }).isRequired,
@@ -26,36 +25,31 @@ export default class ContactFormsScreen extends Component {
   }
 
   static graphql = {
-    query: contactsQuery,
-    name: 'contacts',
-    options: {
-      variables: {
-        limit: 20,
-      },
-    },
+    query: websitesQuery,
+    name: 'websites',
     props(props) {
-      return withLoadMore('contacts.contacts', 'items', props);
+      return withLoadMore('websites', 'websites', props);
     },
-  }
+  };
 
   @autobind
   renderItem({ item }) {
+    console.log('item', item);
 
     const onPress = () => this.props.navigator.push({
-      screen: CONTACT_FORMS_DETAIL_SCREEN,
+      screen: WEBSITE_UPTIMES_DETAIL_SCREEN,
       title: item.name,
       passProps: { item },
     });
 
+    const isUp = item.status === 'Up';
+
     return (
       <TouchableOpacity onPress={onPress}>
         <View style={styles.item}>
-          <View style={styles.itemAvatar}>
-            <Image style={styles.itemAvatarImage} source={{ uri: item.avatarUrl }} />
-          </View>
           <View style={styles.itemDetails}>
-            <Text style={styles.itemName}>{item.name.toString()}</Text>
-            <Text style={styles.itemEmail}>{item.email.toString()}</Text>
+            <Text style={styles.itemTitle}>{item.name}</Text>
+            <Text style={[isUp ? styles.itemSubUp : styles.itemSubDown]}>{item.status} - {item.uptime}</Text>
           </View>
         </View>
       </TouchableOpacity>
@@ -71,23 +65,25 @@ export default class ContactFormsScreen extends Component {
   }
 
   render() {
-    const { contacts = {}, error, loadMore } = this.props.contacts;
-    const { items = [] } = contacts;
+    const { websites = [], error, loadMore } = this.props.websites;
 
     if (error) {
       return <Error />;
     }
 
-    // Group items by Date.toDateString
-    const dateGroups = items.reduce((acc, item) => {
-      const date = (new Date(+item.created)).toDateString();
-      (acc[date] || (acc[date] = [])).push(item);
-      return acc;
+    const groups = websites.reduce((obj, item) => {
+      const firstLater = item.name.charAt(0).toUpperCase();
+      (obj[firstLater] || (obj[firstLater] = [])).push(item);
+      return obj;
     }, {});
 
-    // Map to SectionList compatible array
-    const sections = Object.entries(dateGroups)
-    .map(([title, data]) => ({ title, data }));
+    const sections = Object.entries(groups)
+      .map(([title, data]) => ({ title, data }))
+      .sort((a, b) => {
+        if (a.title < b.title) return -1;
+        if (a.title > b.title) return 1;
+        return 0;
+      });
 
     return (
       <View style={{ flex: 1 }}>
@@ -106,14 +102,6 @@ export default class ContactFormsScreen extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-  },
-
   item: {
     padding: 10,
     flexDirection: 'row',
@@ -134,14 +122,18 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
-  itemName: {
+  itemTitle: {
     fontWeight: '700',
     fontSize: 14,
     paddingBottom: 1,
   },
 
-  itemEmail: {
-    color: '#333333',
+  itemSubUp: {
+    color: COLOR_GREEN,
+  },
+
+  itemSubDown: {
+    color: COLOR_RED,
   },
 
   section: {
