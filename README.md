@@ -26,6 +26,8 @@ react-native run-ios
 react-native run-android --appIdSuffix=debug
 ```
 
+You have to start with appIdSuffix because we build different APKs. So you can have two apps installed at the same time.
+
 Use [fastlane](./fastlane/README.md) if you are going to be publishing, deploying or testing releases.
 
 
