@@ -1,4 +1,4 @@
-git_url "***REMOVED***"
+git_url "git@gitlab.com:ueno-llc/fastlane-match.git"
 
 type "development" # The default type, can be: appstore, adhoc, enterprise or development
 

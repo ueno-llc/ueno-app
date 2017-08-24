@@ -32,7 +32,7 @@ platform :ios do
     )
     match(
       type: "appstore",
-      git_url: "***REMOVED***",
+      git_url: "git@gitlab.com:ueno-llc/fastlane-match.git",
       readonly: true
     )
     gym(
@@ -48,7 +48,7 @@ platform :ios do
   lane :release do
     match(
       type: "appstore",
-      git_url: "***REMOVED***",
+      git_url: "git@gitlab.com:ueno-llc/fastlane-match.git",
       readonly: true
     )
     gym(

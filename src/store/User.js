@@ -11,8 +11,8 @@ export default class User {
       await GoogleSignin.hasPlayServices({ autoResolve: true });
       await GoogleSignin.configure({
         // TODO: Move this into dotenv and load on runtime with react-native-config etc.
-        iosClientId: '***REMOVED***',
-        webClientId: '***REMOVED***',
+        iosClientId: '1045886828257-uh3nvkaneukot4irqol1o5klgmtc2qgn.apps.googleusercontent.com',
+        webClientId: '1045886828257-98k6r3t2ruqv7jfba4ca9vage8qbmbo8.apps.googleusercontent.com',
         offlineAccess: false,
       });
       this.user = await GoogleSignin.currentUserAsync();

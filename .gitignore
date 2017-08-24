@@ -54,3 +54,6 @@ fastlane/screenshots
 fastlane/service-account.json
 
 .env
+android/app/google-services.json
+ios/GoogleService-Info.plist
+ios/UenoInternalApp/MobileCenter-Config.plist
