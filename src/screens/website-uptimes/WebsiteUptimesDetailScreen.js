@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { ScrollView, View, Text, Image } from 'react-native';
 import { graphql } from 'react-apollo';
 import WebsiteDetailsQuery from 'queries/websiteDetails.gql';
-import distance from 'date-fns/distance_in_words_strict'
-import isThisWeek from 'date-fns/is_this_week'
-import format from 'date-fns/format'
+import distance from 'date-fns/distance_in_words_strict';
+import isThisWeek from 'date-fns/is_this_week';
+import format from 'date-fns/format';
 import { COLOR_GREEN, COLOR_RED } from 'theme';
 import Error from 'components/error';
 
@@ -99,7 +99,7 @@ export default class WebsiteUptimesDetailScreen extends Component {
             ) : (
               <Image
                 style={[styles.details__avatar, styles.details__avatarPlaceholder]}
-                source={require('../../assets/images/folder.png')} // eslint-disable-line
+                source={require('../../assets/images/folder.png')}
               />
             )}
           </View>
