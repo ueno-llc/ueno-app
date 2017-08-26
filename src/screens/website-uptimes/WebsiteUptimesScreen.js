@@ -13,7 +13,7 @@ export default class WebsiteUptimesScreen extends Component {
 
   static propTypes = {
     websites: PropTypes.shape({
-      websites: PropTypes.object,
+      websites: PropTypes.array,
       loading: PropTypes.bool,
       error: PropTypes.object,
       articles: PropTypes.array,
