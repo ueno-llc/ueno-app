@@ -6,6 +6,7 @@ import {
   JOB_APPLICATIONS_SCREEN,
   CONTACT_FORMS_SCREEN,
   WEBSITE_UPTIMES_SCREEN,
+  LOTTIE_SCREEN,
 } from 'screens';
 import { PRIMARY_COLOR_TEXT } from 'theme';
 
@@ -38,6 +39,12 @@ export default class ExamplesScreen extends Component {
     });
   }
 
+  onLottiePress = () => {
+    this.props.navigator.push({
+      screen: LOTTIE_SCREEN,
+    });
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -48,17 +55,16 @@ export default class ExamplesScreen extends Component {
         <Button onPress={this.onJobApplicationsPress}>Job Applications</Button>
         <Button onPress={this.onContactFormsPress}>Contact Forms</Button>
         <Button onPress={this.onWebsiteUptimesPress}>Website Uptimes</Button>
+        <Button onPress={this.onLottiePress}>Lottie</Button>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
-
 });
