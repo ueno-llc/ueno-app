@@ -4,8 +4,7 @@ import UI from './UI';
 
 // Create network interface for Apollo Client
 const networkInterface = createNetworkInterface({
-  // uri: 'https://ueno-graphql-dev.herokuapp.com/graphql',
-  uri: 'http://localhost:3000/graphql',
+  uri: 'https://ueno-graphql-dev.herokuapp.com/graphql',
 });
 
 export default class Store {
