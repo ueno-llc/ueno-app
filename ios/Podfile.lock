@@ -42,6 +42,10 @@ PODS:
   - GTMSessionFetcher/Core (1.1.10)
   - GTMSessionFetcher/Full (1.1.10):
     - GTMSessionFetcher/Core (= 1.1.10)
+  - lottie-ios (2.0.5)
+  - lottie-react-native (2.2.0):
+    - lottie-ios
+    - React
   - MobileCenter (0.10.1):
     - MobileCenter/Analytics (= 0.10.1)
     - MobileCenter/Crashes (= 0.10.1)
@@ -85,6 +89,8 @@ PODS:
 DEPENDENCIES:
   - CodePush (from `../node_modules/react-native-code-push`)
   - Google/SignIn
+  - lottie-ios (from `../node_modules/lottie-ios`)
+  - lottie-react-native (from `../node_modules/lottie-react-native`)
   - MobileCenter (~> 0.10.1)
   - react-native-navigation (from `../node_modules/react-native-navigation`)
   - React/BatchedBridge (from `../node_modules/react-native`)
@@ -102,6 +108,10 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   CodePush:
     :path: ../node_modules/react-native-code-push
+  lottie-ios:
+    :path: ../node_modules/lottie-ios
+  lottie-react-native:
+    :path: ../node_modules/lottie-react-native
   React:
     :path: ../node_modules/react-native
   react-native-navigation:
@@ -119,12 +129,14 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
+  lottie-ios: d574e45532c6c06ac03c6d6649f759fb1137297b
+  lottie-react-native: 4d08fb7f1decd2a9557821ddc7be6be94852406b
   MobileCenter: 2ef7c02fd337dbde11cf15552c2006db2c3774c3
   React: 0c9191a8b0c843d7004f950ac6b5f6cba9d125c7
   react-native-navigation: e9b2798164be404595600161465319e10d70ffd6
   RNMobileCenterShared: 6c43fa38e6ae7221c9344a42f4303179d7c6455e
   Yoga: 89c8738d42a0b46a113acb4e574336d61cba2985
 
-PODFILE CHECKSUM: e8735652ce3833155facd111a84467206e7ba0a0
+PODFILE CHECKSUM: d52a033271fbe9df5dbab0d0788e0c82949f6bf8
 
 COCOAPODS: 1.3.1

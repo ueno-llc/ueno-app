@@ -17,6 +17,10 @@ target 'UenoInternalApp' do
   pod 'RNMobileCenterShared', '~> 0.6.0'
   pod 'MobileCenter', '~> 0.10.1'
 
+  # Pods for Lottie
+  pod 'lottie-ios', :path => '../node_modules/lottie-ios'
+  pod 'lottie-react-native', :path => '../node_modules/lottie-react-native'
+
   # You don't necessarily need all of these subspecs, but this would be a typical setup.
   pod 'React', :path => '../node_modules/react-native', :subspecs => [
     'Core',
