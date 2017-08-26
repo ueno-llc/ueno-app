@@ -3,18 +3,11 @@ import PropTypes from 'prop-types';
 import { ScrollView, View, Text, Image } from 'react-native';
 import { graphql } from 'react-apollo';
 import WebsiteDetailsQuery from 'queries/websiteDetails.gql';
-import moment from 'moment';
+import distance from 'date-fns/distance_in_words_strict'
+import isThisWeek from 'date-fns/is_this_week'
+import format from 'date-fns/format'
 import { COLOR_GREEN, COLOR_RED } from 'theme';
 import Error from 'components/error';
-
-moment.updateLocale('en', {
-  relativeTime: {
-    s: 'a few sec',
-    ss: '%d sec',
-    m: 'a min',
-    mm: '%d min',
-  },
-});
 
 const queryOptions = {
   name: 'data',
@@ -24,6 +17,12 @@ const queryOptions = {
     },
   }),
 };
+
+function datize(date) {
+  return isThisWeek(date)
+    ? distance(Date.now(), date, { addSuffix: true })
+    : format(date, 'DD MMMM')
+}
 
 @graphql(WebsiteDetailsQuery, queryOptions)
 export default class WebsiteUptimesDetailScreen extends Component {
@@ -118,7 +117,7 @@ export default class WebsiteUptimesDetailScreen extends Component {
               {status} - Uptime: {uptime}%
             </Text>
 
-            <Text style={styles.details__info}>Last tested: {moment(lastTested).fromNow()}</Text>
+            <Text style={styles.details__info}>Last tested: {datize(lastTested)}</Text>
           </View>
         </View>
 
