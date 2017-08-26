@@ -3,7 +3,7 @@
 import { Navigation } from 'react-native-navigation';
 import SplashScreen from 'screens/splash';
 import PublicScreen from 'screens/public';
-import BusinessScreen from 'screens/business';
+import ExamplesScreen from 'screens/examples';
 import JobApplicationsScreen, { JobApplicationsDetailScreen } from 'screens/job-applications';
 import ContactFormsScreen, { ContactFormsDetailScreen } from 'screens/contact-forms';
 import WebsiteUptimesScreen, { WebsiteUptimesDetailScreen } from 'screens/website-uptimes';
@@ -17,7 +17,7 @@ const Screens = new Map();
 // Create unique const screen keys
 export const SPLASH_SCREEN = 'ueno.SplashScreen';
 export const PUBLIC_SCREEN = 'ueno.PublicScreen';
-export const BUSINESS_SCREEN = 'ueno.BusinessScreen';
+export const EXAMPLES_SCREEN = 'ueno.ExamplesScreen';
 export const JOB_APPLICATIONS_SCREEN = 'ueno.JobApplicationsScreen';
 export const JOB_APPLICATIONS_DETAIL_SCREEN = 'ueno.JobApplicationsDetailScreen';
 export const CONTACT_FORMS_SCREEN = 'ueno.ContactFormsScreen';
@@ -31,7 +31,7 @@ export const ME_SCREEN = 'ueno.MeScreen';
 // Map screen consts to their representive module
 Screens.set(SPLASH_SCREEN, () => SplashScreen);
 Screens.set(PUBLIC_SCREEN, () => PublicScreen);
-Screens.set(BUSINESS_SCREEN, () => BusinessScreen);
+Screens.set(EXAMPLES_SCREEN, () => ExamplesScreen);
 Screens.set(JOB_APPLICATIONS_SCREEN, () => JobApplicationsScreen);
 Screens.set(JOB_APPLICATIONS_DETAIL_SCREEN, () => JobApplicationsDetailScreen);
 Screens.set(CONTACT_FORMS_SCREEN, () => ContactFormsScreen);
@@ -53,11 +53,11 @@ export const startPrivateScreen = () =>
       icon: require('../assets/images/home.png'),
       selectedIcon: require('../assets/images/home-active.png'),
     }, {
-      label: 'Business',
-      screen: BUSINESS_SCREEN,
-      title: 'Business',
-      icon: require('../assets/images/business.png'),
-      selectedIcon: require('../assets/images/business-active.png'),
+      label: 'Examples',
+      screen: EXAMPLES_SCREEN,
+      title: 'Examples',
+      icon: require('../assets/images/examples.png'),
+      selectedIcon: require('../assets/images/examples-active.png'),
     }, {
       label: 'Me',
       screen: ME_SCREEN,

@@ -9,7 +9,7 @@ import {
 } from 'screens';
 import { PRIMARY_COLOR_TEXT } from 'theme';
 
-export default class BusinessScreen extends Component {
+export default class ExamplesScreen extends Component {
 
   static propTypes = {
     navigator: PropTypes.shape({
@@ -41,7 +41,7 @@ export default class BusinessScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>BUSINESS_SCREEN</Text>
+        <Text>EXAMPLES_SCREEN</Text>
 
         <View style={{ height: 50 }} />
 
