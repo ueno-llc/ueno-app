@@ -6,6 +6,7 @@ import { autobind } from 'core-decorators';
 import contactsQuery from 'queries/contacts.gql';
 import graphql, { withLoadMore } from 'utils/graphql';
 import { CONTACT_FORMS_DETAIL_SCREEN } from 'screens';
+import Error from 'components/error';
 
 @inject('ui')
 @observer
@@ -18,6 +19,7 @@ export default class ContactFormsScreen extends Component {
       loading: PropTypes.bool,
       refetch: PropTypes.func,
       loadMore: PropTypes.func,
+      error: PropTypes.object,
     }).isRequired,
     navigator: PropTypes.shape({
       push: PropTypes.func,
@@ -70,8 +72,12 @@ export default class ContactFormsScreen extends Component {
   }
 
   render() {
-    const { contacts = {}, loadMore } = this.props.contacts;
+    const { contacts = {}, error, loadMore } = this.props.contacts;
     const { items = [] } = contacts;
+
+    if (error) {
+      return <Error />;
+    }
 
     // Group items by Date.toDateString
     const dateGroups = items.reduce((acc, item) => {

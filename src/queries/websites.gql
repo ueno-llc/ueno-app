@@ -1,0 +1,8 @@
+query {
+  websites {
+    id
+    name
+    status
+    uptime
+  }
+}

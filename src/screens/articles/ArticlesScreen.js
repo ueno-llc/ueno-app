@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Animated, Dimensions, StyleSheet, VirtualizedList, Image, View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { Animated, Dimensions, StyleSheet, VirtualizedList, Image, View, Text, TouchableOpacity } from 'react-native';
 import { observer } from 'mobx-react/native';
 import { observable } from 'mobx';
 import { autobind } from 'core-decorators';
@@ -8,6 +8,7 @@ import articlesQuery from 'queries/articles.gql';
 import graphql, { withLoadMore } from 'utils/graphql';
 import { ARTICLES_DETAIL_SCREEN } from 'screens';
 import { PRIMARY_COLOR_TEXT } from 'theme';
+import Error from 'components/error';
 
 @observer
 @graphql
@@ -127,13 +128,7 @@ export default class ArticlesScreen extends Component {
     } = this.props.articles;
 
     if (error) {
-      return (
-        <ScrollView>
-          <View style={{ height: 1000, backgroundColor: '#AEC' }}>
-            <Text>Hello</Text>
-          </View>
-        </ScrollView>
-      );
+      return <Error />;
     }
 
     return (
@@ -156,14 +151,6 @@ export default class ArticlesScreen extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-  },
-
   card: {
     padding: 20,
     backgroundColor: '#FFFFFF',

@@ -17,6 +17,7 @@
     "mobile-center-crashes": "0.6.0",
     "mobx": "3.1.16",
     "mobx-react": "4.2.1",
+    "moment": "2.18.1",
     "prop-types": "15.5.10",
     "react": "16.0.0-alpha.12",
     "react-apollo": "1.4.2",

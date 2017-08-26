@@ -1,0 +1,21 @@
+query WebsiteDetails($id: Int!) {
+  websiteDetails(id: $id) {
+    id
+    testType
+    paused
+    contactGroups {
+      id
+      name
+      email
+    }
+    status
+    uptime
+    checkRate
+    timeout
+    logoImage
+    lastTested
+    processing
+    processingState
+    downTimes
+  }
+}

@@ -5,6 +5,7 @@ import Button from 'components/button';
 import {
   JOB_APPLICATIONS_SCREEN,
   CONTACT_FORMS_SCREEN,
+  WEBSITE_UPTIMES_SCREEN,
 } from 'screens';
 import { PRIMARY_COLOR_TEXT } from 'theme';
 
@@ -31,18 +32,22 @@ export default class BusinessScreen extends Component {
     });
   }
 
+  onWebsiteUptimesPress = () => {
+    this.props.navigator.push({
+      screen: WEBSITE_UPTIMES_SCREEN,
+    });
+  }
+
   render() {
     return (
       <View style={styles.container}>
-
         <Text>BUSINESS_SCREEN</Text>
 
         <View style={{ height: 50 }} />
 
         <Button onPress={this.onJobApplicationsPress}>Job Applications</Button>
         <Button onPress={this.onContactFormsPress}>Contact Forms</Button>
-        <Button>Website Uptimes</Button>
-
+        <Button onPress={this.onWebsiteUptimesPress}>Website Uptimes</Button>
       </View>
     );
   }

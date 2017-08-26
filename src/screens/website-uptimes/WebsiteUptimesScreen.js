@@ -1,59 +1,57 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, SectionList, View, Text, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, SectionList, TouchableOpacity } from 'react-native';
 import { autobind } from 'core-decorators';
-import jobsQuery from 'queries/jobs.gql';
 import graphql, { withLoadMore } from 'utils/graphql';
-import { JOB_APPLICATIONS_DETAIL_SCREEN } from 'screens';
+import websitesQuery from 'queries/websites.gql';
+import { WEBSITE_UPTIMES_DETAIL_SCREEN } from 'screens';
+import { COLOR_GREEN, COLOR_RED } from 'theme';
 import Error from 'components/error';
 
 @graphql
-export default class JobApplicationsScreen extends Component {
+export default class WebsiteUptimesScreen extends Component {
 
   static propTypes = {
-    jobs: PropTypes.shape({
-      applications: PropTypes.object,
+    websites: PropTypes.shape({
+      websites: PropTypes.array,
       loading: PropTypes.bool,
+      error: PropTypes.object,
+      articles: PropTypes.array,
       refetch: PropTypes.func,
       loadMore: PropTypes.func,
-      error: PropTypes.object,
     }).isRequired,
     navigator: PropTypes.shape({
-      setTitle: PropTypes.func,
       push: PropTypes.func,
     }).isRequired,
   }
 
   static graphql = {
-    query: jobsQuery,
-    name: 'jobs',
-    options: {
-      variables: {
-        limit: 20,
-      },
-    },
+    query: websitesQuery,
+    name: 'websites',
     props(props) {
-      return withLoadMore('jobs.applications', 'items', props);
+      return withLoadMore('websites', 'websites', props);
     },
-  }
+  };
 
   @autobind
   renderItem({ item }) {
+    const isUp = item.status === 'Up';
+
     const onPress = () => this.props.navigator.push({
-      screen: JOB_APPLICATIONS_DETAIL_SCREEN,
-      title: item.email,
+      screen: WEBSITE_UPTIMES_DETAIL_SCREEN,
+      title: 'App details',
       passProps: { item },
     });
 
     return (
       <TouchableOpacity onPress={onPress}>
         <View style={styles.item}>
-          <View style={styles.itemAvatar}>
-            <Image style={styles.itemAvatarImage} source={{ uri: item.avatarUrl }} />
-          </View>
           <View style={styles.itemDetails}>
-            <Text style={styles.itemTitle}>{`${item.email}`}</Text>
-            <Text style={styles.itemSub}>{item.job.position} - {item.job.location}</Text>
+            <Text style={styles.itemTitle}>{item.name}</Text>
+
+            <Text style={[isUp ? styles.itemSubUp : styles.itemSubDown]}>
+              {item.status} - Uptime: {item.uptime}%
+            </Text>
           </View>
         </View>
       </TouchableOpacity>
@@ -69,21 +67,25 @@ export default class JobApplicationsScreen extends Component {
   }
 
   render() {
-    const { applications = {}, error, loadMore } = this.props.jobs;
-    const { items = [] } = applications;
+    const { websites = [], error, loadMore } = this.props.websites;
 
     if (error) {
       return <Error />;
     }
 
-    const groups = items.reduce((obj, item) => {
-      const date = (new Date(+item.created)).toDateString();
-      (obj[date] || (obj[date] = [])).push(item); // eslint-disable-line
+    const groups = websites.reduce((obj, item) => {
+      const firstLater = item.name.charAt(0).toUpperCase();
+      (obj[firstLater] || (obj[firstLater] = [])).push(item); // eslint-disable-line
       return obj;
     }, {});
 
     const sections = Object.entries(groups)
-      .map(([title, data]) => ({ title, data }));
+      .map(([title, data]) => ({ title, data }))
+      .sort((a, b) => {
+        if (a.title < b.title) return -1;
+        if (a.title > b.title) return 1;
+        return 0;
+      });
 
     return (
       <View style={{ flex: 1 }}>
@@ -128,8 +130,12 @@ const styles = StyleSheet.create({
     paddingBottom: 1,
   },
 
-  itemSub: {
-    color: '#333333',
+  itemSubUp: {
+    color: COLOR_GREEN,
+  },
+
+  itemSubDown: {
+    color: COLOR_RED,
   },
 
   section: {
