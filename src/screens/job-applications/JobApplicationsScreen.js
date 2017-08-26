@@ -16,6 +16,7 @@ export default class JobApplicationsScreen extends Component {
       loading: PropTypes.bool,
       refetch: PropTypes.func,
       loadMore: PropTypes.func,
+      error: PropTypes.object,
     }).isRequired,
     navigator: PropTypes.shape({
       setTitle: PropTypes.func,

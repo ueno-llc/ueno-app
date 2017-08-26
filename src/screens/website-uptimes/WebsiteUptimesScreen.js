@@ -13,9 +13,10 @@ export default class WebsiteUptimesScreen extends Component {
 
   static propTypes = {
     websites: PropTypes.shape({
+      websites: PropTypes.object,
       loading: PropTypes.bool,
-      error: PropTypes.object, // eslint-disable-line
-      articles: PropTypes.array, // eslint-disable-line
+      error: PropTypes.object,
+      articles: PropTypes.array,
       refetch: PropTypes.func,
       loadMore: PropTypes.func,
     }).isRequired,
@@ -34,22 +35,23 @@ export default class WebsiteUptimesScreen extends Component {
 
   @autobind
   renderItem({ item }) {
-    console.log('item', item);
+    const isUp = item.status === 'Up';
 
     const onPress = () => this.props.navigator.push({
       screen: WEBSITE_UPTIMES_DETAIL_SCREEN,
-      title: item.name,
+      title: 'App details',
       passProps: { item },
     });
-
-    const isUp = item.status === 'Up';
 
     return (
       <TouchableOpacity onPress={onPress}>
         <View style={styles.item}>
           <View style={styles.itemDetails}>
             <Text style={styles.itemTitle}>{item.name}</Text>
-            <Text style={[isUp ? styles.itemSubUp : styles.itemSubDown]}>{item.status} - {item.uptime}</Text>
+
+            <Text style={[isUp ? styles.itemSubUp : styles.itemSubDown]}>
+              {item.status} - Uptime: {item.uptime}%
+            </Text>
           </View>
         </View>
       </TouchableOpacity>
@@ -73,7 +75,7 @@ export default class WebsiteUptimesScreen extends Component {
 
     const groups = websites.reduce((obj, item) => {
       const firstLater = item.name.charAt(0).toUpperCase();
-      (obj[firstLater] || (obj[firstLater] = [])).push(item);
+      (obj[firstLater] || (obj[firstLater] = [])).push(item); // eslint-disable-line
       return obj;
     }, {});
 

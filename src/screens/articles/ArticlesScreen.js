@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Animated, Dimensions, StyleSheet, VirtualizedList, Image, View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { Animated, Dimensions, StyleSheet, VirtualizedList, Image, View, Text, TouchableOpacity } from 'react-native';
 import { observer } from 'mobx-react/native';
 import { observable } from 'mobx';
 import { autobind } from 'core-decorators';

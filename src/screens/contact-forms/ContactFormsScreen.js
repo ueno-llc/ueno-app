@@ -19,6 +19,7 @@ export default class ContactFormsScreen extends Component {
       loading: PropTypes.bool,
       refetch: PropTypes.func,
       loadMore: PropTypes.func,
+      error: PropTypes.object,
     }).isRequired,
     navigator: PropTypes.shape({
       push: PropTypes.func,
