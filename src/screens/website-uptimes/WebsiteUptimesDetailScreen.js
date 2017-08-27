@@ -21,7 +21,7 @@ const queryOptions = {
 function datize(date) {
   return isThisWeek(date)
     ? distance(Date.now(), date, { addSuffix: true })
-    : format(date, 'DD MMMM')
+    : format(date, 'DD MMMM');
 }
 
 @graphql(WebsiteDetailsQuery, queryOptions)
